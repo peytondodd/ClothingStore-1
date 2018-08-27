@@ -1,0 +1,25 @@
+.img-con{
+    position: relative;
+    width:auto;
+}
+
+.btn-img{
+    text-align: center;
+    position: absolute;
+    font-size: 4rem;
+    color: #cf576b !important;
+    margin: 0;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: white;
+
+}
+.btn-img:hover{
+    text-align: center;
+    cursor:pointer;
+    position: absolute;
+    font-size: 4rem;
+    color: #ffff !important;
+    margin: 0;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #cf576b;
+}

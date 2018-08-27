@@ -1,0 +1,10 @@
+.SalonBG{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    background-image: url("../../Assets/Images/Salon2.jpg");
+    margin-bottom: 0 !important;
+}
