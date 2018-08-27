@@ -1,0 +1,1 @@
+export const FETCH_HOMEPOST = "FETCH_HOMEPOST";

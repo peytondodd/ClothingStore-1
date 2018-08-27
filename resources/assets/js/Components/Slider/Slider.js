@@ -1,12 +1,12 @@
 import React from "react";
-import Slider from "react-slick";
-import axios from 'axios';
+import Slider from "react-slick"
 import Item from '../../Components/Item/Item'
 import Aux from '../../Components/HOC/Aux'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-
+import {connect} from 'react-redux'
+import {fetchHomeProduct} from "../../actions/productAction";
+import PropTypes from 'prop-types'
 function SampleNextArrow(props) {
     const { className, style, onClick } = props;
     return (
@@ -31,18 +31,12 @@ function SamplePrevArrow(props) {
 
 
 class SliderS extends React.Component {
-            state = {
-                products: []
-            };
+           componentWillMount(){
+               this.props.fetchHomeProduct()
+           }
 
-            componentDidMount() {
-        axios.get(`http://localhost:8000/api/products/home`)
-            .then(res => {
-                const products = res.data;
-                this.setState({ products });
 
-            })
-    }
+
 
     render() {
         let settings = {
@@ -87,7 +81,7 @@ class SliderS extends React.Component {
                   <div className="container-fluid">
                     <h4 className='text-black text-center RalewayExtraBold'>NEW COLLECTION</h4>
                     <Slider {...settings}>
-                        { this.state.products.map(product =>
+                        { this.props.products.map(product =>
                             <div key={product.id}><Item href={'/products/'+product.id+'/'+product.name.replace(/ +/g, "")} price={product.price} stars={product.stars}>{product.name}</Item></div>
 
                         )
@@ -98,5 +92,10 @@ class SliderS extends React.Component {
         );
     }
 }
-
-export default SliderS;
+SliderS.propTypes = {
+    fetchHomeProduct: PropTypes.func.isRequired
+};
+const mapStateToProps = state =>({
+    products: state.products.products
+});
+export default connect(mapStateToProps,{fetchHomeProduct})(SliderS);
