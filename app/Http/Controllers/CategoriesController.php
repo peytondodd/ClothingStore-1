@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Categories;
+use App\Products;
 use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
@@ -20,7 +21,7 @@ class CategoriesController extends Controller
 
     public function categories($id){
 
-        return Categories::with('products')->findorFail($id);
+        return Categories::findorFail($id);
 
     }
     public function index()
@@ -92,5 +93,9 @@ class CategoriesController extends Controller
     public function destroy(Categories $categories)
     {
         //
+    }
+    public function find($id , Request $request){
+        $product = Products::where('categories_id' , $id)->get();
+        return $product;
     }
 }

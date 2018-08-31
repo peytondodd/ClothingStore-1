@@ -2,29 +2,15 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import Aux from '../HOC/Aux'
 import './Product.css'
+import {connect} from 'react-redux'
+import {fetchProduct} from "../../actions/productAction";
 
 import ReactImageMagnify from 'react-image-magnify';
 
 class Product extends Component {
-    state = {
-        products: [],
-        categories: []
-    };
 
     componentDidMount() {
-
-        axios.get(`http://localhost:8000/api/products/` + this.props.id)
-
-            .then(res => {
-                const products = res.data;
-                this.setState({products});
-                const categories = products.categories;
-                this.setState({categories});
-                console.log(categories.name);
-                console.log(products.name)
-
-
-            });
+        this.props.fetchProduct(this.props.id)
 
     }
 
@@ -40,15 +26,14 @@ class Product extends Component {
 
     render() {
 
-        const products = this.state.products;
-        let category = this.state.categories;
+        const products = this.props.product;
         return (
             <Aux>
                 <nav aria-label="breadcrumb">
                     <ol className="breadcrumb">
                         <li className="breadcrumb-item"><a href="/">Home</a></li>
                         <li className="breadcrumb-item"><a
-                            href={"/categories/" + category.id + '/' + category.name}>{category.name}</a>
+                            href={"/categories/" + 'categorie.id' + '/' + 'categorie.name'}>category.name</a>
                         </li>
                         <li className="breadcrumb-item active" aria-current="page">{products.name}</li>
                     </ol>
@@ -88,4 +73,8 @@ class Product extends Component {
     }
 }
 
-export default Product;
+
+const mapStateToProps = state =>({
+  product: state.products.product
+});
+export default connect(mapStateToProps,{fetchProduct})(Product);

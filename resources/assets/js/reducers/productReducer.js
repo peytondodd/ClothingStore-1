@@ -1,16 +1,27 @@
-import {FETCH_HOMEPOST} from "../actions/types";
+import * as types from "../actions/types";
 
 const initialState = {
     products:[],
+    product:[]
 
 };
 
 export default function (state = initialState , action) {
     switch (action.type) {
-        case FETCH_HOMEPOST:
+        case types.FETCH_HOMEPOST:
             return{
                 ...state,
                 products: action.payload
+            };
+        case types.FETCH_CATEGORYPRODUCTS:
+            return{
+                ...state,
+                products: action.payload
+            };
+        case  types.FETCH_PRODUCT:
+            return{
+                ...state,
+                product: action.payload
             };
             default:
                 return state

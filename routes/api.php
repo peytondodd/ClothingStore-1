@@ -24,4 +24,6 @@ Route::get('/categories/{id}',"CategoriesController@categories");
 Route::get('/products/{id}',"ProductsController@find");
 Route::post('/register','UserController@register');
 Route::post('/login' , 'UserController@login');
+Route::get('/categories/{id}/products',"CategoriesController@find");
+
 
