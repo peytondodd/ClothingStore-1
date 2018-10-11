@@ -3091,15 +3091,12 @@ var Nav = function (_Component) {
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'nav',
                             { className: 'nav d-flex justify-content-between' },
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_4_react_router_dom__["b" /* Link */],
-                                { className: 'p-2 text-black RalewayBold', to: '/' },
-                                'SALE'
-                            ),
                             this.state.categories.map(function (category, i) {
                                 return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     __WEBPACK_IMPORTED_MODULE_4_react_router_dom__["b" /* Link */],
-                                    { key: i, className: 'p-2 text-black RalewayBold', to: '/categories/' + category.id + '/' + category.name.replace(/ +/g, "") },
+                                    { key: i,
+                                        className: 'p-2 text-black RalewayBold',
+                                        to: '/categories/' + category.id + '/' + category.name.replace(/ +/g, "") },
                                     category.name
                                 );
                             })
@@ -51483,6 +51480,15 @@ var Category = function (_Component) {
             var id = this.props.match.params.id;
             this.props.fetchCategory(id);
             this.props.fetchCategoryProducts(id);
+        }
+    }, {
+        key: 'componentDidUpdate',
+        value: function componentDidUpdate(prevProp) {
+            var currentProp = this.props.match.params.id;
+            if (prevProp.match.params.id !== currentProp) {
+                this.props.fetchCategory(currentProp);
+                this.props.fetchCategoryProducts(currentProp);
+            }
         }
     }, {
         key: 'render',

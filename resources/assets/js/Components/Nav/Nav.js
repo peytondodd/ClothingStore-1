@@ -48,8 +48,11 @@ class Nav extends Component {
 
                     <div className="nav-scroller py-1 mb-2">
                         <nav className="nav d-flex justify-content-between">
-                            <Link className="p-2 text-black RalewayBold" to="/">SALE</Link>
-                                { this.state.categories.map((category , i) => <Link key={i} className="p-2 text-black RalewayBold" to={'/categories/'+category.id+'/'+category.name.replace(/ +/g, "")}>{category.name}</Link>)}
+                                { this.state.categories.map((category , i) =>
+                                    <Link key={i}
+                                          className="p-2 text-black RalewayBold"
+                                          to={'/categories/'+category.id+'/'+category.name.replace(/ +/g, "")}>
+                                        {category.name}</Link>)}
                         </nav>
                     </div>
                 </div>

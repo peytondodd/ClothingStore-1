@@ -15,6 +15,13 @@ class Category extends Component {
         this.props.fetchCategoryProducts(id);
 
     }
+    componentDidUpdate(prevProp){
+        const currentProp = this.props.match.params.id;
+        if(prevProp.match.params.id !== currentProp){
+            this.props.fetchCategory(currentProp);
+            this.props.fetchCategoryProducts(currentProp);
+        }
+    }
 
     showParams = () =>{
         return this.props.id
