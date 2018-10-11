@@ -22,7 +22,7 @@ class Products extends Component {
                <div className='container-fluid'>
                    <div className="row">
                        {this.props.products.map(product =>
-                           <div className='col-4'>
+                           <div className='col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12' key={product.id}>
                                <Item
                                    href={'/products/'+product.id+'/'+product.name.replace(/ +/g, "")}
                                    price={product.price}

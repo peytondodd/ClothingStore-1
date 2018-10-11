@@ -9,9 +9,10 @@ class Nav extends Component {
 
     };
     componentDidMount() {
-        axios.get('http://localhost:8000/api/categories')
+        axios.get('/api/categories')
             .then(res => {
                 const categories = res.data;
+                console.log(res.data);
                 this.setState({ categories });
             })
     }

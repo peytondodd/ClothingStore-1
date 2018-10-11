@@ -22,11 +22,15 @@ class Product extends Component {
             return null;
         }
     };
-
+    renderCategories() {
+    }
 
     render() {
 
         const products = this.props.product;
+        const categories = this.props.category;
+
+
         return (
             <Aux>
                 <nav aria-label="breadcrumb">
@@ -75,6 +79,7 @@ class Product extends Component {
 
 
 const mapStateToProps = state =>({
-  product: state.products.product
+  product: state.products.product,
+    category: state.category.category
 });
 export default connect(mapStateToProps,{fetchProduct})(Product);

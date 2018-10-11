@@ -37,9 +37,9 @@ export function fetchProduct(id){
                 dispatch({
                     type:type.FETCH_PRODUCT,
                     payload:products,
+                    categoriez:products.categories
 
                 })
-
             });
     }
 }

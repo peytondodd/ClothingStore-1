@@ -13,9 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('jwt.auth')->get('users', function(Request $request) {
-    return auth()->user();
-});
 Route::post('user/register', 'APIREGISTERCONTROLLER@register');
 Route::post('user/login', 'APILOGINCONTROLLER@login');
 Route::get('/products/home','ProductsController@homepage');

@@ -2,8 +2,8 @@ import * as types from "../actions/types";
 
 const initialState = {
     products:[],
-    product:[]
-
+    product:[],
+    category:[]
 };
 
 export default function (state = initialState , action) {
@@ -21,7 +21,8 @@ export default function (state = initialState , action) {
         case  types.FETCH_PRODUCT:
             return{
                 ...state,
-                product: action.payload
+                product: action.payload,
+                category: action.categoriez
             };
             default:
                 return state
