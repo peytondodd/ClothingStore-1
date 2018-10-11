@@ -17,6 +17,7 @@ class Nav extends Component {
             })
     }
 
+
     render() {
         return (
             <Aux>
@@ -40,6 +41,12 @@ class Nav extends Component {
                 </nav>
                 <div className="container">
                     <header className="blog-header py-3 mt-5">
+                        <form>
+                            <input type="text"/>
+                            <div className="after"> </div>
+                            <input type="submit"/>
+                        </form>
+
                         <div className="row flex-nowrap justify-content-between align-items-center">
                             <div className="col text-center">
                                 <Link className="blog-header-logo text-dark" to="/">Clothing store</Link>
@@ -54,6 +61,7 @@ class Nav extends Component {
                                           className="p-2 text-black RalewayBold"
                                           to={'/categories/'+category.id+'/'+category.name.replace(/ +/g, "")}>
                                         {category.name}</Link>)}
+
                         </nav>
                     </div>
                 </div>

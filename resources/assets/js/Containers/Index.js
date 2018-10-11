@@ -47,9 +47,10 @@ const Index = () => {
             </div>
             <Slider/>
             <Slider/>
-            <LazyLoad height={200}>
+
+            { /*<LazyLoad height={200}>
             <MainBanner img={Sale}>SALE</MainBanner>
-            </LazyLoad>
+            </LazyLoad>*/}
         </Layout>
 
     )
