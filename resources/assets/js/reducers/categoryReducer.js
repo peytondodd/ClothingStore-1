@@ -1,13 +1,19 @@
-import {FETCH_CATEGORY} from "../actions/types";
+import * as types from "../actions/types";
 
 const initialState = {
-    category:[],
+    categories:[],
+    category: {}
 
 };
 
 export default function (state = initialState , action) {
     switch (action.type) {
-        case FETCH_CATEGORY:
+        case types.FETCH_CATEGORIES:
+            return{
+                ...state,
+                categories: action.payload,
+            };
+        case types.FETCH_CATEGORY:
             return{
                 ...state,
                 category: action.payload,
