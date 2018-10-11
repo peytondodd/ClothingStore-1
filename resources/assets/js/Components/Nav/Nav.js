@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './Nav.css';
 import Aux from '../../Components/HOC/Aux';
 import axios from 'axios';
-
+import { Link } from 'react-router-dom';
 class Nav extends Component {
     state = {
         categories:[],
@@ -41,15 +41,15 @@ class Nav extends Component {
                     <header className="blog-header py-3 mt-5">
                         <div className="row flex-nowrap justify-content-between align-items-center">
                             <div className="col text-center">
-                                <a className="blog-header-logo text-dark" href="/">Clothing store</a>
+                                <Link className="blog-header-logo text-dark" to="/">Clothing store</Link>
                             </div>
                         </div>
                     </header>
 
                     <div className="nav-scroller py-1 mb-2">
                         <nav className="nav d-flex justify-content-between">
-                            <a className="p-2 text-black RalewayBold" href="/">SALE</a>
-                                { this.state.categories.map((category , i) => <a key={i} className="p-2 text-black RalewayBold" href={'/categories/'+category.id+'/'+category.name.replace(/ +/g, "")}>{category.name}</a>)}
+                            <Link className="p-2 text-black RalewayBold" to="/">SALE</Link>
+                                { this.state.categories.map((category , i) => <Link key={i} className="p-2 text-black RalewayBold" to={'/categories/'+category.id+'/'+category.name.replace(/ +/g, "")}>{category.name}</Link>)}
                         </nav>
                     </div>
                 </div>

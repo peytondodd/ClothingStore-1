@@ -1,10 +1,10 @@
 
 import React, { Component } from 'react';
 import {BrowserRouter , Route , Switch} from 'react-router-dom'
-import Index from "../../Containers/Index/Index";
-import Categories from "../../Containers/Categories/Categories";
-import Products from "../../Containers/Products/Products";
-import Register from "../../Containers/Register/Register";
+import Index from "../../Containers/Index";
+import Categories from "../../Containers/Categories";
+import Products from "../../Containers/Products";
+import Register from "../../Containers/Register";
 class App extends Component {
     render() {
         return (

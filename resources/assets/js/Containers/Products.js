@@ -1,7 +1,7 @@
 import React from 'react';
-import Nav from '../../Components/Nav/Nav'
-import Aux from '../../Components/HOC/Aux'
-import Product from "../../Components/Product/Product";
+import Nav from '../Components/Nav/Nav'
+import Aux from '../Components/HOC/Aux'
+import Product from "../Components/Product/Product";
 
 const Products = ({match}) => {
     return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import './Register.css'
-import Aux from '../../Components/HOC/Aux'
+import Aux from '../Components/HOC/Aux'
 
 
 const Register = ({match}) => {

@@ -1,16 +1,17 @@
 import React from 'react';
-import Nav from '../../Components/Nav/Nav'
+import Nav from '../Components/Nav/Nav'
 import LazyLoad from 'react-lazyload'
-import Aux from '../../Components/HOC/Aux'
-import MainBanner from '../../Components/MainBanner/MainBanner'
-import Images from "../../Components/Images/Images";
-import Slider from "../../Components/Slider/Slider";
-import Girl from '../../Assets/Images/Girl.jpg';
-import Brushes from '../../Assets/Images/brushes.jpg';
-import Shoes from '../../Assets/Images/shoes.jpg';
-import Acc from '../../Assets/Images/acc.jpg';
-import Salon from '../../Assets/Images/Salon2.jpg';
-import Sale from '../../Assets/Images/Sale.jpg';
+import Aux from '../Components/HOC/Aux'
+import MainBanner from '../Components/MainBanner/MainBanner'
+import Images from "../Components/Images/Images";
+import Slider from "../Components/Slider/Slider";
+import Girl from '../Assets/Images/Girl.jpg';
+import Brushes from '../Assets/Images/brushes.jpg';
+import Shoes from '../Assets/Images/shoes.jpg';
+import Acc from '../Assets/Images/acc.jpg';
+import Salon from '../Assets/Images/Salon2.jpg';
+import Sale from '../Assets/Images/Sale.jpg';
+
 const Index = () => {
     return (
         <Aux>
