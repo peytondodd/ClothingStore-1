@@ -22,7 +22,6 @@ export default function (state = initialState , action) {
             return{
                 ...state,
                 product: action.payload,
-                category: action.categoriez
             };
             default:
                 return state

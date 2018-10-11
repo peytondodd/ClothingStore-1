@@ -1,16 +1,14 @@
 import React, {Component} from 'react';
-import axios from 'axios';
-import Aux from '../HOC/Aux'
-import './Product.css'
 import {connect} from 'react-redux'
-import {fetchProduct} from "../../actions/productAction";
-
-import ReactImageMagnify from 'react-image-magnify';
-
+import {fetchProduct} from "../actions/productAction";
+import { Link } from 'react-router-dom'
+import Palet from '../Assets/Images/pallet.jpg'
+import Layout from "../Components/Layout/Layout";
 class Product extends Component {
 
     componentDidMount() {
-        this.props.fetchProduct(this.props.id)
+        const id = this.props.match.params.id;
+        this.props.fetchProduct(id);
 
     }
 
@@ -23,41 +21,34 @@ class Product extends Component {
         }
     };
     renderCategories() {
+        const products = this.props.product;
+        const categories = products.categories;
+        if(categories){
+            return(
+                <li className="breadcrumb-item"><Link
+                    to={`/categories/${categories.id}/${categories.name}`}>{categories.name}</Link>
+                </li>
+            )
+        }
     }
 
     render() {
 
         const products = this.props.product;
-        const categories = this.props.category;
-
 
         return (
-            <Aux>
+            <Layout>
                 <nav aria-label="breadcrumb">
                     <ol className="breadcrumb">
-                        <li className="breadcrumb-item"><a href="/">Home</a></li>
-                        <li className="breadcrumb-item"><a
-                            href={"/categories/" + 'categorie.id' + '/' + 'categorie.name'}>category.name</a>
-                        </li>
+                        <li className="breadcrumb-item"><Link to="/">Home</Link></li>
+                        {this.renderCategories()}
                         <li className="breadcrumb-item active" aria-current="page">{products.name}</li>
                     </ol>
                 </nav>
                 <div className="container">
                     <div className="row">
                         <div className="col-6">
-                            <ReactImageMagnify {...{
-                                smallImage: {
-                                    alt: 'Wristwatch by Ted Baker London',
-                                    isFluidWidth: true,
-                                    src: require('./pallet.jpg')
-                                },
-                                largeImage: {
-                                    src: require('./pallet.jpg'),
-                                    width: 1200,
-                                    height: 1800
-                                }
-                            }} />
-
+                            <img className='img-fluid' src={Palet} alt=""/>
                         </div>
                         <div className="col-6">
                             <h2 className="Item-title">{products.name}</h2>
@@ -72,14 +63,13 @@ class Product extends Component {
                         </div>
                     </div>
                 </div>
-            </Aux>
+            </Layout>
         );
     }
 }
 
 
 const mapStateToProps = state =>({
-  product: state.products.product,
-    category: state.category.category
+    product: state.products.product
 });
 export default connect(mapStateToProps,{fetchProduct})(Product);
