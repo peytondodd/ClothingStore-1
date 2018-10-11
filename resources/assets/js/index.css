@@ -78,3 +78,20 @@ body {
     margin-top:50px;
     text-align: center;
 }
+.breadcrumb{
+    background: #cf576b;
+}
+.breadcrumb a{
+    color:white;
+
+}
+.breadcrumb li{
+
+    color:white !important;
+}
+.breadcrumb-item+.breadcrumb-item::before{
+    display: inline-block;
+    padding-right: .5rem;
+    color: white;
+    content: "/";
+}

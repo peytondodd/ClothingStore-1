@@ -81,8 +81,11 @@ class SliderS extends React.Component {
                   <div className="container-fluid">
                     <h4 className='text-black text-center RalewayExtraBold'>NEW COLLECTION</h4>
                     <Slider {...settings}>
-                        { this.props.products.map(product =>
-                            <div key={product.id}><Item href={'/products/'+product.id+'/'+product.name.replace(/ +/g, "")} price={product.price} stars={product.stars}>{product.name}</Item></div>
+                        { this.props.products.map((product , i) =>
+                            <div key={i}>
+                                <Item href={'/products/'+product.id+'/'+product.name.replace(/ +/g, "")}
+                                      price={product.price}
+                                      stars={product.stars}>{product.name}</Item></div>
 
                         )
                         }

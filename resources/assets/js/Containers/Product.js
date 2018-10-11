@@ -25,7 +25,8 @@ class Product extends Component {
         const categories = products.categories;
         if(categories){
             return(
-                <li className="breadcrumb-item"><Link
+                <li className="breadcrumb-item RalewayExtraBold">
+                    <Link
                     to={`/categories/${categories.id}/${categories.name}`}>{categories.name}</Link>
                 </li>
             )
@@ -35,22 +36,22 @@ class Product extends Component {
     render() {
 
         const products = this.props.product;
-
+        {console.log(products)}
         return (
             <Layout>
                 <nav aria-label="breadcrumb">
                     <ol className="breadcrumb">
-                        <li className="breadcrumb-item"><Link to="/">Home</Link></li>
+                        <li className="breadcrumb-item RalewayExtraBold"><Link to="/">Home</Link></li>
                         {this.renderCategories()}
-                        <li className="breadcrumb-item active" aria-current="page">{products.name}</li>
+                        <li className="breadcrumb-item active RalewayExtraBold" aria-current="page">{products.name}</li>
                     </ol>
                 </nav>
                 <div className="container">
                     <div className="row">
-                        <div className="col-6">
+                        <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                             <img className='img-fluid' src={Palet} alt=""/>
                         </div>
-                        <div className="col-6">
+                        <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                             <h2 className="Item-title">{products.name}</h2>
                             <p className="text-center">
                                 ${products.price}

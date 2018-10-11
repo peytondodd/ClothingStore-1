@@ -2907,35 +2907,22 @@ var Nav = function (_Component) {
                     'nav',
                     { className: 'navbar navbar-expand-lg navbar-dark UpperNav rounded' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'div',
-                        { className: 'container' },
+                        'ul',
+                        { className: 'nav' },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'ul',
-                            { className: 'nav' },
+                            'li',
+                            { className: 'nav-item active' },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                'li',
-                                { className: 'nav-item active' },
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    'a',
-                                    { className: 'nav-link RalewayExtraBold' },
-                                    'Free NL shipping on orders over $150'
-                                )
+                                'a',
+                                { className: 'nav-link RalewayExtraBold' },
+                                'Free NL shipping on orders over $150'
                             )
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'ul',
-                            { className: 'nav justify-content-end' },
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                'li',
-                                { className: 'nav-item active' },
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    'a',
-                                    { className: 'nav-link RalewayExtraBold' },
-                                    'search'
-                                )
-                            ),
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('li', { className: 'nav-item active' })
                         )
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'ul',
+                        { className: 'nav justify-content-end' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('li', { className: 'nav-item active' })
                     )
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -3098,9 +3085,11 @@ module.exports = defaults;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Item_css__ = __webpack_require__(170);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Item_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Item_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Components_HOC_Aux__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Assets_Images_pallet_jpg__ = __webpack_require__(172);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Assets_Images_pallet_jpg___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__Assets_Images_pallet_jpg__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_router_dom__ = __webpack_require__(96);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Components_HOC_Aux__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Assets_Images_pallet_jpg__ = __webpack_require__(172);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Assets_Images_pallet_jpg___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__Assets_Images_pallet_jpg__);
+
 
 
 
@@ -3109,32 +3098,28 @@ module.exports = defaults;
 var Item = function Item(props) {
 
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        __WEBPACK_IMPORTED_MODULE_2__Components_HOC_Aux__["a" /* default */],
-        null,
+        __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Link */],
+        { className: 'NOHREF', to: props.href },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'a',
-            { className: 'NOHREF', href: props.href },
+            'div',
+            { className: 'product-container' },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_4__Assets_Images_pallet_jpg___default.a, alt: '', className: 'product-image' }),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'div',
-                { className: 'product-container' },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_3__Assets_Images_pallet_jpg___default.a, alt: '', className: 'product-image' }),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'p',
-                    { className: 'product-price' },
-                    props.dollar,
-                    props.price
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'p',
-                    { className: 'product-stars' },
-                    ' ',
-                    props.stars
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'p',
-                    { className: 'product-title' },
-                    props.children
-                )
+                'p',
+                { className: 'product-price' },
+                props.dollar,
+                props.price
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'p',
+                { className: 'product-stars' },
+                ' ',
+                props.stars
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'p',
+                { className: 'product-title' },
+                props.children
             )
         )
     );
@@ -38574,7 +38559,7 @@ exports = module.exports = __webpack_require__(4)(undefined);
 
 
 // module
-exports.push([module.i, "body {\n    overflow-x:hidden;\n  margin: 0;\n  padding: 0;\n  font-family: sans-serif;\n}\n@font-face {\n  font-family: \"Open Parisienne\";\n  src: url(" + __webpack_require__(93) + ") format(\"ttf\");\n}\n\n.Parisienne{\n  font-family: \"Open Parisienne\";\n}\n\n.mainButton{\n    font-size: 1.6rem;\n    background: #ffff;\n    color: #cf576b;\n    padding: 10px 18px;\n    margin: 0;\n    border : 2px solid #cf576b;\n}\n.mainButton:hover{\n    cursor:pointer;\n    font-size: 1.6rem;\n    background: #cf576b;\n    color: #ffff;\n    padding: 10px 18px;\n    margin: 0;\n    border : 2px solid #ffff;\n}\n\n.ButtonMiddle{\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    width: 100%;\n    height: 50%;\n}\n.container-fluid-NOP{\n    margin:0 !important;\n    padding:0 !important;\n}\n\n.RalewayBold{\n    font-family:\"RalewayBOLD\";\n}\n\n\n.RalewayExtraBold{\n    font-family:\"Raleway ExtraBold\";\n}\n\n@font-face {\n    font-family: \"RalewayBOLD\";\n    src: url(" + __webpack_require__(94) + ") format(\"woff\");\n}\n.row-fluid{\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n    flex-wrap: wrap;\n\n}\n\n.NOHREF{\n    text-decoration: none;\n    color:inherit;\n}\n.NOHREF:hover{\n    text-decoration: none;\n    color:inherit;\n}\n\n\n.Item-title{\n    margin-top:50px;\n    text-align: center;\n}\n", ""]);
+exports.push([module.i, "body {\n    overflow-x:hidden;\n  margin: 0;\n  padding: 0;\n  font-family: sans-serif;\n}\n@font-face {\n  font-family: \"Open Parisienne\";\n  src: url(" + __webpack_require__(93) + ") format(\"ttf\");\n}\n\n.Parisienne{\n  font-family: \"Open Parisienne\";\n}\n\n.mainButton{\n    font-size: 1.6rem;\n    background: #ffff;\n    color: #cf576b;\n    padding: 10px 18px;\n    margin: 0;\n    border : 2px solid #cf576b;\n}\n.mainButton:hover{\n    cursor:pointer;\n    font-size: 1.6rem;\n    background: #cf576b;\n    color: #ffff;\n    padding: 10px 18px;\n    margin: 0;\n    border : 2px solid #ffff;\n}\n\n.ButtonMiddle{\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    width: 100%;\n    height: 50%;\n}\n.container-fluid-NOP{\n    margin:0 !important;\n    padding:0 !important;\n}\n\n.RalewayBold{\n    font-family:\"RalewayBOLD\";\n}\n\n\n.RalewayExtraBold{\n    font-family:\"Raleway ExtraBold\";\n}\n\n@font-face {\n    font-family: \"RalewayBOLD\";\n    src: url(" + __webpack_require__(94) + ") format(\"woff\");\n}\n.row-fluid{\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n    flex-wrap: wrap;\n\n}\n\n.NOHREF{\n    text-decoration: none;\n    color:inherit;\n}\n.NOHREF:hover{\n    text-decoration: none;\n    color:inherit;\n}\n\n\n.Item-title{\n    margin-top:50px;\n    text-align: center;\n}\n.breadcrumb{\n    background: #cf576b;\n}\n.breadcrumb a{\n    color:white;\n\n}\n.breadcrumb li{\n\n    color:white !important;\n}\n.breadcrumb-item+.breadcrumb-item::before{\n    display: inline-block;\n    padding-right: .5rem;\n    color: white;\n    content: \"/\";\n}\n", ""]);
 
 // exports
 
@@ -41135,7 +41120,7 @@ exports = module.exports = __webpack_require__(4)(undefined);
 
 
 // module
-exports.push([module.i, "/* stylelint-disable selector-list-comma-newline-after */\n\n.blog-header {\n    line-height: 1;\n}\n\n.blog-header-logo {\n    font-family: \"Parisienne\";\n    font-size: 5rem;\n}\n\n.blog-header-logo:hover {\n    text-decoration: none;\n}\n\nh1, h2, h3, h4, h5, h6 {\n    font-family: \"Playfair Display\", Georgia, \"Times New Roman\", serif;\n}\n\n.display-4 {\n    font-size: 2.5rem;\n}\n@media (min-width: 768px) {\n    .display-4 {\n        font-size: 3rem;\n    }\n}\n\n.nav-scroller {\n    position: relative;\n    z-index: 2;\n    height: 2.75rem;\n    overflow-y: hidden;\n\n}\n\n.nav-scroller .nav {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: nowrap;\n    flex-wrap: nowrap;\n    padding-bottom: 1rem;\n    margin-top: -1px;\n    overflow-x: auto;\n    text-align: center;\n    white-space: nowrap;\n    -webkit-overflow-scrolling: touch;\n\n}\n\n.nav-scroller .nav-link {\n    padding-top: .75rem;\n    padding-bottom: .75rem;\n    font-size: .875rem;\n}\n\n.card-img-right {\n    height: 100%;\n    border-radius: 0 3px 3px 0;\n}\n\n.flex-auto {\n    -ms-flex: 0 0 auto;\n    flex: 0 0 auto;\n}\n\n.h-250 { height: 250px; }\n@media (min-width: 768px) {\n    .h-md-250 { height: 250px; }\n}\n\n.border-top { border-top: 1px solid #e5e5e5; }\n.border-bottom { border-bottom: 1px solid #e5e5e5; }\n\n.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }\n\n/*\n * Blog name and description\n */\n.blog-title {\n    margin-bottom: 0;\n    font-size: 2rem;\n    font-weight: 400;\n}\n.blog-description {\n    font-size: 1.1rem;\n    color: #999;\n}\n\n@media (min-width: 40em) {\n    .blog-title {\n        font-size: 3.5rem;\n    }\n}\n\n/* Pagination */\n.blog-pagination {\n    margin-bottom: 4rem;\n}\n.blog-pagination > .btn {\n    border-radius: 2rem;\n}\n\n/*\n * Blog posts\n */\n.blog-post {\n    margin-bottom: 4rem;\n}\n.blog-post-title {\n    margin-bottom: .25rem;\n    font-size: 2.5rem;\n}\n.blog-post-meta {\n    margin-bottom: 1.25rem;\n    color: #999;\n}\n\n/*\n * Footer\n */\n.blog-footer {\n    padding: 2.5rem 0;\n    color: #999;\n    text-align: center;\n    background-color: #f9f9f9;\n    border-top: .05rem solid #e5e5e5;\n}\n.blog-footer p:last-child {\n    margin-bottom: 0;\n}\n\n.UpperNav{\n\n\n    background: #cf576b;\n    color: #ffff;\n}\n.NOPM{\n    padding: 0;\n    margin: 0;\n}\n\n.nav-item{\n    color: #ffff !important;\n}\n\n.text-black{\n    color:black;\n}", ""]);
+exports.push([module.i, "/* stylelint-disable selector-list-comma-newline-after */\n\n.blog-header {\n    line-height: 1;\n}\n\n.blog-header-logo {\n    font-family: \"Parisienne\";\n    font-size: 5rem;\n}\n\n.blog-header-logo:hover {\n    text-decoration: none;\n}\n\nh1, h2, h3, h4, h5, h6 {\n    font-family: \"Playfair Display\", Georgia, \"Times New Roman\", serif;\n}\n\n.display-4 {\n    font-size: 2.5rem;\n}\n@media (min-width: 768px) {\n    .display-4 {\n        font-size: 3rem;\n    }\n}\n\n.nav-scroller {\n    position: relative;\n    z-index: 2;\n    height: 2.75rem;\n    overflow-y: hidden;\n\n}\n\n.nav-scroller .nav {\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: nowrap;\n    flex-wrap: nowrap;\n    padding-bottom: 1rem;\n    margin-top: -1px;\n    overflow-x: auto;\n    text-align: center;\n    white-space: nowrap;\n    -webkit-overflow-scrolling: touch;\n\n}\n\n.nav-scroller .nav-link {\n    padding-top: .75rem;\n    padding-bottom: .75rem;\n    font-size: .875rem;\n}\n\n.card-img-right {\n    height: 100%;\n    border-radius: 0 3px 3px 0;\n}\n\n.flex-auto {\n    -ms-flex: 0 0 auto;\n    flex: 0 0 auto;\n}\n\n.h-250 { height: 250px; }\n@media (min-width: 768px) {\n    .h-md-250 { height: 250px; }\n}\n\n.border-top { border-top: 1px solid #e5e5e5; }\n.border-bottom { border-bottom: 1px solid #e5e5e5; }\n\n.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }\n\n/*\n * Blog name and description\n */\n.blog-title {\n    margin-bottom: 0;\n    font-size: 2rem;\n    font-weight: 400;\n}\n.blog-description {\n    font-size: 1.1rem;\n    color: #999;\n}\n\n@media (min-width: 40em) {\n    .blog-title {\n        font-size: 3.5rem;\n    }\n}\n\n/* Pagination */\n.blog-pagination {\n    margin-bottom: 4rem;\n}\n.blog-pagination > .btn {\n    border-radius: 2rem;\n}\n\n/*\n * Blog posts\n */\n.blog-post {\n    margin-bottom: 4rem;\n}\n.blog-post-title {\n    margin-bottom: .25rem;\n    font-size: 2.5rem;\n}\n.blog-post-meta {\n    margin-bottom: 1.25rem;\n    color: #999;\n}\n\n/*\n * Footer\n */\n.blog-footer {\n    padding: 2.5rem 0;\n    color: #999;\n    text-align: center;\n    background-color: #f9f9f9;\n    border-top: .05rem solid #e5e5e5;\n}\n.blog-footer p:last-child {\n    margin-bottom: 0;\n}\n\n.UpperNav{\n\n    justify-content: center;\n    background: #cf576b;\n    color: #ffff;\n}\n.NOPM{\n    padding: 0;\n    margin: 0;\n}\n\n.nav-item{\n    color: #ffff !important;\n}\n\n.text-black{\n    color:black;\n}\n", ""]);
 
 // exports
 
@@ -42565,13 +42550,15 @@ var SliderS = function (_React$Component) {
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         __WEBPACK_IMPORTED_MODULE_1_react_slick___default.a,
                         settings,
-                        this.props.products.map(function (product) {
+                        this.props.products.map(function (product, i) {
                             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 "div",
-                                { key: product.id },
+                                { key: i },
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     __WEBPACK_IMPORTED_MODULE_2__Components_Item_Item__["a" /* default */],
-                                    { href: '/products/' + product.id + '/' + product.name.replace(/ +/g, ""), price: product.price, stars: product.stars },
+                                    { href: '/products/' + product.id + '/' + product.name.replace(/ +/g, ""),
+                                        price: product.price,
+                                        stars: product.stars },
                                     product.name
                                 )
                             );
@@ -47186,7 +47173,7 @@ exports = module.exports = __webpack_require__(4)(undefined);
 
 
 // module
-exports.push([module.i, ".banner{\n    background:#cf576b;\n    color: #ffffff;\n    text-align: center;\n    padding: 30px;\n\n}\n\n.banner h1 {\n    font-size: 4rem;\n}\n", ""]);
+exports.push([module.i, ".banner{\n    background:#cf576b;\n    color: #ffffff;\n    text-align: center;\n    padding: 30px;\n\n}\n\n.banner h1 {\n    font-size: 4rem;\n}\n\n@media (max-width: 500px) {\n.banner h1{\n    font-size:3rem;\n}\n\n\n}\n", ""]);
 
 // exports
 
@@ -47251,19 +47238,13 @@ var Products = function Products(props) {
                 props.products.map(function (product) {
                     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         "div",
-                        { className: "col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12" },
+                        { className: "col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12", key: product.id },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            __WEBPACK_IMPORTED_MODULE_3_react_router_dom__["b" /* Link */],
-                            { className: "NOHREF", to: '/products/' + product.id + '/' + product.name.replace(/ +/g, "") },
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_2__Item_Item__["a" /* default */],
-                                {
-
-                                    price: product.price,
-                                    dollar: ShowDollar(true)
-                                },
-                                product.name
-                            )
+                            __WEBPACK_IMPORTED_MODULE_2__Item_Item__["a" /* default */],
+                            { href: '/products/' + product.id + '/' + product.name.replace(/ +/g, ""),
+                                price: product.price,
+                                dollar: ShowDollar(true) },
+                            product.name
                         )
                     );
                 })
@@ -48047,7 +48028,7 @@ var Product = function (_Component) {
             if (categories) {
                 return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'li',
-                    { className: 'breadcrumb-item' },
+                    { className: 'breadcrumb-item RalewayExtraBold' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         __WEBPACK_IMPORTED_MODULE_3_react_router_dom__["b" /* Link */],
                         {
@@ -48062,7 +48043,9 @@ var Product = function (_Component) {
         value: function render() {
 
             var products = this.props.product;
-
+            {
+                console.log(products);
+            }
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 __WEBPACK_IMPORTED_MODULE_5__Components_Layout_Layout__["a" /* default */],
                 null,
@@ -48074,7 +48057,7 @@ var Product = function (_Component) {
                         { className: 'breadcrumb' },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'li',
-                            { className: 'breadcrumb-item' },
+                            { className: 'breadcrumb-item RalewayExtraBold' },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 __WEBPACK_IMPORTED_MODULE_3_react_router_dom__["b" /* Link */],
                                 { to: '/' },
@@ -48084,7 +48067,7 @@ var Product = function (_Component) {
                         this.renderCategories(),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'li',
-                            { className: 'breadcrumb-item active', 'aria-current': 'page' },
+                            { className: 'breadcrumb-item active RalewayExtraBold', 'aria-current': 'page' },
                             products.name
                         )
                     )
@@ -48097,12 +48080,12 @@ var Product = function (_Component) {
                         { className: 'row' },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'div',
-                            { className: 'col-6' },
+                            { className: 'col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12' },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'img-fluid', src: __WEBPACK_IMPORTED_MODULE_4__Assets_Images_pallet_jpg___default.a, alt: '' })
                         ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'div',
-                            { className: 'col-6' },
+                            { className: 'col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12' },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'h2',
                                 { className: 'Item-title' },

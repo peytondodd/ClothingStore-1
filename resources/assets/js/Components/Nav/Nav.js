@@ -21,21 +21,22 @@ class Nav extends Component {
         return (
             <Aux>
                 <nav className="navbar navbar-expand-lg navbar-dark UpperNav rounded">
-                    <div className="container">
                         <ul className="nav">
                             <li className="nav-item active">
                                 <a className="nav-link RalewayExtraBold">Free NL shipping on orders over $150</a>
                             </li>
-                        </ul>
-                        <ul className="nav justify-content-end">
-                            <li className="nav-item active">
+                            {/*<li className="nav-item active">
                                 <a className="nav-link RalewayExtraBold">search</a>
                             </li>
+                            */}
+                        </ul>
+                        <ul className="nav justify-content-end">
+
                             <li className="nav-item active">
 
                             </li>
                         </ul>
-                    </div>
+
                 </nav>
                 <div className="container">
                     <header className="blog-header py-3 mt-5">

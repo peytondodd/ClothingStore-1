@@ -17,16 +17,12 @@ const Products = (props) =>{
                     <div className="row">
                         {props.products.map(product =>
 
-                            <div className='col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12'>
-                                <Link className='NOHREF' to={'/products/'+product.id+'/'+product.name.replace(/ +/g, "")}>
-                                <Item
-
+                            <div className='col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12' key={product.id}>
+                                <Item href={'/products/'+product.id+'/'+product.name.replace(/ +/g, "")}
                                     price={product.price}
-                                    dollar={ShowDollar(true)}
-                                >
+                                    dollar={ShowDollar(true)}>
                                     {product.name}
                                 </Item>
-                                </Link>
                             </div>
                         )}
                     </div>
