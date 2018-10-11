@@ -11,11 +11,11 @@ import Shoes from '../Assets/Images/shoes.jpg';
 import Acc from '../Assets/Images/acc.jpg';
 import Salon from '../Assets/Images/Salon2.jpg';
 import Sale from '../Assets/Images/Sale.jpg';
+import Layout from "../Components/Layout/Layout";
 
 const Index = () => {
     return (
-        <Aux>
-            <Nav/>
+        <Layout>
             <MainBanner img={Salon}>SHOP THE COLLECTION</MainBanner>
                 <div className="container-fluid container-fluid-NOP">
                 <div className="row-fluid">
@@ -50,8 +50,8 @@ const Index = () => {
             <LazyLoad height={200}>
             <MainBanner img={Sale}>SALE</MainBanner>
             </LazyLoad>
+        </Layout>
 
-        </Aux>
     )
 
 

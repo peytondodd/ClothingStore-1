@@ -1,14 +1,9 @@
-import React, {Component} from 'react';
-import Aux from '../HOC/Aux'
-import  {connect} from 'react-redux'
-import {fetchCategoryProducts} from "../../actions/productAction";
+import React from 'react'
+import Aux from "../HOC/Aux";
 import Item from "../Item/Item";
 
-class Products extends Component {
-    componentDidMount(){
-        this.props.fetchCategoryProducts(this.props.id);
-    }
-    ShowDollar = (isTrue) =>{
+const Products = (props) =>{
+  const ShowDollar = (isTrue) =>{
         if (isTrue === true){
             return "$";
         }
@@ -16,31 +11,25 @@ class Products extends Component {
             return null;
         }
     };
-    render() {
         return (
-           <Aux>
-               <div className='container-fluid'>
-                   <div className="row">
-                       {this.props.products.map(product =>
-                           <div className='col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12' key={product.id}>
-                               <Item
-                                   href={'/products/'+product.id+'/'+product.name.replace(/ +/g, "")}
-                                   price={product.price}
-                                   dollar={this.ShowDollar(true)}
-                               >
-                                   {product.name}
-                               </Item>
-                           </div>
-                       )}
-                   </div>
-               </div>
-           </Aux>
+            <Aux>
+                <div className='container-fluid'>
+                    <div className="row">
+                        {props.products.map(product =>
+                            <div className='col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12' key={product.id}>
+                                <Item
+                                    href={'/products/'+product.id+'/'+product.name.replace(/ +/g, "")}
+                                    price={product.price}
+                                    dollar={ShowDollar(true)}
+                                >
+                                    {product.name}
+                                </Item>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </Aux>
         );
-    }
-}
+};
 
-const mapStateToProps = state =>({
-    products : state.products.products
-});
-
-export default connect(mapStateToProps,{fetchCategoryProducts})(Products);
+export default Products
