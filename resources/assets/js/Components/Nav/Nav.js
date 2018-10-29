@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './Nav.css';
 import Aux from '../../Components/HOC/Aux';
 import axios from 'axios';
+import {FaSearch } from 'react-icons/fa'
 import { Link } from 'react-router-dom';
 class Nav extends Component {
     state = {
@@ -23,11 +24,14 @@ class Nav extends Component {
             <Aux>
                 <nav className="navbar navbar-expand-lg navbar-dark UpperNav rounded">
                     <div className="navWrapper">
-                        <form className={'searchbar form-group mb-0'}>
-                            <div className="form-group mb-0">
-                                <input placeholder={'search .. '} type="text" className={'form-control'}/>
+                        <div className="search-container">
+                            <div className="search-icon-btn">
+                            <FaSearch/>
                             </div>
-                        </form>
+                            <div className="search-input">
+                                <input type="search" className="search-bar" placeholder="Search..."/>
+                            </div>
+                        </div>
                     <a className="nav-link RalewayExtraBold">Free NL shipping on orders over $150</a>
                         <a className={'nav-link RalewayExtraBold'}>My Account</a>
                     </div>
