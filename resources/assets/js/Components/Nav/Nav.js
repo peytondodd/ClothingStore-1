@@ -22,30 +22,18 @@ class Nav extends Component {
         return (
             <Aux>
                 <nav className="navbar navbar-expand-lg navbar-dark UpperNav rounded">
-                        <ul className="nav">
-                            <li className="nav-item active">
-                                <a className="nav-link RalewayExtraBold">Free NL shipping on orders over $150</a>
-                            </li>
-                            {/*<li className="nav-item active">
-                                <a className="nav-link RalewayExtraBold">search</a>
-                            </li>
-                            */}
-                        </ul>
-                        <ul className="nav justify-content-end">
-
-                            <li className="nav-item active">
-
-                            </li>
-                        </ul>
-
+                    <div className="navWrapper">
+                        <form className={'searchbar form-group mb-0'}>
+                            <div className="form-group mb-0">
+                                <input placeholder={'search .. '} type="text" className={'form-control'}/>
+                            </div>
+                        </form>
+                    <a className="nav-link RalewayExtraBold">Free NL shipping on orders over $150</a>
+                        <a className={'nav-link RalewayExtraBold'}>My Account</a>
+                    </div>
                 </nav>
                 <div className="container">
                     <header className="blog-header py-3 mt-5">
-                        <form>
-                            <input type="text"/>
-                            <div className="after"> </div>
-                            <input type="submit"/>
-                        </form>
 
                         <div className="row flex-nowrap justify-content-between align-items-center">
                             <div className="col text-center">
