@@ -23,6 +23,10 @@ export default function (state = initialState , action) {
                 ...state,
                 product: action.payload,
             };
+        case types.SORT_TOPRATED:
+            return{
+                ...state , products : action.payload,
+            }
             default:
                 return state
     }

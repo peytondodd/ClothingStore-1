@@ -1,5 +1,6 @@
-import * as type from "./types";
+import * as types from "./types";
 import axios from 'axios'
+import {FETCH_CATEGORY} from "./types";
 
 export function fetchHomeProduct() {
     return function (dispatch) {
@@ -21,7 +22,7 @@ export function fetchCategoryProducts(id){
             .then(res =>{
                 const products = res.data;
                 dispatch({
-                    type: type.FETCH_CATEGORYPRODUCTS,
+                    type: types.FETCH_CATEGORYPRODUCTS,
                     payload: products
                 })
             })
@@ -35,10 +36,36 @@ export function fetchProduct(id){
             .then(res => {
                 const products = res.data;
                 dispatch({
-                    type:type.FETCH_PRODUCT,
+                    type:types.FETCH_PRODUCT,
                     payload:products,
 
                 })
+            });
+    }
+}
+
+export function SORT_TOPRATED (){
+    return{
+        type:types.SORT_TOPRATED,
+        payload:[{id: 1 , name:"hello"}]
+    }
+};
+
+export function fetchCategory(id) {
+    return function (dispatch) {
+        axios.get(`http://localhost:8000/api/categories/`+ id)
+
+            .then(res => {
+                const category = res.data;
+                const products = category.products;
+                dispatch({
+                    type: types.FETCH_CATEGORY,
+                    payload: category,
+                    payloadC: products
+                })
+
+
+
             });
     }
 }
