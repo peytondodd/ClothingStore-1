@@ -75,7 +75,7 @@ body {
 
 
 .Item-title{
-    margin-top:50px;
+    font-weight: bolder;
     text-align: center;
 }
 .breadcrumb{
@@ -94,4 +94,47 @@ body {
     padding-right: .5rem;
     color: white;
     content: "/";
+}
+
+.stars{
+    text-align: center;
+
+}
+@media (max-width: 768px) {
+    .addCartfirst{
+        display: none;
+    }
+}
+.CartButtonWrapper{
+    display: flex;
+    justify-content: space-between;
+}
+
+.addCartfirst{
+    width: 72%;
+    margin-left: 3%;
+    background: #cf576b;
+    color: white;
+    border:2px solid #b34863;
+}
+.addCartfirst:hover{
+    background: white;
+    color: #cf576b;
+    border:2px solid #cf576b;
+}
+.amountForm{
+    text-align: center;
+
+}
+.customWidth{
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 25%;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }

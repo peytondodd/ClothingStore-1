@@ -7,7 +7,7 @@ export function fetchHomeProduct() {
             .then(res => {
                 const products = res.data;
                dispatch({
-                   type:type.FETCH_HOMEPOST,
+                   type:types.FETCH_HOMEPOST,
                    payload:products
                })
 

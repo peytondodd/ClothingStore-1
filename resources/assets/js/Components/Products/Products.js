@@ -20,9 +20,8 @@ const Products = (props) =>{
     let search = props.search;
     if(search && filter.length){
         return filter.map(product =>{
-            return (<LazyLoad height={200} key={product.id}>
-                <Fade up>
-                    <div className='col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12'>
+            return (
+                    <div className='col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12'  key={product.id}>
                         <Item href={'/products/'+product.id+'/'+product.name.replace(/ +/g, "")}
 
                               stars={product.stars}
@@ -31,9 +30,6 @@ const Products = (props) =>{
                             {product.name}
                         </Item>
                     </div>
-
-                </Fade>
-            </LazyLoad>
             )}
         )
     }
@@ -44,9 +40,8 @@ const Products = (props) =>{
         console.log(props.products);
       return props.products.map(product =>{
           return(
-            <LazyLoad height={200} key={product.id}>
-                <Fade up>
-                    <div className='col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12'>
+                    <div className='col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12' key={product.id}>
+                        <Fade up>
                         <Item href={'/products/'+product.id+'/'+product.name.replace(/ +/g, "")}
 
                               stars={product.stars}
@@ -54,10 +49,8 @@ const Products = (props) =>{
                               dollar={ShowDollar(true)}>
                             {product.name}
                         </Item>
+                        </Fade>
                     </div>
-
-                </Fade>
-            </LazyLoad>
           )
       })
     }
