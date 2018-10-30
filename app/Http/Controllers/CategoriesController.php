@@ -15,8 +15,7 @@ class CategoriesController extends Controller
      */
 
     public function nav(){
-        $categories = Categories::all();
-        return $categories;
+       return $categories = Categories::all();
     }
 
     public function categories($id){

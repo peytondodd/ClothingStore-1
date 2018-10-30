@@ -13,14 +13,18 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::post('user/register', 'APIREGISTERCONTROLLER@register');
-Route::post('user/login', 'APILOGINCONTROLLER@login');
+//open routes
+Route::post('/login', 'AuthController@login');
+Route::post('/register', 'AuthController@register');
 Route::get('/products/home','ProductsController@homepage');
 Route::get('/categories','CategoriesController@nav');
 Route::get('/categories/{id}',"CategoriesController@categories");
 Route::get('/products/{id}',"ProductsController@find");
-Route::post('/register','UserController@register');
-Route::post('/login' , 'UserController@login');
 Route::get('/categories/{id}/products',"CategoriesController@find");
+
+//auth routes
+Route::group(['middleware' => ['auth:api']], function () {
+    Route::post('/logout', 'AuthController@logout');
+});
 
 
