@@ -1,11 +1,10 @@
 import React from 'react'
 import Aux from "../HOC/Aux";
 import Item from "../Item/Item";
-import LazyLoad from 'react-lazyload'
 import {connect} from 'react-redux'
 import * as actions from "../../actions/productAction";
 import './Products.css'
-import {Fade} from 'react-reveal'
+import {Zoom} from 'react-reveal'
 const Products = (props) =>{
   const ShowDollar = (isTrue) =>{
         if (isTrue === true){
@@ -22,6 +21,7 @@ const Products = (props) =>{
         return filter.map(product =>{
             return (
                     <div className='col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12'  key={product.id}>
+                        <Zoom left>
                         <Item href={'/products/'+product.id+'/'+product.name.replace(/ +/g, "")}
 
                               stars={product.stars}
@@ -29,6 +29,7 @@ const Products = (props) =>{
                               dollar={ShowDollar(true)}>
                             {product.name}
                         </Item>
+                        </Zoom>
                     </div>
             )}
         )
@@ -41,7 +42,7 @@ const Products = (props) =>{
       return props.products.map(product =>{
           return(
                     <div className='col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12' key={product.id}>
-                        <Fade up>
+                        <Zoom >
                         <Item href={'/products/'+product.id+'/'+product.name.replace(/ +/g, "")}
 
                               stars={product.stars}
@@ -49,7 +50,7 @@ const Products = (props) =>{
                               dollar={ShowDollar(true)}>
                             {product.name}
                         </Item>
-                        </Fade>
+                        </Zoom>
                     </div>
           )
       })
@@ -79,8 +80,8 @@ const Products = (props) =>{
                             value={props.value} />
                     </div>
                     <div className="row">
-
                         {renderProducts()}
+
                     </div>
                 </div>
             </Aux>
