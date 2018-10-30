@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import Aux from '../Components/HOC/Aux'
 import Cbanner from '../Components/Cbanner/Cbanner'
 import {connect} from 'react-redux'
-import {bindActionCreators} from 'redux'
-import {fetchCategoryProducts ,fetchCategory , SORT_TOPRATED } from "../actions/productAction";
+import * as actions from '../actions/productAction'
 import Products from "../Components/Products/Products";
 import Layout from "../Components/Layout/Layout";
 
@@ -27,31 +26,35 @@ class Category extends Component {
         return this.props.id
     };
 
-
+    showLowRated(){
+        return this.props.SORT_LOWRATED();
+    }
     showTopRated(){
        return this.props.SORT_TOPRATED();
     }
+
+    showHighToLow(){
+        return this.props.SORT_HIGHTOLOW();
+    }
+    showLowToHigh(){
+        return this.props.SORT_LOWTOHIGH();
+
+    }
+
     render() {
         const id = this.props.match.id;
         return (
             <Layout>
                 <Cbanner>{this.props.category.name}</Cbanner>
-                <Products showTopRated={()=>{this.showTopRated()}} products={this.props.products}/>
+                <Products showLowRated={()=>{this.showLowRated()}} showHighToLow={()=>{this.showHighToLow()}} showLowToHigh={()=>{this.showLowToHigh()}}  showTopRated={()=>{this.showTopRated()}} products={this.props.products}/>
             </Layout>
         );
     }
 }
-const mapDispatchToProps = (dispatch) => {
-    return {
-        // same effect
-        fetchCategoryProducts : bindActionCreators(fetchCategoryProducts, dispatch),
-        fetchCategory : bindActionCreators(fetchCategory, dispatch),
-        SORT_TOPRATED : bindActionCreators(SORT_TOPRATED, dispatch),
-    }
-};
+
 const mapStateToProps = state =>({
     category: state.category.category,
     products : state.products.products
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Category);
+export default connect(mapStateToProps, actions)(Category);

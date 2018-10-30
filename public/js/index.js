@@ -2235,7 +2235,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (immutable) */ __webpack_exports__["fetchHomeProduct"] = fetchHomeProduct;
 /* harmony export (immutable) */ __webpack_exports__["fetchCategoryProducts"] = fetchCategoryProducts;
 /* harmony export (immutable) */ __webpack_exports__["fetchProduct"] = fetchProduct;
+/* harmony export (immutable) */ __webpack_exports__["SORT_LOWRATED"] = SORT_LOWRATED;
 /* harmony export (immutable) */ __webpack_exports__["SORT_TOPRATED"] = SORT_TOPRATED;
+/* harmony export (immutable) */ __webpack_exports__["SORT_LOWTOHIGH"] = SORT_LOWTOHIGH;
+/* harmony export (immutable) */ __webpack_exports__["SORT_HIGHTOLOW"] = SORT_HIGHTOLOW;
 /* harmony export (immutable) */ __webpack_exports__["fetchCategory"] = fetchCategory;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__types__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(43);
@@ -2280,14 +2283,26 @@ function fetchProduct(id) {
         });
     };
 }
-
+function SORT_LOWRATED() {
+    return {
+        type: __WEBPACK_IMPORTED_MODULE_0__types__["g" /* SORT_LOWRATED */]
+    };
+}
 function SORT_TOPRATED() {
     return {
-        type: __WEBPACK_IMPORTED_MODULE_0__types__["f" /* SORT_TOPRATED */],
-        payload: [{ id: 1, name: "hello" }]
+        type: __WEBPACK_IMPORTED_MODULE_0__types__["i" /* SORT_TOPRATED */]
     };
-};
-
+}
+function SORT_LOWTOHIGH() {
+    return {
+        type: __WEBPACK_IMPORTED_MODULE_0__types__["h" /* SORT_LOWTOHIGH */]
+    };
+}
+function SORT_HIGHTOLOW() {
+    return {
+        type: __WEBPACK_IMPORTED_MODULE_0__types__["f" /* SORT_HIGHTOLOW */]
+    };
+}
 function fetchCategory(id) {
     return function (dispatch) {
         __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get("http://localhost:8000/api/categories/" + id).then(function (res) {
@@ -3999,7 +4014,10 @@ if ("development" !== 'production' && typeof isCrushed.name === 'string' && isCr
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return FETCH_CATEGORYPRODUCTS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return FETCH_PRODUCT; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FETCH_CATEGORIES; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return SORT_TOPRATED; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return SORT_TOPRATED; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return SORT_LOWTOHIGH; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return SORT_HIGHTOLOW; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return SORT_LOWRATED; });
 var FETCH_HOMEPOST = "FETCH_HOMEPOST";
 
 var FETCH_CATEGORY = "FETCH_CATEGORY";
@@ -4009,6 +4027,9 @@ var FETCH_CATEGORYPRODUCTS = 'FETCH_CATEGORYPRODUCTS';
 var FETCH_PRODUCT = "FETCH_PRODUCT";
 var FETCH_CATEGORIES = "FETCH_CATEGORIES";
 var SORT_TOPRATED = "SORT_TOPRATED";
+var SORT_LOWTOHIGH = "SORT_LOWTOHIGH";
+var SORT_HIGHTOLOW = "SORT_HIGHTOLOW";
+var SORT_LOWRATED = "SORT_LOWRATED";
 
 /***/ }),
 /* 34 */
@@ -56798,10 +56819,9 @@ module.exports = "/images/Sale.jpg?7d854264a1649f92040c5319fb165afc";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Components_HOC_Aux__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Components_Cbanner_Cbanner__ = __webpack_require__(190);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_redux__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_redux__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__actions_productAction__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Components_Products_Products__ = __webpack_require__(193);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Components_Layout_Layout__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__actions_productAction__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Components_Products_Products__ = __webpack_require__(193);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Components_Layout_Layout__ = __webpack_require__(34);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -56809,7 +56829,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
 
 
 
@@ -56855,9 +56874,24 @@ var Category = function (_Component) {
             }
         }
     }, {
+        key: 'showLowRated',
+        value: function showLowRated() {
+            return this.props.SORT_LOWRATED();
+        }
+    }, {
         key: 'showTopRated',
         value: function showTopRated() {
             return this.props.SORT_TOPRATED();
+        }
+    }, {
+        key: 'showHighToLow',
+        value: function showHighToLow() {
+            return this.props.SORT_HIGHTOLOW();
+        }
+    }, {
+        key: 'showLowToHigh',
+        value: function showLowToHigh() {
+            return this.props.SORT_LOWTOHIGH();
         }
     }, {
         key: 'render',
@@ -56866,14 +56900,20 @@ var Category = function (_Component) {
 
             var id = this.props.match.id;
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                __WEBPACK_IMPORTED_MODULE_7__Components_Layout_Layout__["a" /* default */],
+                __WEBPACK_IMPORTED_MODULE_6__Components_Layout_Layout__["a" /* default */],
                 null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     __WEBPACK_IMPORTED_MODULE_2__Components_Cbanner_Cbanner__["a" /* default */],
                     null,
                     this.props.category.name
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__Components_Products_Products__["a" /* default */], { showTopRated: function showTopRated() {
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__Components_Products_Products__["a" /* default */], { showLowRated: function showLowRated() {
+                        _this2.showLowRated();
+                    }, showHighToLow: function showHighToLow() {
+                        _this2.showHighToLow();
+                    }, showLowToHigh: function showLowToHigh() {
+                        _this2.showLowToHigh();
+                    }, showTopRated: function showTopRated() {
                         _this2.showTopRated();
                     }, products: this.props.products })
             );
@@ -56883,14 +56923,6 @@ var Category = function (_Component) {
     return Category;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-    return {
-        // same effect
-        fetchCategoryProducts: Object(__WEBPACK_IMPORTED_MODULE_4_redux__["b" /* bindActionCreators */])(__WEBPACK_IMPORTED_MODULE_5__actions_productAction__["fetchCategoryProducts"], dispatch),
-        fetchCategory: Object(__WEBPACK_IMPORTED_MODULE_4_redux__["b" /* bindActionCreators */])(__WEBPACK_IMPORTED_MODULE_5__actions_productAction__["fetchCategory"], dispatch),
-        SORT_TOPRATED: Object(__WEBPACK_IMPORTED_MODULE_4_redux__["b" /* bindActionCreators */])(__WEBPACK_IMPORTED_MODULE_5__actions_productAction__["SORT_TOPRATED"], dispatch)
-    };
-};
 var mapStateToProps = function mapStateToProps(state) {
     return {
         category: state.category.category,
@@ -56898,7 +56930,7 @@ var mapStateToProps = function mapStateToProps(state) {
     };
 };
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_3_react_redux__["b" /* connect */])(mapStateToProps, mapDispatchToProps)(Category));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_3_react_redux__["b" /* connect */])(mapStateToProps, __WEBPACK_IMPORTED_MODULE_4__actions_productAction__)(Category));
 
 /***/ }),
 /* 190 */
@@ -57042,17 +57074,22 @@ var Products = function Products(props) {
                         { className: "dropdown-menu" },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             "a",
+                            { className: "dropdown-item", onClick: props.showLowRated },
+                            "Low Rated"
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            "a",
                             { className: "dropdown-item", onClick: props.showTopRated },
                             "Top Rated"
                         ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             "a",
-                            { className: "dropdown-item" },
+                            { className: "dropdown-item", onClick: props.showLowToHigh },
                             "Price low to high"
                         ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             "a",
-                            { className: "dropdown-item" },
+                            { className: "dropdown-item", onClick: props.showHighToLow },
                             "Price high to low"
                         )
                     )
@@ -57614,6 +57651,8 @@ thunk.withExtraArgument = createThunkMiddleware;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__actions_types__ = __webpack_require__(33);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 
 
 var initialState = {
@@ -57639,8 +57678,27 @@ var initialState = {
             return _extends({}, state, {
                 product: action.payload
             });
-        case __WEBPACK_IMPORTED_MODULE_0__actions_types__["f" /* SORT_TOPRATED */]:
-            return _extends({}, state, { products: action.payload
+        case __WEBPACK_IMPORTED_MODULE_0__actions_types__["i" /* SORT_TOPRATED */]:
+            return _extends({}, state, { products: [].concat(_toConsumableArray(state.products.sort(function (a, b) {
+                    return b.stars - a.stars;
+                })))
+            });
+        case __WEBPACK_IMPORTED_MODULE_0__actions_types__["g" /* SORT_LOWRATED */]:
+            return _extends({}, state, { products: [].concat(_toConsumableArray(state.products.sort(function (a, b) {
+                    return a.stars - b.stars;
+                })))
+            });
+
+        case __WEBPACK_IMPORTED_MODULE_0__actions_types__["h" /* SORT_LOWTOHIGH */]:
+            return _extends({}, state, { products: [].concat(_toConsumableArray(state.products.sort(function (a, b) {
+                    return a.price - b.price;
+                })))
+            });
+
+        case __WEBPACK_IMPORTED_MODULE_0__actions_types__["f" /* SORT_HIGHTOLOW */]:
+            return _extends({}, state, { products: [].concat(_toConsumableArray(state.products.sort(function (a, b) {
+                    return b.price - a.price;
+                })))
             });
         default:
             return state;

@@ -25,9 +25,10 @@ const Products = (props) =>{
                             Sort By
                         </button>
                         <div className="dropdown-menu">
+                            <a className="dropdown-item" onClick={props.showLowRated} >Low Rated</a>
                             <a className="dropdown-item" onClick={props.showTopRated} >Top Rated</a>
-                            <a className="dropdown-item" >Price low to high</a>
-                            <a className="dropdown-item" >Price high to low</a>
+                            <a className="dropdown-item" onClick={props.showLowToHigh}>Price low to high</a>
+                            <a className="dropdown-item" onClick={props.showHighToLow}>Price high to low</a>
                         </div>
                     </div>
                     </div>

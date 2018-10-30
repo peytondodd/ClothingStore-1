@@ -43,14 +43,26 @@ export function fetchProduct(id){
             });
     }
 }
-
+export function SORT_LOWRATED (){
+    return{
+        type:types.SORT_LOWRATED
+    }
+}
 export function SORT_TOPRATED (){
     return{
-        type:types.SORT_TOPRATED,
-        payload:[{id: 1 , name:"hello"}]
+        type:types.SORT_TOPRATED
     }
-};
-
+}
+export function SORT_LOWTOHIGH (){
+    return{
+        type:types.SORT_LOWTOHIGH
+    }
+}
+export function SORT_HIGHTOLOW (){
+    return{
+        type:types.SORT_HIGHTOLOW
+    }
+}
 export function fetchCategory(id) {
     return function (dispatch) {
         axios.get(`http://localhost:8000/api/categories/`+ id)

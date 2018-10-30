@@ -25,9 +25,23 @@ export default function (state = initialState , action) {
             };
         case types.SORT_TOPRATED:
             return{
-                ...state , products : action.payload,
-            }
-            default:
+                ...state , products : [...state.products.sort((a,b) => b.stars - a.stars)]
+            };
+        case types.SORT_LOWRATED:
+            return{
+                ...state , products : [...state.products.sort((a,b) => a.stars - b.stars)]
+            };
+
+        case types.SORT_LOWTOHIGH:
+            return{
+                ...state , products : [...state.products.sort((a,b) => a.price - b.price)]
+            };
+
+        case types.SORT_HIGHTOLOW:
+            return{
+                ...state , products : [...state.products.sort((a,b) => b.price - a.price)]
+            };
+         default:
                 return state
     }
 
