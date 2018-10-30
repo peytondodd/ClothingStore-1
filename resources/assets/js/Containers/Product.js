@@ -4,6 +4,7 @@ import {fetchProduct} from "../actions/productAction";
 import { Link } from 'react-router-dom'
 import Palet from '../Assets/Images/pallet.jpg'
 import Layout from "../Components/Layout/Layout";
+import {FaStar} from "react-icons/fa";
 class Product extends Component {
 
     componentDidMount() {
@@ -12,6 +13,12 @@ class Product extends Component {
 
     }
 
+     stars = (amount) => {
+         let stars = [];
+         for (let i = 0; i < amount; i++) {
+             stars.push(<FaStar key={i}/>);
+         }
+     };
     ShowDollar = (isTrue) => {
         if (isTrue === true) {
             return "$";
@@ -48,10 +55,10 @@ class Product extends Component {
                 </nav>
                 <div className="container">
                     <div className="row">
-                        <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div className="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
                             <img className='img-fluid' src={Palet} alt=""/>
                         </div>
-                        <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
                             <h2 className="Item-title">{products.name}</h2>
                             <p className="text-center">
                                 ${products.price}

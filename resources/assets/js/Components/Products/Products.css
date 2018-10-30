@@ -4,3 +4,19 @@
     margin-top: 5px;
     margin-left: 20px;
 }
+
+.flex-filterbar{
+    padding-right: 15px;
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+    margin-right: auto;
+    padding-left: 15px;
+    width: 50%;
+}
+.searchbar-custom{
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 20px;
+    width: 50% !important;
+}

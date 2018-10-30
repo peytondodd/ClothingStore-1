@@ -57256,6 +57256,8 @@ function _interopRequireDefault(o){return o&&o.__esModule?o:{default:o}}function
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Assets_Images_pallet_jpg__ = __webpack_require__(54);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Assets_Images_pallet_jpg___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__Assets_Images_pallet_jpg__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Components_Layout_Layout__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react_icons_fa__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react_icons_fa___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_react_icons_fa__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -57263,6 +57265,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -57285,7 +57288,12 @@ var Product = function (_Component) {
             args[_key] = arguments[_key];
         }
 
-        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Product.__proto__ || Object.getPrototypeOf(Product)).call.apply(_ref, [this].concat(args))), _this), _this.ShowDollar = function (isTrue) {
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Product.__proto__ || Object.getPrototypeOf(Product)).call.apply(_ref, [this].concat(args))), _this), _this.stars = function (amount) {
+            var stars = [];
+            for (var i = 0; i < amount; i++) {
+                stars.push(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6_react_icons_fa__["FaStar"], { key: i }));
+            }
+        }, _this.ShowDollar = function (isTrue) {
             if (isTrue === true) {
                 return "$";
             } else {
@@ -57360,12 +57368,12 @@ var Product = function (_Component) {
                         { className: 'row' },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'div',
-                            { className: 'col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12' },
+                            { className: 'col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12' },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'img-fluid', src: __WEBPACK_IMPORTED_MODULE_4__Assets_Images_pallet_jpg___default.a, alt: '' })
                         ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'div',
-                            { className: 'col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12' },
+                            { className: 'col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12' },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'h2',
                                 { className: 'Item-title' },

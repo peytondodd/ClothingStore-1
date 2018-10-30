@@ -1,6 +1,5 @@
 import * as types from "./types";
 import axios from 'axios'
-import {FETCH_CATEGORY} from "./types";
 
 export function fetchHomeProduct() {
     return function (dispatch) {
@@ -61,6 +60,12 @@ export function SORT_LOWTOHIGH (){
 export function SORT_HIGHTOLOW (){
     return{
         type:types.SORT_HIGHTOLOW
+    }
+}
+export function SEARCH_PRODUCTS (value){
+    return{
+        type:types.SEARCH_PRODUCTS,
+        payload: value
     }
 }
 export function fetchCategory(id) {

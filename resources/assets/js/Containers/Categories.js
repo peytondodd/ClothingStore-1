@@ -8,6 +8,12 @@ import Layout from "../Components/Layout/Layout";
 
 
 class Category extends Component {
+    constructor(props){
+        super(props);
+        this.state ={
+            search:false
+        }
+    }
     componentDidMount() {
         const id = this.props.match.params.id;
         this.props.fetchCategory(id);
@@ -40,13 +46,24 @@ class Category extends Component {
         return this.props.SORT_LOWTOHIGH();
 
     }
+    searchProducts(string){
+            if(string !== ''){
+                this.setState({search:true});
+                return this.props.SEARCH_PRODUCTS(string);
+            }
+            else{
+                this.setState({search:false});
+            }
+
+    }
 
     render() {
         const id = this.props.match.id;
         return (
             <Layout>
                 <Cbanner>{this.props.category.name}</Cbanner>
-                <Products showLowRated={()=>{this.showLowRated()}} showHighToLow={()=>{this.showHighToLow()}} showLowToHigh={()=>{this.showLowToHigh()}}  showTopRated={()=>{this.showTopRated()}} products={this.props.products}/>
+
+                <Products  search={this.state.search} filter={this.props.filter} searchProducts={(string)=>{this.searchProducts(string)}} showLowRated={()=>{this.showLowRated()}} showHighToLow={()=>{this.showHighToLow()}} showLowToHigh={()=>{this.showLowToHigh()}}  showTopRated={()=>{this.showTopRated()}} products={this.props.products}/>
             </Layout>
         );
     }
@@ -54,7 +71,8 @@ class Category extends Component {
 
 const mapStateToProps = state =>({
     category: state.category.category,
-    products : state.products.products
+    products : state.products.products,
+    filter : state.products.filter
 });
 
 export default connect(mapStateToProps, actions)(Category);

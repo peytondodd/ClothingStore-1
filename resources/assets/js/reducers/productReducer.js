@@ -3,7 +3,8 @@ import * as types from "../actions/types";
 const initialState = {
     products:[],
     product:[],
-    category:[]
+    category:[],
+    filter:[],
 };
 
 export default function (state = initialState , action) {
@@ -41,6 +42,11 @@ export default function (state = initialState , action) {
             return{
                 ...state , products : [...state.products.sort((a,b) => b.price - a.price)]
             };
+        case types.SEARCH_PRODUCTS:
+            return{
+                ...state, filter:[...state.products.filter( value => value.name.toLowerCase().search(action.payload.toLowerCase()) !== -1)]
+            };
+
          default:
                 return state
     }
