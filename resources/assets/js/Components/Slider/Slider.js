@@ -11,8 +11,8 @@ function SampleNextArrow(props) {
     const { className, style, onClick } = props;
     return (
         <div
-            className={className}
-            style={{ ...style, display: "block", background: "red" ,left:0, zIndex:1}}
+            className={className + " greyArrow"}
+            style={{ ...style, display: "block" ,left:0, zIndex:1}}
             onClick={onClick}
         />
     );
@@ -22,8 +22,8 @@ function SamplePrevArrow(props) {
     const { className, style, onClick } = props;
     return (
         <div
-            className={className}
-            style={{ ...style, display: "block", background: "green" ,right:0}}
+            className={className + " greyArrow"}
+            style={{ ...style, display: "block" ,right:0}}
             onClick={onClick}
         />
     );

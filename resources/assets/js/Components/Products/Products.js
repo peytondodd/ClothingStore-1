@@ -17,8 +17,7 @@ const Products = (props) =>{
                         <Item href={'/products/'+product.id+'/'+product.name.replace(/ +/g, "")}
                               showCurrency={true}
                               stars={product.stars}
-                              price={product.price}
-                              dollar={ShowDollar(true)}>
+                              price={product.price}>
                             {product.name}
                         </Item>
                         </Zoom>
