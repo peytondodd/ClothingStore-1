@@ -61,7 +61,7 @@ class Category extends Component {
         const id = this.props.match.id;
         return (
             <Layout>
-                <Cbanner>{this.props.category.name}</Cbanner>
+                <Cbanner href={`/categories/${this.props.category.id}/${this.props.category.name}`}>{this.props.category.name}</Cbanner>
 
                 <Products  search={this.state.search} filter={this.props.filter} searchProducts={(string)=>{this.searchProducts(string)}} showLowRated={()=>{this.showLowRated()}} showHighToLow={()=>{this.showHighToLow()}} showLowToHigh={()=>{this.showLowToHigh()}}  showTopRated={()=>{this.showTopRated()}} products={this.props.products}/>
             </Layout>
