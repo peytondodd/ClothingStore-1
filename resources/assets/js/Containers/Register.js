@@ -1,6 +1,7 @@
 import React, {PureComponent} from 'react';
 import * as actions from '../actions';
 import { connect } from 'react-redux';
+import {Zoom} from 'react-reveal';
 import { Field, reduxForm } from 'redux-form';
 import Layout from "../Components/Layout/Layout";
 import Cbanner from "../Components/Cbanner/Cbanner";
@@ -21,9 +22,10 @@ class Register extends PureComponent {
     renderResponse() {
         const errors = this.props.error;
         const response =this.props.response;
+        let errorsarray = [];
     if(errors){
         console.log(errors);
-       let errorsarray = [];
+
         if(errors.firstName){
             errorsarray.push(errors.firstName[0]);
         }
@@ -43,21 +45,25 @@ class Register extends PureComponent {
             errorsarray.push(errors.PostalCode[0]);
         }
         return (
+            <Zoom when={errors}>
             <div className="alert alert-danger mt-2">
                 {
                     errorsarray.map(error => <p key={error}>{error}</p>)
                 }
             </div>
+            </Zoom>
         );
 
     }
-    if(response){
+
         return(
+            <Zoom when={response}>
             <div className="alert alert-danger mt-2">
                 <p>{response}</p>
             </div>
+            </Zoom>
         )
-    }
+
     }
 
 

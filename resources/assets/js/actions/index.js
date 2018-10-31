@@ -1,6 +1,6 @@
 import * as types from "./types";
 import axios from 'axios'
-
+import History from '../history'
 export const fetchHomeProduct = ()=> {
     return (dispatch) => {
         axios.get(`/api/products/home`)
@@ -112,4 +112,27 @@ export const authError = (error) => {
         type: types.AUTH_ERROR,
         payload: error
     };
+};
+
+export const signInUser = (payload) =>{
+    console.log(payload);
+   return (dispatch) =>{
+    axios.post(`/api/login`, payload)
+        .then(res => {
+            const token = res.data.access_token;
+           if(token){
+               localStorage.setItem('token', token);
+               dispatch({type: types.SIGNIN_USER});
+               History.push('/');
+           }
+           else{
+              dispatch(authError(res.data.message));
+           }
+
+
+        })
+        .catch(err => {
+            dispatch(authError(err.response.data.errors));
+        });
+   }
 };
