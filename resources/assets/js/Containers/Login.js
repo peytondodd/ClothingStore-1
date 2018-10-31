@@ -15,9 +15,9 @@ class Login extends PureComponent {
     }
 
 
-    handleFormSubmit = ({email , password}) => {
+    handleFormSubmit = async({email , password}) => {
         const rememberMe = this.state.remember_me;
-        this.props.signInUser({email , password , rememberMe});
+        await this.props.signInUser({email , password , rememberMe});
 
     };
 
@@ -32,9 +32,6 @@ class Login extends PureComponent {
           )
 
     };
-    componentDidMount(){
-        // return this.props.dispatch(actions.afterAuthError());
-    }
 
     handleRememberChange(event){
         this.setState({ [event.target.name]: event.target.value });
@@ -64,8 +61,8 @@ class Login extends PureComponent {
                                     <label>Password:</label>
                                     <Field className="form-control" name="password" component="input" type="password" />
                                 </fieldset>
-                                <fieldset className={'form-group'} onClick={this.onclick.bind(this)}>
-                                    <Field className={""} name='rememberMe' component={'input'} type={'checkbox'} onChange={this.handleRememberChange} value={this.state.remember_me} checked={this.state.remember_me}/>
+                                <fieldset className={'form-group'} onClick={()=>{this.onclick()}}>
+                                    <Field className={""} name='rememberMe' component={'input'} type={'checkbox'} onChange={this.handleRememberChange.bind(this)} value={this.state.remember_me} checked={this.state.remember_me}/>
                                     <label className={'ml-1'}>remember login?</label>
                                 </fieldset>
                                 {this.renderError()}

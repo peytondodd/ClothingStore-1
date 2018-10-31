@@ -1,6 +1,7 @@
 import React from 'react';
 import Nav from '../Components/Nav/Nav'
 import LazyLoad from 'react-lazyload'
+import {connect} from 'react-redux'
 import Aux from '../Components/HOC/Aux'
 import MainBanner from '../Components/MainBanner/MainBanner'
 import Images from "../Components/Images/Images";
@@ -10,10 +11,10 @@ import Brushes from '../Assets/Images/brushes.jpg';
 import Shoes from '../Assets/Images/shoes.jpg';
 import Acc from '../Assets/Images/acc.jpg';
 import Salon from '../Assets/Images/Salon2.jpg';
-import Sale from '../Assets/Images/Sale.jpg';
 import Layout from "../Components/Layout/Layout";
 
-const Index = () => {
+const Index = (props) => {
+    console.log(props.authenticated);
     return (
         <Layout>
             <MainBanner img={Salon}>SHOP THE COLLECTION</MainBanner>
@@ -58,4 +59,8 @@ const Index = () => {
 
 };
 
-export default Index;
+function mapStateToProps(state) {
+    return { authenticated: state.auth };
+}
+
+export default connect(mapStateToProps)(Index);

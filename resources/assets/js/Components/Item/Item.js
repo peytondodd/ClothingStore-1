@@ -18,16 +18,16 @@ const Item = (props) => {
     return(
 
         <Link className={'NOHREF'} to={props.href}>
+            <LazyLoad height={100}>
             <div className="product-container">
-                <LazyLoad height={300}>
                     <img src={Palet} alt="" className="product-image"/>
-                </LazyLoad>
                 <p className="product-price">{props.dollar}{props.price}</p>
                     <div className='product-stars'>
                     {stars(props.stars)}
                     </div>
                     <p className="product-title">{props.children}</p>
                   </div>
+            </LazyLoad>
         </Link>
     )
 

@@ -32,8 +32,8 @@ class Nav extends Component {
                                 <input type="search" className="search-bar" placeholder="Search..."/>
                             </div>
                         </div>
-                    <a className="nav-link RalewayExtraBold">Free NL shipping on orders over $150</a>
-                        <a className={'nav-link RalewayExtraBold'}>My Account</a>
+                    <a className="nav-link RalewayExtraBold my-auto">Free NL shipping on orders over $150</a>
+                        <a className={'nav-link RalewayExtraBold my-auto'}>My Account</a>
                     </div>
                 </nav>
                 <div className="container">

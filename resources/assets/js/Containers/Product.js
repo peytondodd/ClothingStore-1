@@ -23,8 +23,8 @@ class Product extends Component {
     }
     onclick(type) {
         this.setState(prevState => {
-           if(prevState.count === 0){
-               return {count: type === 'add' ? prevState.count + 1 : 0}
+           if(prevState.count === 1){
+               return {count: type === 'add' ? prevState.count + 1 : 1}
         }
         else{
                return {count: type === 'add' ? prevState.count + 1 : prevState.count - 1}

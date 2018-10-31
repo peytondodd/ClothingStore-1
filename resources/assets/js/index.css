@@ -130,6 +130,7 @@ body {
     margin-top: auto;
     margin-bottom: auto;
     width: 25%;
+    cursor: pointer;
 }
 
 input::-webkit-outer-spin-button,
