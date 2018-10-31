@@ -42,6 +42,24 @@ export function fetchProduct(id){
             });
     }
 }
+
+export function fetchCategories() {
+    return (dispatch)=>{
+        axios.get('/api/categories')
+            .then(res =>{
+               dispatch({
+                   type: types.FETCH_CATEGORIES,
+                   payload: res.data,
+
+               })
+            })
+
+        .catch(e =>{
+
+        })
+    }
+
+}
 export function SORT_LOWRATED (){
     return{
         type:types.SORT_LOWRATED
