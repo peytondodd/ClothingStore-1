@@ -83,9 +83,11 @@ class SliderS extends React.Component {
                     <Slider {...settings}>
                         { this.props.products.map((product , i) =>
                             <div key={i}>
-                                <Item href={'/products/'+product.id+'/'+product.name.replace(/ +/g, "")}
-                                      price={product.price}
-                                      stars={product.stars}>{product.name}</Item></div>
+                                <Item
+                                        showCurrency={true}
+                                        href={'/products/'+product.id+'/'+product.name.replace(/ +/g, "")}
+                                        price={product.price}
+                                        stars={product.stars}>{product.name}</Item></div>
 
                         )
                         }

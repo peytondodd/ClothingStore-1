@@ -6,24 +6,16 @@ import * as actions from "../../actions/index";
 import './Products.css'
 import {Zoom} from 'react-reveal'
 const Products = (props) =>{
-  const ShowDollar = (isTrue) =>{
-        if (isTrue === true){
-            return "$";
-        }
-        else {
-            return null;
-        }
-    };
   const renderProducts =  () =>{
     let filter = props.filter;
     let search = props.search;
     if(search && filter.length){
         return filter.map(product =>{
             return (
-                    <div className='col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12'  key={product.id}>
-                        <Zoom left>
+                    <div className='col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12' key={product.id}>
+                        <Zoom ssrFadeout={true}>
                         <Item href={'/products/'+product.id+'/'+product.name.replace(/ +/g, "")}
-
+                              showCurrency={true}
                               stars={product.stars}
                               price={product.price}
                               dollar={ShowDollar(true)}>
@@ -42,12 +34,12 @@ const Products = (props) =>{
       return props.products.map(product =>{
           return(
                     <div className='col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12' key={product.id}>
-                        <Zoom >
+                        <Zoom ssrFadeout={true} >
                         <Item href={'/products/'+product.id+'/'+product.name.replace(/ +/g, "")}
 
                               stars={product.stars}
                               price={product.price}
-                              dollar={ShowDollar(true)}>
+                              showCurrency={true}>
                             {product.name}
                         </Item>
                         </Zoom>

@@ -15,19 +15,25 @@ const Item = (props) => {
     return stars;
     };
 
+    const ShowDollar = (isTrue) =>{
+        if (isTrue === true){
+            return "$";
+        }
+        else {
+            return '';
+        }
+    };
     return(
 
         <Link className={'NOHREF'} to={props.href}>
-            <LazyLoad height={100}>
             <div className="product-container">
                     <img src={Palet} alt="" className="product-image"/>
-                <p className="product-price">{props.dollar}{props.price}</p>
+                <p className="product-price">{ShowDollar(props.showCurrency)}{props.price}</p>
                     <div className='product-stars'>
                     {stars(props.stars)}
                     </div>
                     <p className="product-title">{props.children}</p>
                   </div>
-            </LazyLoad>
         </Link>
     )
 

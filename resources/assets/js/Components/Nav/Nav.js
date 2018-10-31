@@ -10,6 +10,26 @@ class Nav extends Component {
         this.props.fetchCategories();
     }
 
+
+    renderDropDownItem(){
+        const authenticated = this.props.authenticated;
+        if(authenticated){
+            return(
+                <Aux>
+                    <Link className="dropdown-item" to="/profile">Profile</Link>
+                    <Link className="dropdown-item" to="/logout">Logout</Link>
+                </Aux>
+            )
+        }
+        else{
+            return(
+                <Aux>
+                    <Link className="dropdown-item" to="/Login">Login</Link>
+                    <Link className="dropdown-item" to="/Register">Register</Link>
+                </Aux>
+            )
+        }
+    }
     render() {
 
         return (
@@ -25,7 +45,18 @@ class Nav extends Component {
                             </div>
                         </div>
                     <a className="nav-link RalewayExtraBold my-auto">Free NL shipping on orders over $150</a>
-                        <a className={'nav-link RalewayExtraBold my-auto'}>My Account</a>
+
+
+
+
+                        <div className="dropdown my-auto">
+                        <a  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" className={'nav-link RalewayExtraBold my-auto customdropdownbutton '}>My Account</a>
+                            <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                                {this.renderDropDownItem()}
+                            </div>
+                        </div>
+
+
                     </div>
                 </nav>
                 <div className="container">
@@ -57,7 +88,7 @@ class Nav extends Component {
 const MapStateToProps = (state)=>{
     return{
         categories : state.category.categories,
-
+        authenticated : state.auth.authenticated
     }
 };
 
