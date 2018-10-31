@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Aux from '../Components/HOC/Aux'
 import Cbanner from '../Components/Cbanner/Cbanner'
 import {connect} from 'react-redux'
-import * as actions from '../actions/productAction'
+import * as actions from '../actions'
 import Products from "../Components/Products/Products";
 import Layout from "../Components/Layout/Layout";
 

@@ -5,7 +5,7 @@ import Aux from '../../Components/HOC/Aux'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import {connect} from 'react-redux'
-import {fetchHomeProduct} from "../../actions/productAction";
+import {fetchHomeProduct} from "../../actions/index";
 import PropTypes from 'prop-types'
 function SampleNextArrow(props) {
     const { className, style, onClick } = props;

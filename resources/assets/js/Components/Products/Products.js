@@ -2,7 +2,7 @@ import React from 'react'
 import Aux from "../HOC/Aux";
 import Item from "../Item/Item";
 import {connect} from 'react-redux'
-import * as actions from "../../actions/productAction";
+import * as actions from "../../actions/index";
 import './Products.css'
 import {Zoom} from 'react-reveal'
 const Products = (props) =>{

@@ -1,9 +1,9 @@
 import * as types from "./types";
 import axios from 'axios'
 
-export function fetchHomeProduct() {
-    return function (dispatch) {
-        axios.get(`http://localhost:8000/api/products/home`)
+export const fetchHomeProduct = ()=> {
+    return (dispatch) => {
+        axios.get(`/api/products/home`)
             .then(res => {
                 const products = res.data;
                dispatch({
@@ -13,10 +13,10 @@ export function fetchHomeProduct() {
 
             })
     }
-}
+};
 
-export function fetchCategoryProducts(id){
-    return function (dispatch) {
+export const fetchCategoryProducts = (id) =>{
+    return(dispatch)=> {
         axios.get('http://localhost:8000/api/categories/'+id+'/products')
             .then(res =>{
                 const products = res.data;
@@ -68,8 +68,8 @@ export function SEARCH_PRODUCTS (value){
         payload: value
     }
 }
-export function fetchCategory(id) {
-    return function (dispatch) {
+export const fetchCategory = (id) => {
+    return (dispatch) => {
         axios.get(`http://localhost:8000/api/categories/`+ id)
 
             .then(res => {
@@ -85,4 +85,31 @@ export function fetchCategory(id) {
 
             });
     }
-}
+};
+
+export const signupUser =(payload)=> {
+    return (dispatch) => {
+        axios.post(`/api/register`, payload)
+            .then(res => {
+                if(res.data.message){
+                    dispatch({
+                        type:types.SIGNUP_USER,
+                        payload:res.data.message
+                    })
+                }
+
+
+            })
+            .catch(err => {
+                dispatch(authError(err.response.data.errors));
+            });
+
+    }
+};
+
+export const authError = (error) => {
+    return {
+        type: types.AUTH_ERROR,
+        payload: error
+    };
+};

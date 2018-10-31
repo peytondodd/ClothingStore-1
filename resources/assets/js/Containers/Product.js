@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
-import {fetchProduct} from "../actions/productAction";
+import {fetchProduct} from "../actions/index";
 import { Link } from 'react-router-dom'
 import Palet from '../Assets/Images/pallet.jpg'
 import Layout from "../Components/Layout/Layout";

@@ -12,3 +12,6 @@ export  const SORT_LOWTOHIGH = "SORT_LOWTOHIGH";
 export  const SORT_HIGHTOLOW = "SORT_HIGHTOLOW";
 export const SORT_LOWRATED = "SORT_LOWRATED";
 export const SEARCH_PRODUCTS = "SEARCH_PRODUCTS";
+export const SIGNUP_USER = "SIGNUP_USER";
+export const SIGNIN_USER = "SIGNIN_USER";
+export const AUTH_ERROR ="AUTH_ERROR";
