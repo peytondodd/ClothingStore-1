@@ -241,3 +241,8 @@ h1, h2, h3, h4, h5, h6 {
 .customdropdownbutton{
     cursor: pointer;
 }
+
+.shoppingCart{
+    margin-top: auto;
+    margin-bottom: auto;
+}

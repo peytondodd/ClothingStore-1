@@ -1,6 +1,13 @@
 import * as types from "./types";
 import axios from 'axios'
 import History from '../history'
+
+const gotToken = () => localStorage.getItem('token');
+const headers = () => {
+    return {
+        headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
+    };
+};
 export const fetchHomeProduct = ()=> {
     return (dispatch) => {
         axios.get(`/api/products/home`)
@@ -26,7 +33,7 @@ export const fetchCategoryProducts = (id) =>{
                 })
             })
     }
-}
+};
 
 export function fetchProduct(id){
     return function (dispatch) {
@@ -153,4 +160,20 @@ export const signInUser = (payload) =>{
             dispatch(authError(err.response.data.errors));
         });
    }
+};
+
+export const signOutUser =()=>{
+    if(gotToken()){
+        return (dispatch) =>{
+            axios.post('/api/logout',null,headers())
+                .then(res => {
+                    localStorage.removeItem('token');
+                    dispatch({
+                        type: types.SIGNOUT_USER
+                    })
+                })
+                .catch(e => console.log(e));
+        }
+    }
+
 };

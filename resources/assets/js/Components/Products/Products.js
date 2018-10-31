@@ -5,6 +5,7 @@ import {connect} from 'react-redux'
 import * as actions from "../../actions/index";
 import './Products.css'
 import {Zoom} from 'react-reveal'
+import {FaSearch} from "react-icons/fa";
 const Products = (props) =>{
   const renderProducts =  () =>{
     let filter = props.filter;
@@ -64,11 +65,19 @@ const Products = (props) =>{
                             <a className="dropdown-item" onClick={props.showHighToLow}>Price high to low</a>
                         </div>
                     </div>
-                        <input
-                            className="form-control searchbar-custom"
-                            placeholder = "Search for product ..."
-                            onChange={(e) => props.searchProducts(e.target.value)}
-                            value={props.value} />
+                            <div className="search-container searchbar-custom">
+                                <div className="search-icon-btn border-raduis">
+                                    <FaSearch/>
+                                </div>
+                                <div className="search-input">
+                                    <input
+                                        type="search"
+                                        className="search-bar searchbar-custom"
+                                        placeholder="Search for product..."
+                                        onChange={(e) => props.searchProducts(e.target.value)}
+                                        value={props.value}/>
+                                </div>
+                            </div>
                     </div>
                     <div className="row">
                         {renderProducts()}
