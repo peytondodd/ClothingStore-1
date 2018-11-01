@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
-import {fetchProduct} from "../actions/index";
+import * as actions from "../actions/index";
 import { Link } from 'react-router-dom'
 import Palet from '../Assets/Images/pallet.jpg'
 import Layout from "../Components/Layout/Layout";
@@ -32,6 +32,9 @@ class Product extends Component {
         });
     }
 
+    addtoBag = () =>{
+            this.props.ADDTOCART(this.props.product);
+    }
      stars = (amount) => {
          let stars = [];
          for (let i = 0; i < amount; i++) {
@@ -100,7 +103,7 @@ class Product extends Component {
                                 </div>
                             </div>
 
-                            <button className='btn btn-primary addCartfirst '>Add to bag</button>
+                            <button className='btn btn-primary addCartfirst ' onClick={() =>{this.addtoBag()}}>Add to bag</button>
                             </div>
                         </div>
                     </div>
@@ -114,4 +117,4 @@ class Product extends Component {
 const mapStateToProps = state =>({
     product: state.products.product
 });
-export default connect(mapStateToProps,{fetchProduct})(Product);
+export default connect(mapStateToProps,actions)(Product);

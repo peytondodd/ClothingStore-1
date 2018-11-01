@@ -177,3 +177,32 @@ export const signOutUser =()=>{
     }
 
 };
+
+export const FETCH_ALLCART = (items)=>{
+    const payload = JSON.parse(localStorage.getItem('cart'));
+    console.log(payload);
+    console.log(payload);
+    return{
+        type:types.FETCH_ALLCART,
+        payload:payload
+    }
+};
+
+
+export const ADDTOCART = (product)=>{
+    const cart = localStorage.getItem('cart');
+    if(!cart){
+       let cartArray = [];
+           cartArray.push(product);
+           localStorage.setItem('cart', JSON.stringify(cartArray));
+    }
+    else{
+        const ar = JSON.parse(localStorage.getItem('cart'));
+        const newProduct = JSON.stringify(product);
+        ar.push(newProduct);
+        localStorage.setItem('cart' , JSON.stringify(ar));
+        FETCH_ALLCART(ar);
+
+    }
+};
+

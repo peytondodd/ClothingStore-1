@@ -1,28 +1,37 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './Nav.css';
 import Aux from '../../Components/HOC/Aux';
 import {FaSearch, FaShoppingCart} from 'react-icons/fa'
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import * as actions from '../../actions'
-import Item from '../../Components/Item/Item'
-class Nav extends Component {
+import * as actions from '../../actions';
+import NavCart from "./NavCart";
+class Nav extends React.PureComponent {
     componentDidMount() {
         this.props.fetchCategories();
+        this.fetchCart();
+    }
+
+    fetchCart(){
+        const cart =  localStorage.getItem('cart');
+        if(cart){
+            this.props.FETCH_ALLCART(localStorage.getItem('cart'));
+        }
     }
 
     renderShoppingCart() {
-        const cart = [];
         return (
             <div className="dropdown shoppingCart">
                 <FaShoppingCart
+
+                    size={20}
                     className='shoppingCart'
                     id="dropdownMenuButton"
                     data-toggle="dropdown"
                     aria-haspopup="true"
                     aria-expanded="false"/>
                 <div className="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenuButton">
-                    <a className="dropdown-item" href="#"> ITEMS  </a>
+                   <NavCart/>
 
                 </div>
             </div>
