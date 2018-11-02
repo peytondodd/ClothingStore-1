@@ -180,11 +180,9 @@ export const signOutUser =()=>{
 
 export const FETCH_ALLCART = (items)=>{
     const payload = JSON.parse(localStorage.getItem('cart'));
-    console.log(payload);
-    console.log(payload);
     return{
         type:types.FETCH_ALLCART,
-        payload:payload
+        payload:payload,
     }
 };
 
@@ -217,9 +215,23 @@ export const ADDTOCART = (product,count)=>{
             }
         }
         else{
-        //loop over each and update
+        ar.forEach(p =>{
+            if(p.id === product.id){
+                p.count += count;
+                localStorage.setItem('cart' , JSON.stringify(ar));
+            }
+        });
+            return{
+                type:types.UPDATE_TOCART,
+                payload: ar
+            }
         }
 
     }
 };
 
+export const closeCart = () =>{
+  return{
+      type: types.CLOSE_CART
+  }
+};

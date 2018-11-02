@@ -19,24 +19,6 @@ class Nav extends React.PureComponent {
         }
     }
 
-    renderShoppingCart() {
-        return (
-            <div className="dropdown shoppingCart">
-                <FaShoppingCart
-
-                    size={20}
-                    className='shoppingCart'
-                    id="dropdownMenuButton"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"/>
-                <div className="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenuButton">
-                   <NavCart/>
-
-                </div>
-            </div>
-        )
-    }
 
     renderDropDownItem() {
         const authenticated = this.props.authenticated;
@@ -66,7 +48,7 @@ class Nav extends React.PureComponent {
             <Aux>
                 <nav className="navbar navbar-expand-lg navbar-dark UpperNav rounded">
                     <div className="navWrapper">
-                        {this.renderShoppingCart()}
+                      <NavCart/>
                         <a className="nav-link RalewayExtraBold my-auto">Free NL shipping on orders over $150</a>
 
 
@@ -111,7 +93,7 @@ class Nav extends React.PureComponent {
 const MapStateToProps = (state) => {
     return {
         categories: state.category.categories,
-        authenticated: state.auth.authenticated
+        authenticated: state.auth.authenticated,
     }
 };
 

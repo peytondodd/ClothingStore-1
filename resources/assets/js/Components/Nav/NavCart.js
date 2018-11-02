@@ -2,8 +2,10 @@ import React from 'react'
 import {connect} from 'react-redux'
 import * as actions from '../../actions';
 import palet from '../../Assets/Images/pallet.jpg'
+import {Fade } from 'react-reveal'
 
 import Aux from "../HOC/Aux";
+import {FaShoppingCart} from "react-icons/fa";
 const NavCart = props =>{
     const items = () =>{
       const items = props.items;
@@ -20,6 +22,17 @@ const NavCart = props =>{
     };
 return(
     <Aux>
+        <div className={"dropdown shoppingCart "  + (props.isOpen ? "show" : '')}>
+        <FaShoppingCart
+
+            size={20}
+            className='shoppingCart'
+            id="dropdownMenuButton"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded={(props.isOpen ? "true" : 'false')}/>
+        <div className={"dropdown-menu dropdown-menu-left " + (props.isOpen ? "show" : '')} aria-labelledby="dropdownMenuButton">
+
         <div className="container-cart">
             <div className="shopping-cart">
                 <div className="shopping-cart-header">
@@ -37,6 +50,9 @@ return(
                 <a href="#" className="button">Checkout</a>
             </div>
         </div>
+
+        </div>
+    </div>
     </Aux>
 
 )
@@ -47,7 +63,8 @@ const MapStateToProps = (state) =>{
     return{
         items : state.cart.products,
         totalPrice: state.cart.totalPrice,
-        totalItems : state.cart.totalItems
+        totalItems : state.cart.totalItems,
+        isOpen : state.cart.isOpen
     }
 };
 

@@ -18,6 +18,9 @@ class Product extends Component {
 
 
     }
+    componentWillUnmount(){
+          this.props.closeCart();
+    }
     handleNumberChange(event){
         this.setState({ [event.target.name]: event.target.value });
     }
@@ -115,6 +118,6 @@ class Product extends Component {
 
 
 const mapStateToProps = state =>({
-    product: state.products.product
+    product: state.products.product,
 });
 export default connect(mapStateToProps,actions)(Product);
