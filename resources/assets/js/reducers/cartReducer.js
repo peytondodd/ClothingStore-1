@@ -12,6 +12,10 @@ export default function (state = initialState , action) {
          return{
              ...state, products:action.payload, totalItems:action.payload.length
          };
+        case types.ADD_TOCART:
+            return{
+                ...state, products:[...state.products,action.payload] ,totalItems:[...state.products,action.payload].length
+            };
         default:
             return state
     }

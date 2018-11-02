@@ -33,8 +33,8 @@ class Product extends Component {
     }
 
     addtoBag = () =>{
-            this.props.ADDTOCART(this.props.product);
-    }
+            this.props.ADDTOCART(this.props.product, this.state.count);
+    };
      stars = (amount) => {
          let stars = [];
          for (let i = 0; i < amount; i++) {

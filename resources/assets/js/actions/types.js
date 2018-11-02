@@ -17,3 +17,4 @@ export const SIGNIN_USER = "SIGNIN_USER";
 export const AUTH_ERROR ="AUTH_ERROR";
 export const SIGNOUT_USER= "SIGNOUT_USER";
 export const FETCH_ALLCART = "FETCH_ALLCART";
+export const ADD_TOCART = "ADD_TOCART";

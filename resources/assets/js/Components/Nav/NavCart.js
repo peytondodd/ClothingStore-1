@@ -1,6 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import * as actions from '../../actions';
+import palet from '../../Assets/Images/pallet.jpg'
+
 import Aux from "../HOC/Aux";
 const NavCart = props =>{
     const items = () =>{
@@ -8,10 +10,10 @@ const NavCart = props =>{
       return items.map(item => {
             return(
                 <li className="clearfix li-shopping-cart" key={item.id}>
-                    <img className={'item-image'} src={item.image} alt="item1"/>
+                    <img className={'item-image'} src={palet} alt="item1"/>
                     <span className="item-name">{item.name}</span>
                     <span className="item-price">${item.price}</span>
-                    <span className="item-quantity">Quantity: {item.amount}</span>
+                    <span className="item-quantity">Quantity: {item.count}</span>
                 </li>
             )
       })

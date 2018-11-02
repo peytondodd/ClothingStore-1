@@ -189,19 +189,36 @@ export const FETCH_ALLCART = (items)=>{
 };
 
 
-export const ADDTOCART = (product)=>{
+export const ADDTOCART = (product,count)=>{
     const cart = localStorage.getItem('cart');
+    product['count'] = count;
+    const newproduct = product;
     if(!cart){
        let cartArray = [];
-           cartArray.push(product);
+           cartArray.push(newproduct);
            localStorage.setItem('cart', JSON.stringify(cartArray));
+           return{
+               type : types.ADD_TOCART,
+               payload:newproduct
+           }
     }
     else{
         const ar = JSON.parse(localStorage.getItem('cart'));
-        const newProduct = JSON.stringify(product);
-        ar.push(newProduct);
-        localStorage.setItem('cart' , JSON.stringify(ar));
-        FETCH_ALLCART(ar);
+         const found   =ar.some((el)=>{
+            return el.id === newproduct.id;
+
+        });
+        if(!found){
+            ar.push(newproduct);
+            localStorage.setItem('cart' , JSON.stringify(ar));
+            return{
+                type : types.ADD_TOCART,
+                payload:newproduct
+            }
+        }
+        else{
+        //loop over each and update
+        }
 
     }
 };
