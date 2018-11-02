@@ -7,6 +7,7 @@ import {Fade } from 'react-reveal'
 import Aux from "../HOC/Aux";
 import {FaShoppingCart} from "react-icons/fa";
 const NavCart = props =>{
+    console.log(props.isOpen);
     const items = () =>{
       const items = props.items;
       return items.map(item => {

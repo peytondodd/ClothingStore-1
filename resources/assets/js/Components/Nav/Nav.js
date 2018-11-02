@@ -10,6 +10,7 @@ class Nav extends React.PureComponent {
     componentDidMount() {
         this.props.fetchCategories();
         this.fetchCart();
+        this.props.fetchUser();
     }
 
     fetchCart(){
@@ -25,6 +26,7 @@ class Nav extends React.PureComponent {
         if (authenticated) {
             return (
                 <Aux>
+                    <a className='dropdown-item'>Welcome {this.props.user.firstName}!</a>
                     <Link className="dropdown-item" to="/profile">Profile</Link>
                     <a className="dropdown-item" onClick={() => {
                         this.props.signOutUser()
@@ -94,6 +96,7 @@ const MapStateToProps = (state) => {
     return {
         categories: state.category.categories,
         authenticated: state.auth.authenticated,
+        user: state.auth.user
     }
 };
 

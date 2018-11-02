@@ -235,3 +235,17 @@ export const closeCart = () =>{
       type: types.CLOSE_CART
   }
 };
+
+export const fetchUser = () =>{
+    return (dispatch)=> {
+        if (gotToken())
+            axios.get('/api/user',headers())
+                .then(res => {
+                    const user =res.data;
+                    dispatch({
+                        type:types.FETCH_USER,
+                        payload : user
+                    })
+                })
+    }
+    };

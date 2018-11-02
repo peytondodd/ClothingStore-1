@@ -20,3 +20,4 @@ export const FETCH_ALLCART = "FETCH_ALLCART";
 export const ADD_TOCART = "ADD_TOCART";
 export const UPDATE_TOCART = "UPDATE_TOCART";
 export const CLOSE_CART= "CLOSE_CART";
+export const FETCH_USER = "FETCH_USER"

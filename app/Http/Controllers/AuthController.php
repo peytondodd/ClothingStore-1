@@ -70,4 +70,8 @@ class AuthController extends Controller
             'message' => 'Successfully logged out'
         ]);
     }
+    public function getUser(Request $request){
+        return $request->user();
+
+    }
 }
