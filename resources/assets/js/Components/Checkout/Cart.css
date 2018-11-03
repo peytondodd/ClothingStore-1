@@ -1,0 +1,21 @@
+.shopping-cart-name{
+    color: #c82333;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.img-custom-table{
+    height: auto;
+    width: 100%;
+    max-width: 130px;
+    min-width: 130px;
+}
+
+.custom-table-width{
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 50%;
+    cursor: pointer;
+}
+.align-td-middle td{
+    vertical-align: middle;
+}

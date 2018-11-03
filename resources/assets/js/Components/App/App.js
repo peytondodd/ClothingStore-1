@@ -10,6 +10,7 @@ import requireAuth from '../auth/requireAuth'
 import Register from "../../Containers/Register";
 import Login from '../../Containers/Login'
 import Profile from "../../Containers/Profile";
+import CheckOut from "../../Containers/Checkout";
 class App extends Component {
     render() {
         return (
@@ -23,6 +24,7 @@ class App extends Component {
                     <Route path="/login" exact component={requireGuest(Login)}/>
                     <Route path="/categories/:id/:name" exact component={Categories}/>
                     <Route path="/products/:id/:name" exact component={Product}/>
+                    <Route path="/checkout" exact component={requireAuth(CheckOut)} />
                 </Switch>
                 </Router>
             </BrowserRouter>

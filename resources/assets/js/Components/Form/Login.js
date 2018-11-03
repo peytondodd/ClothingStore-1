@@ -12,7 +12,9 @@ class LoginForm extends PureComponent {
             remember_me:false,
         };
     }
-
+    static contextTypes = {
+        router: () => true,
+    };
 
     handleFormSubmit = async({email , password}) => {
         const rememberMe = this.state.remember_me;

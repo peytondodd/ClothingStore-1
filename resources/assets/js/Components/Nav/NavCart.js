@@ -2,8 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import * as actions from '../../actions';
 import palet from '../../Assets/Images/pallet.jpg'
-import {Fade } from 'react-reveal'
-
+import {Link} from 'react-router-dom';
 import Aux from "../HOC/Aux";
 import {FaShoppingCart} from "react-icons/fa";
 const NavCart = props =>{
@@ -48,7 +47,7 @@ return(
                     {items()}
                 </ul>
 
-                <a href="#" className="button">Checkout</a>
+                <Link to={'/checkout'} className="button">Checkout</Link>
             </div>
         </div>
 
