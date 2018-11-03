@@ -33,6 +33,14 @@ export default function (state = initialState , action) {
           return {
               ...state , products:action.payload , totalPrice : getTotalPrice(action.payload) , totalItems:getTotalItems(action.payload), isOpen:true
           };
+        case types.ADD_CART:
+            return {
+                ...state , products:action.payload , totalPrice : getTotalPrice(action.payload) , totalItems:getTotalItems(action.payload),
+            };
+        case types.REMOVE_CART:
+            return {
+                ...state , products:action.payload , totalPrice : getTotalPrice(action.payload) , totalItems:getTotalItems(action.payload),
+            };
         case types.CLOSE_CART:
             return{
                 ...state, isOpen:false

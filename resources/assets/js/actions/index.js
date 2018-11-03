@@ -231,6 +231,10 @@ export const ADDTOCART = (product,count)=>{
     }
 };
 
+
+
+
+
 export const closeCart = () =>{
   return{
       type: types.CLOSE_CART
@@ -250,3 +254,26 @@ export const fetchUser = () =>{
                 })
     }
     };
+
+
+
+export const addToCart = (id) =>{
+    const ar = JSON.parse(localStorage.getItem('cart'));
+    ar.map(p => p.id === id ? p.count +=1 : p);
+    localStorage.setItem('cart' , JSON.stringify(ar));
+    return{
+        type:types.ADD_CART,
+        payload:ar
+    }
+
+};
+export const RemoveFromCart = (id) =>{
+    const ar = JSON.parse(localStorage.getItem('cart'));
+    ar.map(p => p.id === id ? p.count -=1 : p);
+ const newarray = ar.filter(p =>  p.count >= 1);
+    localStorage.setItem('cart' , JSON.stringify(newarray));
+return{
+    type:types.REMOVE_CART,
+    payload:newarray
+}
+};

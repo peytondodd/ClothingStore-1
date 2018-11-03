@@ -12,6 +12,7 @@ const CheckOut  = (props) => {
                     <Cart/>
 
                 </div>
+                
 
             </div>
         </Layout>

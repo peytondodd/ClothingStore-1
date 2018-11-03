@@ -19,3 +19,12 @@
 .align-td-middle td{
     vertical-align: middle;
 }
+.shopping-cart-total{
+    border-top:1px solid;
+    border-color: lightgray;
+}
+.shopping-cart-total h4{
+  margin-top: 15px;
+    color: #c82333;
+    float: right;
+}

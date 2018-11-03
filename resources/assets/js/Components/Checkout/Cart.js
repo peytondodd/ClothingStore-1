@@ -6,6 +6,8 @@ import Palet from '../../Assets/Images/pallet.jpg'
 const Cart  = (props) => {
     const renderItems = () =>{
         const items = props.items;
+        if(items && items.length){
+
        return items.map(item =>{
             return(
                 <tr key={item.id} className='align-td-middle'>
@@ -13,19 +15,26 @@ const Cart  = (props) => {
                     <td>{item.name}</td>
                     <td><div className="input-group input-group-sm  custom-table-width">
                         <div className="input-group-prepend">
-                            <span className="input-group-text" id="inputGroup-sizing-sm">-</span>
+                            <span className="input-group-text" id="inputGroup-sizing-sm" onClick={()=>{props.RemoveFromCart(item.id)}}>-</span>
                         </div>
-                        <input type="number" name='count' value={item.count} className="form-control amountForm" aria-label="Sizing example input"
+                        <input type="number" name='count' value={item.count} onChange= {(e) => onChangeSelect(e.target.value)} className="form-control amountForm" aria-label="Sizing example input"
                                aria-invalid={"false"}
                                aria-describedby="inputGroup-sizing-sm" />
                         <div className="input-group-prepend">
-                            <span className="input-group-text" id="inputGroup-sizing-sm">+</span>
+                            <span className="input-group-text" id="inputGroup-sizing-sm" onClick={()=>{props.addToCart(item.id)}}>+</span>
                         </div>
                     </div></td>
                      <td>${totalPrice(item.price , item.count)}</td>
                 </tr>
             )
         })
+
+        }
+    else
+      return <span className='RalewayBold'>Your Shopping cart is empty!</span>;
+    {
+
+    }
     };
 
     const totalPrice =(price , amount)=> price * amount;
@@ -40,12 +49,16 @@ const Cart  = (props) => {
                </tbody>
            </table>
          </div>
+        <div className="shopping-cart-total">
+            <h4 className='RalewayBold '>Your total Price : ${props.total}</h4>
+        </div>
        </div>
     )
 
 };
 const MapStateToProps = (state)=>{
     return{
+        total:state.cart.totalPrice,
         items : state.cart.products,
         user : state.auth.user
     }
