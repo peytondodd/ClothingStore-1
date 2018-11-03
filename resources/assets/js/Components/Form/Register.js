@@ -6,9 +6,9 @@ import { Field, reduxForm } from 'redux-form';
 class RegisterForm extends PureComponent {
 
 
-    handleFormSubmit = ({firstName , secondName , email , password ,password_confirmation, address , PostalCode}) => {
+    handleFormSubmit = ({firstName , secondName , email , password ,password_confirmation, address , PostalCode, city , country}) => {
 
-        this.props.signupUser({firstName , secondName , email , password ,password_confirmation, address , PostalCode})
+        this.props.signupUser({firstName , secondName , email , password ,password_confirmation, address , PostalCode , city ,country})
 
     };
 
@@ -41,6 +41,12 @@ class RegisterForm extends PureComponent {
             }
             if(errors.PostalCode){
                 errorsarray.push(errors.PostalCode[0]);
+            }
+            if(errors.city){
+                errorsarray.push(errors.city[0]);
+            }
+            if(errors.country){
+                errorsarray.push(errors.country[0]);
             }
             return (
                 <Zoom when={errors}>
@@ -100,6 +106,14 @@ class RegisterForm extends PureComponent {
                                 <fieldset className="form-group">
                                     <label>Postal Code</label>
                                     <Field className="form-control" name="PostalCode" component="input" type="text" />
+                                </fieldset>
+                                <fieldset className="form-group">
+                                    <label>City</label>
+                                    <Field className="form-control" name="city" component="input" type="text" />
+                                </fieldset>
+                                <fieldset className="form-group">
+                                    <label>Country</label>
+                                    <Field className="form-control" name="country" component="input" type="text" />
                                 </fieldset>
                                 <button type="submit" className="btn btn-primary btnCustom">Sign Up</button>
                                 {this.renderResponse()}

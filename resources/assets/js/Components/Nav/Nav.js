@@ -26,9 +26,8 @@ class Nav extends React.PureComponent {
         if (authenticated) {
             return (
                 <Aux>
-                    <a className='dropdown-item'>Welcome {this.props.user.firstName}!</a>
                     <Link className="dropdown-item" to="/profile">Profile</Link>
-                    <a className="dropdown-item" onClick={() => {
+                    <a className="dropdown-item logout-button" onClick={() => {
                         this.props.signOutUser()
                     }}>Logout</a>
                 </Aux>

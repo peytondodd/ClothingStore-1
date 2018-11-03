@@ -1,0 +1,27 @@
+.information-head{
+    color:#cf576b;
+}
+.information-wrapper{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.information-p{
+    margin:0;
+}
+.personal-information p {
+    display: inline-flex;
+    margin-right: auto;
+    justify-content: space-between;
+}
+.align-right{
+    float: right;
+}
+
+.edit-Information{
+    color:#cf576b;
+    font-size: 130%;
+}
+.edit-Information:hover{
+    color: #bf5063;
+    text-decoration: none;
+}

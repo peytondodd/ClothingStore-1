@@ -113,6 +113,7 @@ export const fetchCategory = (id) => {
 };
 
 export const signupUser =(payload)=> {
+    console.log(payload);
     return (dispatch) => {
         axios.post(`/api/register`, payload)
             .then(res => {

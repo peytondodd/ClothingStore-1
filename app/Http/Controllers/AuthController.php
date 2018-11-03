@@ -16,7 +16,9 @@ class AuthController extends Controller
             'email' => 'required|string|email|unique:users',
             'password' => 'required|string|confirmed',
             'address' => 'required|string',
-            'PostalCode' => 'required|string'
+            'PostalCode' => 'required|string',
+            'city' => 'required|string',
+            'country' => 'required|string'
         ]);
 
         $user = new User([
@@ -26,6 +28,8 @@ class AuthController extends Controller
             'password' => bcrypt($request->password),
             'address' => $request->address,
             'PostalCode' => $request->PostalCode,
+            'city' => $request->city,
+            'country' => $request->country
         ]);
         $user->save();
 

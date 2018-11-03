@@ -9,6 +9,7 @@ import requireGuest from '../auth/requireGuest'
 import requireAuth from '../auth/requireAuth'
 import Register from "../../Containers/Register";
 import Login from '../../Containers/Login'
+import Profile from "../../Containers/Profile";
 class App extends Component {
     render() {
         return (
@@ -18,6 +19,7 @@ class App extends Component {
 
                     <Route path="/" exact component={Index}/>
                     <Route path="/register" exact component={requireGuest(Register)}/>
+                    <Route path="/profile" exact component={requireAuth(Profile)}/>
                     <Route path="/login" exact component={requireGuest(Login)}/>
                     <Route path="/categories/:id/:name" exact component={Categories}/>
                     <Route path="/products/:id/:name" exact component={Product}/>
