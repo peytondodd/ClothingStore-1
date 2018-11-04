@@ -7,6 +7,8 @@ use App\Orders;
 use App\Products;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Mollie\Laravel\Facades\Mollie;
+
 class OrdersController extends Controller
 {
     /**
@@ -32,12 +34,27 @@ class OrdersController extends Controller
         $order = new Orders;
         $order->user_id = $user['id'];
         $order->save();
+        //$total = 0 ;
+        if(array_sum($products) === 0){
+            return response(['message' => 'Something went wrong!'], 406);
+        }
         foreach ($products as $product) {
             $found = Products::find($product['id']);
             if(!$found){
-                return response(['message' => 'Something went wrong!']);
+                return response(['message' => 'Something went wrong!'], 400);
             }
             if($found){
+                /*
+                $total += ($product['price'] * $product['count']);
+                $payment = Mollie::api()->payments()->create([
+                   'amount' =>[
+                       'currency'=> 'EUR',
+                        'value' =>'10.00',
+                   ],
+                    'description' => 'My first API payment',
+                    'webhookUrl' => 'https://www.google.nl/',
+                    'redirectUrl' => "https://www.google.nl/",
+                ]);*/
                 $orderProduct = new OrderProduct;
                 $orderProduct->product_id = $product['id'];
                 $orderProduct->Order_id = $order->id;
@@ -45,7 +62,7 @@ class OrdersController extends Controller
                 $orderProduct->save();
             }
         }
-        return response(['message' => 'Ur Order has been places!']);
+        return response(['message' => 'Ur Order has been places!'],201);
     }
 
     /**

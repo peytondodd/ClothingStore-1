@@ -29,14 +29,13 @@ const Cart  = (props) => {
             )
         })
 
-        }
-    else
-      return <span className='RalewayBold'>Your Shopping cart is empty!</span>;
-    {
-
     }
+        else {
+            return <tr><td><span className='RalewayBold'>Your Shopping cart is empty!</span></td></tr>;
+        }
     };
 
+    const checkOutButton =()=>{return props.total ?  <button onClick={()=>{props.checkout()}}>Check Out</button>: null}
     const totalPrice =(price , amount)=> price * amount;
 
     return(
@@ -51,7 +50,7 @@ const Cart  = (props) => {
          </div>
         <div className="shopping-cart-total">
             <h4 className='RalewayBold '>Your total Price : ${props.total}</h4>
-            <button onClick={()=>{props.checkout()}}>Check Out</button>
+            {checkOutButton()}
         </div>
        </div>
     )

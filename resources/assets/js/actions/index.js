@@ -283,7 +283,10 @@ export const checkout = () =>{
         return (dispatch)=>{
         const products = JSON.parse(localStorage.getItem('cart'));
         axios.post('/api/order/new',products,headers())
-            .then(res => console.log(res))
+            .then(res => {
+
+
+                        });
     }
     }
 };
