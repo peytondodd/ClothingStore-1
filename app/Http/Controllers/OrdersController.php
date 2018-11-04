@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\OrderProduct;
 use App\Orders;
+use App\Products;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class OrdersController extends Controller
 {
     /**
@@ -23,9 +25,27 @@ class OrdersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $user = Auth::user();
+        $products = $request->all();
+        $order = new Orders;
+        $order->user_id = $user['id'];
+        $order->save();
+        foreach ($products as $product) {
+            $found = Products::find($product['id']);
+            if(!$found){
+                return response(['message' => 'Something went wrong!']);
+            }
+            if($found){
+                $orderProduct = new OrderProduct;
+                $orderProduct->product_id = $product['id'];
+                $orderProduct->Order_id = $order->id;
+                $orderProduct->Quantity = $product['count'];
+                $orderProduct->save();
+            }
+        }
+        return response(['message' => 'Ur Order has been places!']);
     }
 
     /**

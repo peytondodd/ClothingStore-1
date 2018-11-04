@@ -51,6 +51,7 @@ const Cart  = (props) => {
          </div>
         <div className="shopping-cart-total">
             <h4 className='RalewayBold '>Your total Price : ${props.total}</h4>
+            <button onClick={()=>{props.checkout()}}>Check Out</button>
         </div>
        </div>
     )
