@@ -93,7 +93,7 @@ class Product extends Component {
                             <p className="text-center mt-3">
                                 {products.description}
                             </p>
-                            <div className="CartButtonWrapper">
+                            <div className="CartButtonWrapper ">
                             <div className="input-group input-group-sm  customWidth">
                                 <div className="input-group-prepend" onClick={this.onclick.bind(this,'sub')}>
                                     <span className="input-group-text" id="inputGroup-sizing-sm">-</span>

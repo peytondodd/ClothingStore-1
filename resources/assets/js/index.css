@@ -100,8 +100,11 @@ body {
     text-align: center;
 
 }
-@media (max-width: 768px) {
+@media (max-width: 766px) {
     .addCartfirst{
+        display: none;
+    }
+    .customWidth{
         display: none;
     }
 }

@@ -383,9 +383,16 @@ list-style-type: none;
     clear: both;
 }
 
-.dropdown:hover>.dropdown-menu {
-    display: block;
-}
 .logout-button{
     cursor: pointer;
+}
+
+@media (max-width: 524px) {
+    .renderOnLarge{
+        display: none;
+    }
+    .navWrapper{
+        justify-content: space-between;
+
+    }
 }

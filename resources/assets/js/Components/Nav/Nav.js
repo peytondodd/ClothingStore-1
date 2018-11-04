@@ -50,7 +50,7 @@ class Nav extends React.PureComponent {
                 <nav className="navbar navbar-expand-lg navbar-dark UpperNav rounded">
                     <div className="navWrapper">
                       <NavCart/>
-                        <a className="nav-link RalewayExtraBold my-auto">Free NL shipping on orders over $150</a>
+                        <a className="nav-link RalewayExtraBold my-auto renderOnLarge">Free NL shipping on orders over $150</a>
 
 
                         <div className="dropdown my-auto">

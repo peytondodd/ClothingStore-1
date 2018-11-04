@@ -17,7 +17,7 @@ const Cart  = (props) => {
                         <div className="input-group-prepend">
                             <span className="input-group-text" id="inputGroup-sizing-sm" onClick={()=>{props.RemoveFromCart(item.id)}}>-</span>
                         </div>
-                        <input type="number" name='count' value={item.count} onChange= {(e) => onChangeSelect(e.target.value)} className="form-control amountForm" aria-label="Sizing example input"
+                        <input type="number" name='count' value={item.count}  onChange= {(e) => props.UpdateCART(e.target.value)} className="form-control amountForm" aria-label="Sizing example input"
                                aria-invalid={"false"}
                                aria-describedby="inputGroup-sizing-sm" />
                         <div className="input-group-prepend">
