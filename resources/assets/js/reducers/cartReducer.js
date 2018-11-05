@@ -41,6 +41,8 @@ export default function (state = initialState , action) {
             return {
                 ...state , products:action.payload , totalPrice : getTotalPrice(action.payload) , totalItems:getTotalItems(action.payload),
             };
+        case types.CHECKOUT_CART:
+            return {...state ,...initialState};
         case types.CLOSE_CART:
             return{
                 ...state, isOpen:false

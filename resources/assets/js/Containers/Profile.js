@@ -11,14 +11,16 @@ const Profile = (props) =>{
 return(
     <Layout>
        <Cbanner>
-           Welcome! {props.user.firstName}
+           Welcome {props.user.firstName}!
        </Cbanner>
         <div className="container">
         <div className="row">
             <Gegevens/>
-            <Orders/>
 
         </div>
+            <div className="row">
+                <Orders/>
+            </div>
         </div>
     </Layout>
     );

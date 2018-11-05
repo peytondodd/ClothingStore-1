@@ -17,4 +17,7 @@ class Orders extends Model
     public function OrderProduct(){
         return $this->hasMany('App\OrderProduct');
     }
+    public function status(){
+        return $this->belongsTo('App\status');
+    }
 }

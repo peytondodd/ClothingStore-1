@@ -284,9 +284,27 @@ export const checkout = () =>{
         const products = JSON.parse(localStorage.getItem('cart'));
         axios.post('/api/order/new',products,headers())
             .then(res => {
-
-
-                        });
+                if(res.status !== 406){
+                    localStorage.removeItem('cart');
+                    dispatch({
+                        type:types.CHECKOUT_CART,
+                    })
+                }
+            });
     }
+    }
+};
+
+export const fetchLatestOrders = () =>{
+    return (dispatch) =>{
+    if(gotToken()){
+        axios.get('/api/user/orders/latest',headers())
+            .then(res => dispatch({
+                type:types.FETCH_USERORDERS,
+                payload:res.data
+
+            }))
+    }
+
     }
 };

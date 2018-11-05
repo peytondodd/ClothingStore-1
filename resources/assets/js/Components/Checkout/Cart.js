@@ -39,7 +39,7 @@ const Cart  = (props) => {
     const totalPrice =(price , amount)=> price * amount;
 
     return(
-       <div className='col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12'>
+       <div className='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12'>
            <h3 className='shopping-cart-name RalewayBold'>Shopping Cart of {props.user.firstName}:</h3>
          <div className="table-responsive-sm">
            <table className="table">

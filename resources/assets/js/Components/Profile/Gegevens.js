@@ -7,7 +7,7 @@ const Gegevens = (props) =>{
 
 
     return(
-        <div className='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12'>
+        <div className='col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12'>
             <div className="information-wrapper ">
             <h3 className='information-head RalewayBold'>My information:</h3>
                 <p className='RalewayBold information-p'>Address informations</p>

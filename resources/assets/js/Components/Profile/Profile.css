@@ -25,3 +25,17 @@
     color: #bf5063;
     text-decoration: none;
 }
+
+.order-information{
+    float: left;
+}
+.order-information p {
+    color:#cf576b;
+}
+.order-information a {
+    color:#cf576b;
+}
+.order-status{
+    color:black !important;
+    font-size: 90%;
+}
