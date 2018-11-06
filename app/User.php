@@ -16,7 +16,6 @@ class User extends Authenticatable
 
     }
 
-
     /**
      * The attributes that are mass assignable.
      *
@@ -32,7 +31,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token','admin'
     ];
 
     public function orders(){

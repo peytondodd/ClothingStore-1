@@ -26,7 +26,7 @@ class AuthController extends Controller
             'firstName' => $request->firstName,
             'secondName' => $request->secondName,
             'email' => $request->email,
-            'password' => bcrypt($request->password),
+            'password' => $request->password,
             'address' => $request->address,
             'PostalCode' => $request->PostalCode,
             'city' => $request->city,
@@ -88,10 +88,10 @@ class AuthController extends Controller
         $user = $request->user();
         $updatedUser = User::find($user->id);
         if($request->input('old_password')){
-        if (Hash::check($request->input('old_password'), $user->password)) {
             $validatedData = $request->validate([
                 'password' => 'required|max:255',
             ]);
+        if (Hash::check($request->input('old_password'), $user->password)) {
             $updatedUser->fill($request->input())->save();
             return response(['message' =>"Credentials succesfully updated! " , "user" => $updatedUser]);
         }

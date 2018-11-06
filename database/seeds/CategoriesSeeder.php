@@ -13,7 +13,7 @@ class CategoriesSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
-        foreach (range(0,4) as $index) {
+        foreach (range(0,3) as $index) {
             DB::table('categories')->insert([
                 'name' => $faker->name,
             ]);
