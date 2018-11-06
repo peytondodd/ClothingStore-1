@@ -334,3 +334,15 @@ export const EditUser =(payload)=> {
     }
 };
 
+export const fetchUserOrders = () =>{
+    if(gotToken()){
+            return (dispatch) =>{
+                axios.get('/api/user/orders',headers())
+                    .then(res => dispatch({
+                        type:types.FETCH_ALLUSERORDERS,
+                        payload : res.data
+                    }));
+            }
+
+    }
+};

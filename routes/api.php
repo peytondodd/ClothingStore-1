@@ -24,6 +24,7 @@ Route::get('/categories/{id}/products',"CategoriesController@find");
 
 //auth routes
 Route::group(['middleware' => ['auth:api']], function () {
+    Route::get('/user/orders',"OrdersController@allOrders");
     Route::post('/logout', 'AuthController@logout');
     Route::get('/user', 'AuthController@getUser');
     Route::post('/order/new','OrdersController@create');

@@ -7,6 +7,8 @@ use App\Orders;
 use App\Products;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Mollie\Api\Resources\Order;
+
 class OrdersController extends Controller
 {
     /**
@@ -14,12 +16,18 @@ class OrdersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $user = $request->user();
 
 
     }
 
+        public function allOrders(Request $request){
+            $user = $request->user();
+            $orders=  Orders::with('OrderProduct.product', "status")->where('user_id' , $user->id)->get();
+            return response($orders);
+        }
     /**
      * Show the form for creating a new resource.
      *
