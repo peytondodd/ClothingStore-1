@@ -23,6 +23,10 @@ class OrdersController extends Controller
 
     }
 
+    public function find($id){
+        $order = Orders::with('OrderProduct.product', "status")->findOrFail($id);
+        return response($order);
+    }
         public function allOrders(Request $request){
             $user = $request->user();
             $orders=  Orders::with('OrderProduct.product', "status")->where('user_id' , $user->id)->get();

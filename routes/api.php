@@ -30,6 +30,7 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::post('/order/new','OrdersController@create');
     Route::get('/user/orders/latest','OrdersController@latest');
     Route::post('/user/edit',"AuthController@edit");
+    Route::get('/order/{id}','OrdersController@find');
 });
 
 

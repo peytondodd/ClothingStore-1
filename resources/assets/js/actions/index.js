@@ -346,3 +346,15 @@ export const fetchUserOrders = () =>{
 
     }
 };
+
+export const fetchOrder = (id) =>{
+    if(gotToken()){
+        return (dispatch)=>{
+            axios.get(`/api/order/${id}`,headers())
+                .then(res => dispatch({
+                    type: types.FETCH_ORDER,
+                    payload: res.data
+                }))
+        }
+    }
+};

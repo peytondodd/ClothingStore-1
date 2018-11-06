@@ -13,6 +13,8 @@ import Profile from "../../Containers/Profile";
 import CheckOut from "../../Containers/Checkout";
 import ProfileEdit from "../../Containers/ProfileEdit";
 import Orders from "../../Containers/Orders";
+import AllOrder from "../../Containers/Order";
+
 class App extends Component {
     render() {
         return (
@@ -24,6 +26,7 @@ class App extends Component {
                     <Route path="/register" exact component={requireGuest(Register)}/>
                     <Route path="/profile" exact component={requireAuth(Profile)}/>
                     <Route path="/profile/orders" exact component={requireAuth(Orders)}/>
+                    <Route path="/profile/order/:id" exact component={requireAuth(AllOrder)}/>
                     <Route path="/login" exact component={requireGuest(Login)}/>
                     <Route path="/categories/:id/:name" exact component={Categories}/>
                     <Route path="/products/:id/:name" exact component={Product}/>

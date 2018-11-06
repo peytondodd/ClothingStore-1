@@ -13,9 +13,8 @@ class Orders extends React.Component{
         renderProducts(products){
             const newArray = products.slice(0 , 4);
            return newArray.map(product =>{
-               console.log(product);
                 return(
-                    <div className='product-child'>
+                    <div className='product-child' key={product.id}>
                             <img src={Palet} className={'order-image'} alt=""/>
                     </div>
                         )
@@ -30,7 +29,7 @@ class Orders extends React.Component{
                               <div className="order-information RalewayExtraBold">
                                 <p className='RalewayBold'>{Moment(order.created_at).format('D MMMM Y')}</p>
                                   <p className='RalewayBold order-status'>Your order is {order.status.body}</p>
-                                  <Link className={"RalewayBold NOHREF "} to={`/profile/orders/${order.id}`}>> View order
+                                  <Link className={"RalewayBold NOHREF "} to={`/profile/order/${order.id}`}>> View order
                                   </Link>
                               </div>
                                 <div className={'product-box'}>

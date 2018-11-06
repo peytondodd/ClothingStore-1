@@ -10,3 +10,13 @@
 .form-center{
     max-width: 50%;
 }
+.statusbar{
+    padding: .75rem .5rem;
+    text-align: center;
+    color: white;
+    width: 100%;
+    background: #ef657b;
+}
+.background-grey{
+    background: #f3f3f3;
+}
