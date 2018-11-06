@@ -10,7 +10,6 @@ const Gegevens = (props) =>{
         <div className='col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12'>
             <div className="information-wrapper ">
             <h3 className='information-head RalewayBold'>My information:</h3>
-                <p className='RalewayBold information-p'>Address informations</p>
                 <p className='RalewayBold information-p'>Delivery address</p>
                 <p className='information-p'>{`${props.user.firstName} ${props.user.secondName}`}</p>
                 <p className='information-p'>{`${props.user.address}`}</p>
@@ -33,6 +32,17 @@ const Gegevens = (props) =>{
                 <div className="personal-information">
                     <p className='RalewayBold information-p '>Language:</p>
                     <p className='information-p align-right'>Dutch</p>
+                </div>
+                <p className='RalewayBold information-p mt-3'>Credentials:</p>
+                <div className="personal-information">
+                    <p className='RalewayBold information-p '>Email:</p>
+                    <p className='information-p align-right'>{props.user.email}</p>
+                </div>
+                <div className="personal-information">
+                    <p className='RalewayBold information-p '>Password:</p>
+                    <p className='information-p align-right'>
+                        ●●●●●●●●●
+                    </p>
                 </div>
                 </div>
             <Link to={'/profile/edit'} className='edit-Information RalewayBold'> > Edit my information</Link>

@@ -11,12 +11,14 @@ export const authReducer = (state = initialState , action)=>{
             return { ...state, error: '', authenticated: true };
         case types.SIGNUP_USER:
             return { ...state,   response:action.payload  , error:""};
+        case types.EDIT_USER:
+            return{...state, user:action.userPayload , response:action.responsePayload , error:""}
         case types.SIGNOUT_USER:
             return{ ...state , authenticated: false , user: {}};
         case types.AUTH_ERROR:
-            return { ...state,  response:'' , error: action.payload  };
+            return { ...state,  response:'' , error: `${action.payload}`  };
         case types.FETCH_USER:
-            return{...state , user:action.payload};
+            return{...state , user:action.payload , response:""};
             default:
             return state;
 

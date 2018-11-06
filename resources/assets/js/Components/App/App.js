@@ -11,6 +11,7 @@ import Register from "../../Containers/Register";
 import Login from '../../Containers/Login'
 import Profile from "../../Containers/Profile";
 import CheckOut from "../../Containers/Checkout";
+import ProfileEdit from "../../Containers/ProfileEdit";
 class App extends Component {
     render() {
         return (
@@ -25,7 +26,9 @@ class App extends Component {
                     <Route path="/categories/:id/:name" exact component={Categories}/>
                     <Route path="/products/:id/:name" exact component={Product}/>
                     <Route path="/checkout" exact component={requireAuth(CheckOut)} />
+                    <Route path="/profile/edit" exact component={requireAuth(ProfileEdit)} />
                 </Switch>
+
                 </Router>
             </BrowserRouter>
         );

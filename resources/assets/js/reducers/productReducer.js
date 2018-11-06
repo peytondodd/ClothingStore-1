@@ -22,7 +22,7 @@ export default function (state = initialState , action) {
         case  types.FETCH_PRODUCT:
             return{
                 ...state,
-                product: action.payload,
+                product: action.payload , products:[]
             };
         case types.SORT_TOPRATED:
             return{

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 class AuthController extends Controller
 {
@@ -76,6 +77,28 @@ class AuthController extends Controller
     }
     public function getUser(Request $request){
         return $request->user();
+
+    }
+
+
+
+
+    public function edit(Request $request)
+    {
+        $user = $request->user();
+        $updatedUser = User::find($user->id);
+        if($request->input('old_password')){
+        if (Hash::check($request->input('old_password'), $user->password)) {
+            $validatedData = $request->validate([
+                'password' => 'required|max:255',
+            ]);
+            $updatedUser->fill($request->input())->save();
+            return response(['message' =>"Credentials succesfully updated! " , "user" => $updatedUser]);
+        }
+        return response(['error' =>"Old Password is incorrect! "]);
+    }
+        $updatedUser->fill($request->input())->save();
+        return response(['message' =>"Credentials succesfully updated! ", "user" => $updatedUser]);
 
     }
 }

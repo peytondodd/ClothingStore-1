@@ -308,3 +308,29 @@ export const fetchLatestOrders = () =>{
 
     }
 };
+
+export const EditUser =(payload)=> {
+    return (dispatch) => {
+        if(gotToken()){
+        axios.post(`/api/user/edit`, payload, headers())
+            .then(res => {
+                if(res.data.message){
+                    dispatch({
+                        type:types.EDIT_USER,
+                        userPayload:res.data.user,
+                        responsePayload:res.data.message
+                    })
+                }
+                else{
+                    dispatch(authError(res.data));
+                }
+
+
+            })
+            .catch(err => {
+                dispatch(authError(err.response.data));
+            });
+    }
+    }
+};
+

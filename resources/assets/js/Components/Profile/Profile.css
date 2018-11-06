@@ -39,3 +39,34 @@
     color:black !important;
     font-size: 90%;
 }
+
+.order-image{
+    margin: auto;
+    display: inline-flex;
+    height: auto;
+    width: 120px;
+    max-width: 100%;
+}
+
+.product-box{
+    align-items: flex-end;
+    justify-content: flex-end;
+    display: flex;
+    flex-direction: row;
+    justify-self: end;
+
+  }
+
+.product-child{
+    padding: .5rem 1rem;
+    flex-wrap: wrap;
+    align-self: flex-end;
+    text-align: center;
+
+}
+
+@media (max-width: 775px) {
+    .product-box{
+        display: none;
+    }
+}
