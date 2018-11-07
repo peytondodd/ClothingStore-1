@@ -10,12 +10,14 @@ export default function (ComposedComponent) {
 
         componentWillMount() {
             if (this.props.authenticated) {
+                console.log(this.props.authenticated);
                 this.props.history.push('/');
             }
         }
 
         componentWillUpdate(nextProps) {
             if (nextProps.authenticated) {
+                console.log(this.props.authenticated);
                 this.props.history.push('/');
             }
         }

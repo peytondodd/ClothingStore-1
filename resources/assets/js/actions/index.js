@@ -252,6 +252,12 @@ export const fetchUser = () =>{
                         payload : user
                     })
                 })
+                .catch(err => {
+                    console.log(err);
+                    localStorage.removeItem('token');
+                     dispatch(signOutUser());
+                    return History.push('/');
+                })
     }
     };
 
@@ -355,6 +361,7 @@ export const fetchOrder = (id) =>{
                     type: types.FETCH_ORDER,
                     payload: res.data
                 }))
+                .catch(err => History.push('/profile'))
         }
     }
 };

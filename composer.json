@@ -11,6 +11,7 @@
         "laravel/passport": "^7.0",
         "laravel/tinker": "^1.0",
         "mollie/laravel-mollie": "^2.0",
+        "spatie/laravel-json-api-paginate": "^1.4",
         "tymon/jwt-auth": "^0.5.12"
     },
     "require-dev": {

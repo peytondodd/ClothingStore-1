@@ -11,6 +11,7 @@ class Nav extends React.PureComponent {
         this.props.fetchCategories();
         this.fetchCart();
         this.props.fetchUser();
+
     }
 
     fetchCart(){

@@ -21,8 +21,11 @@ class OrdersController extends Controller
 
     }
 
-    public function find($id){
+    public function find(Request $request,$id){
         $order = Orders::with('OrderProduct.product.categories', "status")->findOrFail($id);
+        if($order->user_id !== $request->user()->id){
+            return response (['message' => "unauthorized"],401);
+        }
         return response($order);
     }
 

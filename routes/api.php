@@ -32,5 +32,7 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::post('/user/edit',"AuthController@edit");
     Route::get('/order/{id}','OrdersController@find');
 });
-
-
+//admin Routes
+Route::group(['middleware' => ['auth:api','admin']], function () {
+});
+Route::get('/admin/products','AdminController@getProducts');

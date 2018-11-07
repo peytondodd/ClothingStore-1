@@ -10,10 +10,10 @@ const Cart  = (props) => {
 
        return items.map(item =>{
             return(
-                <tr key={item.id} className='align-td-middle'>
+                <tr key={item.id} className='align-td-middle mx-auto'>
                     <td><img src={Palet} className='img-custom-table' alt=""/></td>
                     <td>{item.name}</td>
-                    <td><div className="input-group input-group-sm  custom-table-width">
+                    <td><div className="input-group input-group-sm mx-auto custom-table-width">
                         <div className="input-group-prepend">
                             <span className="input-group-text" id="inputGroup-sizing-sm" onClick={()=>{props.RemoveFromCart(item.id)}}>-</span>
                         </div>
@@ -35,7 +35,7 @@ const Cart  = (props) => {
         }
     };
 
-    const checkOutButton =()=>{return props.total ?  <button onClick={()=>{props.checkout()}}>Check Out</button>: null}
+    const checkOutButton =()=>{return props.total ?  <button className={'btn btn-primary'} onClick={()=>{props.checkout()}}>Check Out</button>: null}
     const totalPrice =(price , amount)=> price * amount;
 
     return(

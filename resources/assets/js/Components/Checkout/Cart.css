@@ -20,11 +20,27 @@
     vertical-align: middle;
 }
 .shopping-cart-total{
+  text-align: right;
     border-top:1px solid;
     border-color: lightgray;
 }
 .shopping-cart-total h4{
   margin-top: 15px;
     color: #c82333;
-    float: right;
+    margin-left: auto;
+}
+.shopping-cart-total button{
+    margin-bottom: 20px;
+    background: #c82333;
+    border: 2px solid #c1263a;
+}
+.shopping-cart-total button:hover{
+    margin-bottom: 20px;
+    color: black;
+    background: #ffffff;
+    border: 2px solid #c82333;
+}
+.amountForm{
+
+    max-width: 25%;
 }
