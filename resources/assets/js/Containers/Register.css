@@ -12,11 +12,52 @@
 }
 .statusbar{
     padding: .75rem .5rem;
-    text-align: center;
     color: white;
     width: 100%;
     background: #ef657b;
 }
+.statusbar h2{
+    text-align: center;
+}
 .background-grey{
     background: #f3f3f3;
+}
+
+
+.img-responsive{
+    height: auto;
+    width: 100px;
+    max-width: 100%;
+}
+
+.orderProductsInfo{
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+.display-flex{
+    display: flex!important;
+}
+.order-product-box{
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+    justify-content: center;
+}
+.order-product-child{
+    align-items: center;
+    justify-content: center;
+}
+.product-info{
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+}
+.product-info span{
+    margin-right:auto ;
+}
+.mb-15{
+    margin-bottom: 15px;
 }
