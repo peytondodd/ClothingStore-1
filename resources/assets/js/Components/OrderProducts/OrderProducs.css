@@ -1,0 +1,17 @@
+.information-box{
+    width: 100%;
+   border:1px solid rgba(0,0,0,.125);
+}
+.basic-information-wrapper   {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.information-wrap{
+
+    padding: 1rem .5rem;
+    border-top: 1px solid rgba(0,0,0,.125);
+    text-align: center;
+}

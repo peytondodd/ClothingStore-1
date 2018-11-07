@@ -13,8 +13,26 @@ export const fetchProducts = () =>{
         return (dispatch)=>{
 
         axios.get('/api/admin/products',headers())
-            .then(res => console.log(res.data))
+            .then(res => dispatch({
+                type:types.FETCH_ADMINPRODUCTS,
+                payload: res.data
+            }))
     }
+
+    }
+};
+
+export const fetchProduct = (id) =>{
+    console.log(id);
+    if(gotToken()){
+        return (dispatch)=>{
+
+            axios.get(`/api/admin/product/${id}`,headers())
+                .then(res => dispatch({
+                    type:types.FETCH_ADMINPRODUCT,
+                    payload: res.data
+                }))
+        }
 
     }
 };

@@ -34,5 +34,6 @@ Route::group(['middleware' => ['auth:api']], function () {
 });
 //admin Routes
 Route::group(['middleware' => ['auth:api','admin']], function () {
+    Route::get('/admin/products','AdminController@getProducts');
+    Route::get('/admin/product/{id}', "AdminController@getProduct");
 });
-Route::get('/admin/products','AdminController@getProducts');

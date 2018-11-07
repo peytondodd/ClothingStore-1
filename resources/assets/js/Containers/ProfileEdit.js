@@ -8,7 +8,7 @@ class ProfileEdit extends React.Component{
 
 
     render(){
-        const user = this.props.user
+        const user = this.props.user;
         const userData={
             firstName : user.firstName,
             secondName : user.secondName,

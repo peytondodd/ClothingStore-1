@@ -8,7 +8,11 @@ use Spatie\JsonApiPaginate\JsonApiPaginateServiceProvider;
 class AdminController extends Controller
 {
     public function getProducts(){
-        $product = Products::jsonPaginate();
+        $product = Products::with('categories')->jsonPaginate();
         return response ($product);
+    }
+    public function getProduct($id){
+        $product = Products::with('categories')->findOrFail($id);
+        return response($product);
     }
 }

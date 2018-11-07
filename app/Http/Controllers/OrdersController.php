@@ -22,7 +22,7 @@ class OrdersController extends Controller
     }
 
     public function find(Request $request,$id){
-        $order = Orders::with('OrderProduct.product.categories', "status")->findOrFail($id);
+        $order = Orders::with('OrderProduct.product.categories',"user" ,"status")->findOrFail($id);
         if($order->user_id !== $request->user()->id){
             return response (['message' => "unauthorized"],401);
         }

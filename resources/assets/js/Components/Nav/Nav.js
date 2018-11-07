@@ -24,6 +24,19 @@ class Nav extends React.PureComponent {
 
     renderDropDownItem() {
         const authenticated = this.props.authenticated;
+        const user = this.props.user
+        console.log(user);
+        if(authenticated && user.admin === 1){
+            return (
+                <Aux>
+                    <Link className="dropdown-item" to="/admin/products">Admin Panel</Link>
+                    <Link className="dropdown-item" to="/profile">Profile</Link>
+                    <a className="dropdown-item logout-button" onClick={() => {
+                        this.props.signOutUser()
+                    }}>Logout</a>
+                </Aux>
+            )
+        }
         if (authenticated) {
             return (
                 <Aux>
