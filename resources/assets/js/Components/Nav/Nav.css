@@ -405,6 +405,7 @@ list-style-type: none;
     padding: 1rem 2rem;
 }
 .admin-Nav a {
+    font-size:130%;
     margin-left: 50px;
     margin-right: 50px;
     color: #fff;
@@ -415,4 +416,7 @@ list-style-type: none;
     margin-right: 50px;
     color: #e9e9e9;
     text-decoration: none;
+}
+.textAreaMinWidth{
+    min-height:  150px;
 }

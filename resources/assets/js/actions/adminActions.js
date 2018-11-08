@@ -36,3 +36,16 @@ export const fetchProduct = (id) =>{
 
     }
 };
+
+export const EditProduct = (payload) =>{
+    if(gotToken()){
+        return dispatch =>{
+            axios.post(`/api/admin/product/${payload.id}/edit`,payload,headers())
+                .then(res => dispatch({
+                    type:types.UPDATE_ADMINPRODUCT,
+                    payload: res.data.product,
+                    response: res.data.messages
+                }));
+        }
+    }
+};

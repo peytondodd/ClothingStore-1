@@ -15,4 +15,18 @@ class AdminController extends Controller
         $product = Products::with('categories')->findOrFail($id);
         return response($product);
     }
+    public function updateProduct(Request $request,$id){
+        $validatedData = $request->validate([
+            'id' => 'sometimes|integer|max:255',
+            'categories_id' => 'sometimes|integer|max:255',
+            'name' => 'sometimes|string|max:255',
+            'price' => 'sometimes|integer|max:255',
+            'stars' => 'sometimes|integer|max:5',
+            'description' => 'sometimes|string',
+            'amount' => 'sometimes|integer|max:255',
+        ]);
+        $product = Products::find($request->input('id'));
+        $newinfo =  $product->fill($request->input())->save();
+        return response(['message' => "Product succesfully updated!", "product" => $product],200);
+    }
 }

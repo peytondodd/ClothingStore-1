@@ -30,7 +30,7 @@ class AdminProducts extends Component {
             <Layout>
                 <Cbanner>Edit Product #{id}</Cbanner>
                 <AdminNav/>
-                <EditProductForm OGdata={OGdata}/>
+                <EditProductForm id={id} OGdata={OGdata}/>
             </Layout>
         )
     }

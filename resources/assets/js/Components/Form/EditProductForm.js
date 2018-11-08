@@ -1,58 +1,18 @@
 import React, {PureComponent} from 'react';
-import * as actions from '../../actions';
+import * as actions from '../../actions/adminActions';
 import { connect } from 'react-redux';
 import {Zoom} from 'react-reveal';
 import { Field, reduxForm, Form } from 'redux-form';
 class EditProductForm extends PureComponent {
 
-    handleFormSubmit = ({firstName , secondName , email , password ,old_password, address , PostalCode, city , country}) => {
-
-        this.props.EditUser({firstName , secondName , email , password ,old_password, address , PostalCode , city ,country})
+    handleFormSubmit = ({name , categories_id , price , stars, description , amount}) => {
+        const id = this.props.id;
+        this.props.EditProduct({id,name , categories_id , price , stars, description , amount})
 
     };
 
     renderResponse() {
-        const errors = this.props.error;
         const response =this.props.response;
-        let errorsarray = [];
-        if(errors){
-            console.log(errors);
-            if(errors.firstName){
-                errorsarray.push(errors.firstName[0]);
-            }
-            if(errors.secondName){
-                errorsarray.push(errors.secondName[0]);
-            }
-            if(errors.email){
-                errorsarray.push(errors.email[0]);
-            }
-            if(errors.password){
-                errorsarray.push(errors.password[0]);
-            }
-            if(errors.address){
-                errorsarray.push(errors.address[0]);
-            }
-            if(errors.PostalCode){
-                errorsarray.push(errors.PostalCode[0]);
-            }
-            if(errors.city){
-                errorsarray.push(errors.city[0]);
-            }
-            if(errors.country){
-                errorsarray.push(errors.country[0]);
-            }
-            return (
-                <Zoom when={errors}>
-                    <div className="alert alert-danger mt-2">
-                        {
-                            errorsarray.map(error => <p key={error}>{error}</p>)
-                        }
-                    </div>
-                </Zoom>
-            );
-
-        }
-
         return(
             <Zoom when={response}>
                 <div className="alert alert-danger mt-2">
@@ -62,7 +22,15 @@ class EditProductForm extends PureComponent {
         )
 
     }
-
+    renderCategories(){
+        const categories = this.props.categories;
+        console.log(categories);
+    return  categories.map(category =>{
+            return(
+                <option key={category.id} value={category.id}>{category.name}</option>
+            )
+        })
+    }
 
     render() {
         const { handleSubmit , user } = this.props;
@@ -77,7 +45,9 @@ class EditProductForm extends PureComponent {
                             </fieldset>
                             <fieldset className="form-group">
                                 <label>Category</label>
-                                <Field className="form-control" name="category" component="input" type="text" />
+                                <Field className="form-control" name="categories_id" component="select" type="text">
+                                    {this.renderCategories()}
+                                </Field>
                             </fieldset>
                             <fieldset className="form-group">
                                 <label>Price:</label>
@@ -89,7 +59,7 @@ class EditProductForm extends PureComponent {
                             </fieldset>
                             <fieldset className="form-group">
                                 <label>Description:</label>
-                                <Field className="form-control" name="description" component="textarea" type="text" />
+                                <Field className="form-control textAreaMinWidth" name="description" component="textarea" type="text" />
                             </fieldset>
                             <fieldset className="form-group">
                                 <label>Amount:</label>
@@ -106,7 +76,8 @@ class EditProductForm extends PureComponent {
 }
 const mapStateToProps = (state , ownProps) =>{
     return {
-        response : state.auth.response,
+        response : state.aproducts.response,
+        categories: state.category.categories,
         error : state.auth.error,
         user : state.auth.user,
         initialValues: {
