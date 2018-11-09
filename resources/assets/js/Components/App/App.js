@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import {BrowserRouter , Route , Switch, Router} from 'react-router-dom'
+import {BrowserRouter , Route , Switch, Router, Redirect} from 'react-router-dom'
 import Index from "../../Containers/Index";
 import Categories from "../../Containers/Categories";
 import Product from "../../Containers/Product";
@@ -35,6 +35,11 @@ class App extends Component {
                     <Route path="/profile/edit" exact component={requireAuth(ProfileEdit)} />
                     <Route path="/admin/products" exact component={requireAuth(Products)}/>
                     <Route path='/admin/product/:id' exact component={requireAuth(EditProduct)}/>
+                    <Route
+                        path="/payment/mollie/:id" exact
+                        component={Redirect }
+                        loc={(props) => window.location = `https://www.mollie.com/paymentscreen/issuer/select/ideal/${props.match.params.id}`}
+                    />
                 </Switch>
 
                 </Router>

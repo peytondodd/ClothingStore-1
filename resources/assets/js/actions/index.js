@@ -24,7 +24,7 @@ export const fetchHomeProduct = ()=> {
 
 export const fetchCategoryProducts = (id) =>{
     return(dispatch)=> {
-        axios.get('http://localhost:8000/api/categories/'+id+'/products')
+        axios.get('/api/categories/'+id+'/products')
             .then(res =>{
                 const products = res.data;
                 dispatch({
@@ -37,7 +37,7 @@ export const fetchCategoryProducts = (id) =>{
 
 export function fetchProduct(id){
     return function (dispatch) {
-        axios.get(`http://localhost:8000/api/products/` + id)
+        axios.get(`/api/products/` + id)
 
             .then(res => {
                 const products = res.data;
@@ -95,7 +95,7 @@ export function SEARCH_PRODUCTS (value){
 }
 export const fetchCategory = (id) => {
     return (dispatch) => {
-        axios.get(`http://localhost:8000/api/categories/`+ id)
+        axios.get(`/api/categories/`+ id)
 
             .then(res => {
                 const category = res.data;
@@ -290,12 +290,10 @@ export const checkout = () =>{
         const products = JSON.parse(localStorage.getItem('cart'));
         axios.post('/api/order/new',products,headers())
             .then(res => {
-                if(res.status !== 406){
-                    localStorage.removeItem('cart');
-                    dispatch({
-                        type:types.CHECKOUT_CART,
-                    })
-                }
+                const string = res.data;
+                const link = string.substr(57);
+               return window.location = `https://www.mollie.com/paymentscreen/issuer/select/ideal/${link}`;
+
             });
     }
     }

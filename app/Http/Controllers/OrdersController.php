@@ -8,7 +8,7 @@ use App\Products;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Mollie\Api\Resources\Order;
-
+use Mollie\Laravel\Facades\Mollie;
 class OrdersController extends Controller
 {
     /**
@@ -46,7 +46,7 @@ class OrdersController extends Controller
         $order = new Orders;
         $order->user_id = $user['id'];
         $order->save();
-        //$total = 0 ;
+        $total = 0 ;
         if(array_sum($products) > 0){
             return response(['message' => 'Something went wrong!'], 406);
         }
@@ -56,13 +56,32 @@ class OrdersController extends Controller
                 return response(['message' => 'Something went wrong!'], 400);
             }
             if($found){
+                /*
                 $orderProduct = new OrderProduct;
                 $orderProduct->product_id = $product['id'];
                 $orderProduct->orders_id = $order->id;
                 $orderProduct->Quantity = $product['count'];
-                $orderProduct->save();
+                 $orderProduct->save();
+                */
+                $total += $product['price'];
+                $payment = Mollie::api()->payments()->create([
+                    'amount' => [
+                        'currency' => 'EUR',
+                        'value' =>  $price = money_format('%.2n',(string)$total), // You must send the correct number of decimals, thus we enforce the use of strings
+                    ],
+                    'description' => 'My first API payment',
+                    'webhookUrl' => 'http://b8349aa5.ngrok.io/checkout',
+                    'redirectUrl' => 'http://450612ce.ngrok.io/',
+                    'method' => ""
+                ]);
+
+                $payment = Mollie::api()->payments()->get($payment->id);
+
+                // redirect customer to Mollie checkout page
+                return response($payment->getCheckoutUrl());
             }
         }
+
         return response(['message' => 'Ur Order has been places!'],201);
     }
 

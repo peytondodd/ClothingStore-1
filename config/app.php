@@ -151,6 +151,7 @@ return [
          * Package Service Providers...
          */
         Spatie\JsonApiPaginate\JsonApiPaginateServiceProvider::class,
+        Barryvdh\Cors\ServiceProvider::class,
 
         /*
          * Application Service Providers...
