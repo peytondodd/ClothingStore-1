@@ -25,7 +25,7 @@ class ProductNav  extends React.Component{
     render(){
         return(
         <div className='product-Nav'>
-            <Link className='RalewayBold createbutton' to={'/admin/products'}>Create</Link>
+            <Link className='RalewayBold createbutton' to={'/admin/products/create'}>Create</Link>
             <Pagination className={'my-auto'} pageSize={30} onChange={this.onChange} current={this.state.current} total={this.props.total} />
         </div>
     )

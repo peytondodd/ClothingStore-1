@@ -16,6 +16,7 @@ import Orders from "../../Containers/Orders";
 import AllOrder from "../../Containers/Order";
 import Products from "../../Containers/admin/Products/Products";
 import EditProduct from '../../Containers/admin/Products/Product'
+import CreateProduct from "../../Containers/admin/Products/CreateProduct";
 class App extends Component {
     render() {
         return (
@@ -35,11 +36,8 @@ class App extends Component {
                     <Route path="/profile/edit" exact component={requireAuth(ProfileEdit)} />
                     <Route path="/admin/products" exact component={requireAuth(Products)}/>
                     <Route path='/admin/product/:id' exact component={requireAuth(EditProduct)}/>
-                    <Route
-                        path="/payment/mollie/:id" exact
-                        component={Redirect }
-                        loc={(props) => window.location = `https://www.mollie.com/paymentscreen/issuer/select/ideal/${props.match.params.id}`}
-                    />
+                    <Route path="/admin/products/create" exact component={requireAuth(CreateProduct)}/>
+
                 </Switch>
 
                 </Router>

@@ -36,7 +36,7 @@ const ProductsTable  = (props) => {
 
     return(
         <div className="container">
-        <table className="table table-hover">
+        <table className="table table-hover table-bordered-custom">
             <thead>
             <tr>
                 <th scope="col">#</th>

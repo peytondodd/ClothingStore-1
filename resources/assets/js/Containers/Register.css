@@ -68,3 +68,17 @@
     width: 50%;
     cursor: pointer;
 }
+
+.table-bordered-custom{
+    border: 1px solid #ef657b;
+}
+.dropzone-box{
+    position: relative;
+    padding: 1rem 2rem;
+    text-align: center;
+    width: 100%;
+    border-width: 2px;
+    border-color: rgb(102, 102, 102);
+    border-style: dashed;
+    border-radius: 5px;
+}

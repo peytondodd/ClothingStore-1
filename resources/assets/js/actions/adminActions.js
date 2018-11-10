@@ -36,6 +36,7 @@ export const fetchProduct = (id) =>{
                     type:types.FETCH_ADMINPRODUCT,
                     payload: res.data
                 }))
+                .catch(e =>  History.push('/admin/products'))
         }
 
     }
@@ -49,7 +50,21 @@ export const EditProduct = (payload) =>{
                     type:types.UPDATE_ADMINPRODUCT,
                     payload: res.data.product,
                     response: res.data.messages
-                }));
+                }))
+                .catch(err => History.push('/admin/products'))
+        }
+    }
+};
+export const CreateProduct = (payload) =>{
+    if(gotToken()){
+        return dispatch =>{
+            axios.post(`/api/admin/product/create`,payload,headers())
+                .then(res => dispatch({
+                    type:types.UPDATE_ADMINPRODUCT,
+                    payload: res.data.product,
+                    response: res.data.messages
+                }))
+                .catch(err => History.push('/admin/products'))
         }
     }
 };
