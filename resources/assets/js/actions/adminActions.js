@@ -8,15 +8,19 @@ const headers = () => {
         headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
     };
 };
-export const fetchProducts = () =>{
+export const fetchProducts = count =>{
     if(gotToken()){
         return (dispatch)=>{
 
-        axios.get('/api/admin/products',headers())
-            .then(res => dispatch({
+        axios.get(`/api/admin/products?page%5Bnumber%5D=${count}`,headers())
+            .then(res =>
+            {console.log(res.data);
+                dispatch({
                 type:types.FETCH_ADMINPRODUCTS,
-                payload: res.data
-            }))
+                payload: res.data,
+                    total:res.data.total
+            })
+            })
     }
 
     }

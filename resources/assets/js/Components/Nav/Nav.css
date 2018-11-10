@@ -420,3 +420,26 @@ list-style-type: none;
 .textAreaMinWidth{
     min-height:  150px;
 }
+
+.product-Nav{
+    width: 100%;
+    background: #f76880;
+    display: flex;
+  justify-content: center;
+    padding: 1rem 2rem;
+}
+.product-Nav .createbutton {
+    color:white;
+    border: 1px solid #d35c6a;
+    padding: .75rem 2rem;
+}
+.product-Nav .createbutton:hover{
+    text-decoration: none;
+    color: #ffffff;
+    border: 1px solid #b64f5b;
+    background: #e36076;
+}
+.product-Nav a {
+    color : white !important;
+    padding: 1rem 0;
+}
