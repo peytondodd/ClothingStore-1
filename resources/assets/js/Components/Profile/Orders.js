@@ -23,7 +23,7 @@ class Orders extends React.Component{
         showOrders(){
             const orders = this.props.orders;
             return orders.map(order=>{
-
+            console.log(order);
                         return(
                             <li className="list-group-item" key={order.id}>
                               <div className="order-information RalewayExtraBold">

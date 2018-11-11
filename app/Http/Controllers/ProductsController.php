@@ -89,7 +89,7 @@ class ProductsController extends Controller
     }
 
     public function find($id){
-        $product = Products::with('categories')->findOrFail($id);
+        $product = Products::with('categories','images')->findOrFail($id);
         return $product;
     }
 }

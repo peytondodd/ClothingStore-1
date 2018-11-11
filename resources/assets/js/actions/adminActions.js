@@ -1,11 +1,12 @@
 import * as types from "./types";
 import axios from 'axios'
 import History from '../history'
-
+import FormData from 'form-data';
 const gotToken = () => localStorage.getItem('token');
 const headers = () => {
     return {
         headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
+
     };
 };
 export const fetchProducts = count =>{
@@ -56,15 +57,23 @@ export const EditProduct = (payload) =>{
     }
 };
 export const CreateProduct = (payload) =>{
+    let formData = new FormData();
+    formData.append("upload", payload.files[0]);
+    formData.set('name' , payload.name);
+    formData.set('categories_id' , payload.categories_id);
+    formData.set('price' , payload.price);
+    formData.set('stars' , payload.stars);
+    formData.set('description' , payload.description);
+    formData.set('amount' , payload.amount);
     if(gotToken()){
         return dispatch =>{
-            axios.post(`/api/admin/product/create`,payload,headers())
+            axios.post(`/api/admin/product/create`,formData,headers())
                 .then(res => dispatch({
                     type:types.UPDATE_ADMINPRODUCT,
                     payload: res.data.product,
                     response: res.data.messages
                 }))
-                .catch(err => History.push('/admin/products'))
+                .catch(err => {console.log(err)})
         }
     }
 };

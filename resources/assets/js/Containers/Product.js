@@ -65,9 +65,18 @@ class Product extends Component {
             )
         }
     }
+    renderImage(){
+        const products = this.props.product;
+        if(products.images){
+           return <img className={'img-fluid'} src={`/storage/Product/Images/${products.images.url}`} alt=""/>
+        }
+    }
 
     render() {
         const products = this.props.product;
+        if(products.images){
+            console.log(products.images);
+        }
         return (
             <Layout>
                 <nav aria-label="breadcrumb">
@@ -80,7 +89,7 @@ class Product extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-xl-8  col-lg-8 col-md-8 col-sm-12 col-12">
-                            <img className='img-fluid' src={Palet} alt=""/>
+                            {this.renderImage()}
                         </div>
                         <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 order-xl-last order-lg-last order-md-last order-sm-first order-first">
                             <h2 className="Item-title">{products.name}</h2>

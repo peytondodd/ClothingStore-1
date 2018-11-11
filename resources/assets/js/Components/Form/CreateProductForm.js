@@ -16,7 +16,7 @@ const renderDropzoneInput = (field) => {
             <Dropzone
                 className='dropzone-box'
                 accept="image/*"
-                multiple={true}
+                multiple={false}
                 name={field.name}
                     onDrop={( filesToUpload, e ) => field.input.onChange(filesToUpload)}
             >
@@ -61,7 +61,6 @@ class CreateProductForm extends PureComponent {
 
     renderCategories(){
         const categories = this.props.categories;
-        console.log(categories);
         return  categories.map(category =>{
             return(
                 <option key={category.id} value={category.id}>{category.name}</option>
@@ -75,7 +74,8 @@ class CreateProductForm extends PureComponent {
             <div className="container">
                 <div className="row">
                     <div className="col-lg-6 col-md-6 col-sm-12 col-12 mx-auto my-5">
-                        <Form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))} encType="multipart/form-data">
+                        <Form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))} encType="multipart/form-data"
+                        >
                             <fieldset className="form-group">
                                 <label>Images:</label>
                                 <Field
@@ -83,7 +83,8 @@ class CreateProductForm extends PureComponent {
                                     component={renderDropzoneInput}
                                 />
                             </fieldset>
-                            <fieldset className="form-group">
+                            <fieldset className="form-group"
+                            >
                                 <label>Name:</label>
                                 <Field className="form-control"  name="name" component="input" type="text" />
                             </fieldset>

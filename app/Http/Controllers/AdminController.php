@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\image;
 use App\Products;
 use Illuminate\Http\Request;
 use Spatie\JsonApiPaginate\JsonApiPaginateServiceProvider;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Illuminate\Support\Facades\Storage;
+
 class AdminController extends Controller
 {
     public function getProducts(){
@@ -28,5 +32,25 @@ class AdminController extends Controller
         $product = Products::find($request->input('id'));
         $newinfo =  $product->fill($request->input())->save();
         return response(['message' => "Product succesfully updated!", "product" => $product],200);
+    }
+    public function createProduct(Request $request){
+        $validatedData = $request->validate([
+            'upload' => 'required|file|max:1024',
+            'categories_id' => 'sometimes|integer|max:255',
+            'name' => 'sometimes|string|max:255',
+            'price' => 'sometimes|integer|max:255',
+            'stars' => 'sometimes|integer|max:5',
+            'description' => 'sometimes|string',
+            'amount' => 'sometimes|integer|max:255',
+        ]);
+        $product = new Products;
+        $product->fill($request->input())->save();
+        $fileName = "fileName".time().'.'.request()->upload->getClientOriginalExtension();
+        $images = $request->file('upload')->storeAs('Product/Images',$fileName);
+        $productImage = new image;
+        $productImage->product_id = $product->id;
+        $productImage->url = $fileName;
+        $productImage->save();
+
     }
 }
