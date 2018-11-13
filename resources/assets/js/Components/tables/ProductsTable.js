@@ -15,7 +15,7 @@ const ProductsTable  = (props) => {
                     <td>{product.price}</td>
                     <td>{product.stars}</td>
                     <td>{product.amount}</td>
-                    <td>{product.description}</td>
+                    <td>{product.description.substring(0, 25) + '...' }</td>
                     <td>
                         <Link to={`/admin/product/${product.id}`}> <button className={'btn btn-warning'} >Update</button></Link>
                     </td>

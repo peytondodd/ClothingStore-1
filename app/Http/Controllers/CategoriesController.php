@@ -94,7 +94,7 @@ class CategoriesController extends Controller
         //
     }
     public function find($id , Request $request){
-        $product = Products::where('categories_id' , $id)->get();
+        $product = Products::with("images")->where('categories_id' , $id)->get();
         return $product;
     }
 }

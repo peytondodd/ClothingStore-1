@@ -20,14 +20,29 @@ class LoginForm extends PureComponent {
     };
 
     renderError(){
-        const error = this.props.error;
+        const response = this.props.response;
+        let message = [];
+        if (typeof response !== 'object'){
+           message.push(response);
+        }
+        else{
+            Object.keys(response).forEach(key =>{
+                message.push(response[key][0])
+            });
+        }
+
         return(
-            <Zoom when={error} collapse>
+            <Zoom when={message.length}>
                 <div className="alert alert-danger mt-2">
-                    <p>{error}</p>
+                    {message.map((message , i ) =>{
+                        return (
+                            <p key={i}>{message}</p>
+                        )
+                    })}
                 </div>
             </Zoom>
         )
+
 
     };
 
@@ -72,7 +87,7 @@ class LoginForm extends PureComponent {
 }
 const mapStateToProps = (state) =>{
     return {
-        error : state.auth.error
+        response : state.auth.response
 
     }
 };

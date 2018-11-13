@@ -46,7 +46,7 @@ class AdminController extends Controller
         $product = new Products;
         $product->fill($request->input())->save();
         $fileName = "fileName".time().'.'.request()->upload->getClientOriginalExtension();
-        $images = $request->file('upload')->storeAs('Product/Images',$fileName);
+        $images = $request->file('upload')->storeAs('public/Product/Images',$fileName);
         $productImage = new image;
         $productImage->product_id = $product->id;
         $productImage->url = $fileName;
