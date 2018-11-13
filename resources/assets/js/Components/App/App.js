@@ -14,9 +14,10 @@ import CheckOut from "../../Containers/Checkout";
 import ProfileEdit from "../../Containers/ProfileEdit";
 import Orders from "../../Containers/Orders";
 import AllOrder from "../../Containers/Order";
-import Products from "../../Containers/admin/Products/Products";
-import EditProduct from '../../Containers/admin/Products/Product'
-import CreateProduct from "../../Containers/admin/Products/CreateProduct";
+import Products from "../../admin/Products/Products";
+import ACategories from "../../admin/Categories/Categories";
+import EditProduct from '../../admin/Products/EditProduct'
+import CreateProduct from "../../admin/Products/CreateProduct";
 class App extends Component {
     render() {
         return (
@@ -37,6 +38,7 @@ class App extends Component {
                     <Route path="/admin/products" exact component={requireAuth(Products)}/>
                     <Route path='/admin/product/:id' exact component={requireAuth(EditProduct)}/>
                     <Route path="/admin/products/create" exact component={requireAuth(CreateProduct)}/>
+                    <Route path="/admin/categories" exact component={requireAuth(ACategories)}/>
 
                 </Switch>
 

@@ -82,3 +82,8 @@
     border-style: dashed;
     border-radius: 5px;
 }
+@media (max-width: 767px) {
+    .customWidthProfile{
+        display: none;
+    }
+}

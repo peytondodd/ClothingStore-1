@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Categories;
 use App\image;
 use App\Products;
 use Illuminate\Http\Request;
-use Spatie\JsonApiPaginate\JsonApiPaginateServiceProvider;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
+    public function getCategories(){
+        $product = Categories::jsonPaginate();
+        return response ($product);
+    }
     public function getProducts(){
         $product = Products::with('categories')->jsonPaginate();
         return response ($product);

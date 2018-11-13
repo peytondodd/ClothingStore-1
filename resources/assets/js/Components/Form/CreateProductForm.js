@@ -121,7 +121,7 @@ class CreateProductForm extends PureComponent {
 }
 const mapStateToProps = (state) =>{
     return {
-        response : state.aproducts.response,
+        response : state.admin.response,
         categories: state.category.categories,
         error : state.auth.error,
     }

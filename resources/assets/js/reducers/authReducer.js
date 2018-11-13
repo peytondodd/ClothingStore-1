@@ -17,7 +17,9 @@ export const authReducer = (state = initialState , action)=>{
         case types.AUTH_ERROR:
             return { ...state,  response:action.payload  };
         case types.FETCH_USER:
-            return{...state , user:action.payload , response:""};
+            return{...state , user:action.payload , response:[]};
+        case types.RESET_RESPONSE:
+            return {...state ,response:[]};
             default:
             return state;
 

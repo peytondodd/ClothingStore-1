@@ -363,3 +363,9 @@ export const fetchOrder = (id) =>{
         }
     }
 };
+
+export const resetResponse = () =>{
+    return {
+        type:types.RESET_RESPONSE
+    }
+}

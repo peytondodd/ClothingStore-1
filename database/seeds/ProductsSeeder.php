@@ -13,7 +13,12 @@ class ProductsSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
-        foreach (range(2,100) as $index) {
+        foreach (range(0,100) as $index) {
+            DB::table('images')->insert([
+                "product_id"=> $index
+
+            ]);
+
             DB::table('products')->insert([
                 'name' => $faker->name,
                 'description' => $faker->paragraph,

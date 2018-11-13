@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
-import * as actions from "../../../actions/adminActions";
-import Layout from "../../../Components/Layout/Layout";
-import Cbanner from "../../../Components/Cbanner/Cbanner";
-import AdminNav from "../../../Components/Nav/AdminNav";
-import ProductsTable from "../../../Components/tables/ProductsTable";
-import EditProductForm from "../../../Components/Form/EditProductForm";
+import * as actions from "../../actions/adminActions";
+import Layout from "../../Components/Layout/Layout";
+import Cbanner from "../../Components/Cbanner/Cbanner";
+import AdminNav from "../../Components/Nav/AdminNav";
+import ProductsTable from "../../Components/tables/ProductsTable";
+import EditProductForm from "../../Components/Form/EditProductForm";
 
 class AdminProducts extends Component {
 
@@ -39,7 +39,7 @@ class AdminProducts extends Component {
 
 const MapStateToProps = state =>{
     return {
-        product : state.aproducts.product
+        product : state.admin.product
     }
 };
 export default connect(MapStateToProps,actions)(AdminProducts);

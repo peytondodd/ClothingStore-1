@@ -11,58 +11,32 @@ class EditForm extends PureComponent {
 
     };
 
-    renderResponse() {
-        const errors = this.props.error;
-        const response =this.props.response;
-        let errorsarray = [];
-        if(errors){
-            console.log(errors);
-            if(errors.firstName){
-                errorsarray.push(errors.firstName[0]);
-            }
-            if(errors.secondName){
-                errorsarray.push(errors.secondName[0]);
-            }
-            if(errors.email){
-                errorsarray.push(errors.email[0]);
-            }
-            if(errors.password){
-                errorsarray.push(errors.password[0]);
-            }
-            if(errors.address){
-                errorsarray.push(errors.address[0]);
-            }
-            if(errors.PostalCode){
-                errorsarray.push(errors.PostalCode[0]);
-            }
-            if(errors.city){
-                errorsarray.push(errors.city[0]);
-            }
-            if(errors.country){
-                errorsarray.push(errors.country[0]);
-            }
-            return (
-                <Zoom when={errors}>
-                    <div className="alert alert-danger mt-2">
-                        {
-                            errorsarray.map(error => <p key={error}>{error}</p>)
-                        }
-                    </div>
-                </Zoom>
-            );
-
+    renderError(){
+        const response = this.props.response;
+        let message = [];
+        if (typeof response !== 'object'){
+            message.push(response);
+        }
+        else{
+            Object.keys(response).forEach(key =>{
+                message.push(response[key][0])
+            });
         }
 
         return(
-            <Zoom when={response}>
+            <Zoom when={message.length}>
                 <div className="alert alert-danger mt-2">
-                    <p>{response}</p>
+                    {message.map((message , i ) =>{
+                        return (
+                            <p key={i}>{message}</p>
+                        )
+                    })}
                 </div>
             </Zoom>
         )
 
-    }
 
+    };
 
     render() {
         const { handleSubmit , user } = this.props;
@@ -108,7 +82,7 @@ class EditForm extends PureComponent {
                                 <Field className="form-control" name="country" component="input" type="text" />
                             </fieldset>
                             <button type="submit" className="btn btn-primary btnCustom">Sign Up</button>
-                            {this.renderResponse()}
+                            {this.renderError()}
                         </Form>
                     </div>
                 </div>

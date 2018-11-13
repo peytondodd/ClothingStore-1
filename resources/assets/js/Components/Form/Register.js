@@ -13,8 +13,8 @@ class RegisterForm extends PureComponent {
     };
 
 
-    componentDidMount(){
-        // return this.props.dispatch(actions.afterAuthError());
+    componentWillUnmount(){
+        this.props.resetResponse();
     }
 
     renderResponse() {

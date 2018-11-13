@@ -23,10 +23,11 @@ class ProductNav  extends React.Component{
     };
 
     render(){
+        console.log(this.props.total);
         return(
         <div className='product-Nav'>
             <Link className='RalewayBold createbutton' to={'/admin/products/create'}>Create</Link>
-            <Pagination className={'my-auto'} pageSize={30} onChange={this.onChange} current={this.state.current} total={this.props.total} />
+            {this.props.total ? <Pagination className={'my-auto'} pageSize={30} onChange={this.onChange} current={this.state.current} total={this.props.total} /> : null}
         </div>
     )
     }
@@ -34,7 +35,7 @@ class ProductNav  extends React.Component{
 
 const MapStateToProps = state =>{
     return{
-        total:state.aproducts.total,
+        total:state.admin.total,
 
     }
 };

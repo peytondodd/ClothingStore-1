@@ -36,6 +36,7 @@ const ProductsTable  = (props) => {
 
     return(
         <div className="container">
+            <div className="table-responsive">
         <table className="table table-hover table-bordered-custom">
             <thead>
             <tr>
@@ -53,6 +54,7 @@ const ProductsTable  = (props) => {
             {renderProducts()}
             </tbody>
         </table>
+            </div>
         </div>
     )
 
@@ -60,6 +62,6 @@ const ProductsTable  = (props) => {
 
 
 const mapStateToProps = state =>({
-    products: state.aproducts.products,
+    products: state.admin.products,
 });
 export default connect(mapStateToProps)(ProductsTable);

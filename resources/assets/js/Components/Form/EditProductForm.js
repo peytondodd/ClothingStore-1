@@ -76,7 +76,7 @@ class EditProductForm extends PureComponent {
 }
 const mapStateToProps = (state , ownProps) =>{
     return {
-        response : state.aproducts.response,
+        response : state.admin.response,
         categories: state.category.categories,
         error : state.auth.error,
         user : state.auth.user,

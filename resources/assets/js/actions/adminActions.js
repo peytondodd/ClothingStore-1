@@ -17,12 +17,29 @@ export const fetchProducts = count =>{
             .then(res =>
             {console.log(res.data);
                 dispatch({
-                type:types.FETCH_ADMINPRODUCTS,
-                payload: res.data,
+                    type:types.FETCH_ADMINPRODUCTS,
+                    payload: res.data,
                     total:res.data.total
             })
             })
     }
+
+    }
+};
+export const getCategories = count =>{
+    if(gotToken()){
+        return (dispatch)=>{
+
+            axios.get(`/api/admin/categories?page%5Bnumber%5D=${count}`,headers())
+                .then(res =>
+                {console.log(res.data);
+                    dispatch({
+                        type:types.FETCH_ADMINCATEGORIES,
+                        payload: res.data,
+                        total:res.data.total
+                    })
+                })
+        }
 
     }
 };

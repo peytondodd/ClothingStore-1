@@ -5,7 +5,7 @@ import { reducer as formReducer } from 'redux-form';
 import {authReducer} from "./authReducer";
 import cartReducer from './cartReducer'
 import {ordersReducer} from './ordersReducer'
-import {aProductsReducer} from './aProductsReducer'
+import {AdminReducer} from './AdminReducer'
 
 export default combineReducers({
     cart : cartReducer,
@@ -14,5 +14,5 @@ export default combineReducers({
     category: categoryReducer,
     auth: authReducer,
     orders:ordersReducer,
-    aproducts : aProductsReducer
+    admin : AdminReducer
 });
