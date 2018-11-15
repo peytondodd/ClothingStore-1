@@ -66,8 +66,11 @@ class EditProductForm extends PureComponent {
                                 <Field className="form-control" name="amount" component="input" type="text" />
                             </fieldset>
                             <button type="submit" className="btn btn-primary btnCustom">Save</button>
+
                             {this.renderResponse()}
                         </Form>
+                        <button className={'btn btn-danger btnCustom'} onClick={''}>{this.props.active ? "Active" : "de-active"}</button>
+
                     </div>
                 </div>
             </div>
@@ -87,7 +90,8 @@ const mapStateToProps = (state , ownProps) =>{
             description : ownProps.OGdata.description,
             amount : ownProps.OGdata.amount,
 
-        }
+        },
+        active: ownProps.OGdata.active
     }
 };
 

@@ -13,8 +13,12 @@ class ProductsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function homepage(){
-      $products = Products::all()->random(10);
-      return $products;
+        $products = Products::has('images')
+            ->with(['images' =>  function($query) {
+                $query->orderByRaw('RAND()')->take(5);
+            }])
+            ->get();
+      return response($products);
     }
 
     public function index()

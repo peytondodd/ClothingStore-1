@@ -94,3 +94,42 @@ export const CreateProduct = (payload) =>{
         }
     }
 };
+
+export const CreateCategory = payload =>{
+    if(gotToken()){
+        return dispatch =>{
+            axios.post('/api/admin/categories/create',payload,headers())
+                .then(res => {
+                    dispatch({
+                        type:types.UPDATED_ADMINCATEGORY,
+                        payload:res.data.category
+                    })
+                })
+                .catch(err => console.log(err))
+        }
+    }
+};
+
+export const fetchCategory = id =>{
+    if(gotToken()){
+        return dispatch =>{
+            axios.get(`/api/admin/category/${id}`,headers())
+                .then(res => {
+                    dispatch({
+                        type:types.FETCH_ADMINCATEGORY,
+                        payload: res.data
+                    })
+                })
+        }
+    }
+};
+export const UpdateCategory = (payload) =>{
+        if(gotToken()){
+            return dispatch =>{
+                axios.post('/api/admin/category/update/' ,payload,headers())
+                    .then(res =>{
+                        console.log(res.data);
+                    })
+            }
+        }
+};

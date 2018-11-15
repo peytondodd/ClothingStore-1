@@ -49,6 +49,7 @@ class CreateProductForm extends PureComponent {
     };
     renderResponse() {
         const response =this.props.response;
+        console.log(response);
         return(
             <Zoom when={response}>
                 <div className="alert alert-danger mt-2">

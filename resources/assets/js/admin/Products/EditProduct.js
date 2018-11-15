@@ -21,6 +21,7 @@ class AdminProducts extends Component {
             stars : product.stars,
             description : product.description,
             amount : product.amount,
+            active : product.active
 
         };
 

@@ -1,14 +1,16 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import * as actions from '../../actions/'
+import * as actions from '../../actions/index.js'
 import Moment from 'moment'
 import Palet from '../../Assets/Images/pallet.jpg'
 import {Link} from 'react-router-dom'
 import Aux from "../HOC/Aux";
+import axios from 'axios';
 class Orders extends React.Component{
 
         componentDidMount(){
             this.props.fetchLatestOrders();
+            this.props.checkPayment();
         }
         renderProducts(products){
             const newArray = products.slice(0 , 4);

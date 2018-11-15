@@ -18,6 +18,8 @@ export default function (state = initialState , action) {
                 ...state,
                 category: action.payload,
             };
+        case types.UPDATED_ADMINCATEGORY:
+            return{...state, categories:[...state.categories, action.payload]};
         default:
             return state
     }

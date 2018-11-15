@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\OrderProduct;
 use App\Orders;
 use App\Products;
+use App\status;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Mollie\Api\Resources\Order;
@@ -56,13 +57,11 @@ class OrdersController extends Controller
                 return response(['message' => 'Something went wrong!'], 400);
             }
             if($found){
-                /*
                 $orderProduct = new OrderProduct;
                 $orderProduct->product_id = $product['id'];
                 $orderProduct->orders_id = $order->id;
                 $orderProduct->Quantity = $product['count'];
                  $orderProduct->save();
-                */
                 $total += $product['price'];
                 $payment = Mollie::api()->payments()->create([
                     'amount' => [
@@ -70,8 +69,8 @@ class OrdersController extends Controller
                         'value' =>  $price = money_format('%.2n',(string)$total), // You must send the correct number of decimals, thus we enforce the use of strings
                     ],
                     'description' => 'My first API payment',
-                    'webhookUrl' => 'http://6137f2d0.ngrok.io/checkout',
-                    'redirectUrl' => 'http://6137f2d0.ngrok.io/',
+                    'webhookUrl' => 'http://4d385f8b.ngrok.io/profile/order/',
+                    'redirectUrl' => 'http://4d385f8b.ngrok.io/profile/order/'.$order->id,
                     'method' => ""
                 ]);
 

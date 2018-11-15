@@ -8,19 +8,7 @@ const headers = () => {
         headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')}
     };
 };
-export const fetchHomeProduct = ()=> {
-    return (dispatch) => {
-        axios.get(`/api/products/home`)
-            .then(res => {
-                const products = res.data;
-               dispatch({
-                   type:types.FETCH_HOMEPOST,
-                   payload:products
-               })
 
-            })
-    }
-};
 
 export const fetchCategoryProducts = (id) =>{
     return(dispatch)=> {
@@ -290,6 +278,7 @@ export const checkout = () =>{
         const products = JSON.parse(localStorage.getItem('cart'));
         axios.post('/api/order/new',products,headers())
             .then(res => {
+                localStorage.removeItem('cart');
                 const string = res.data;
                 const link = string.substr(57);
                return window.location = `https://www.mollie.com/paymentscreen/issuer/select/ideal/${link}`;
@@ -368,4 +357,5 @@ export const resetResponse = () =>{
     return {
         type:types.RESET_RESPONSE
     }
-}
+};
+

@@ -6,7 +6,8 @@ const initialState = {
     producttotal:'',
     response: "",
     categoriestotal:'',
-    categories:[]
+    categories:[],
+    category:{}
 };
 
 export const AdminReducer = function (state = initialState , action) {
@@ -20,7 +21,8 @@ export const AdminReducer = function (state = initialState , action) {
         case types.UPDATE_ADMINPRODUCT:
             console.log(action.response);
             return{...state, product:action.payload , response:action.response};
-
+        case types.FETCH_ADMINCATEGORY:
+            return{...state,category:action.payload};
         default:
             return state
     }

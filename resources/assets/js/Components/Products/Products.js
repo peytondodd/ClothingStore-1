@@ -12,19 +12,22 @@ const Products = (props) =>{
     let search = props.search;
     if(search && filter.length){
         return filter.map(product =>{
-            return (
+            if(product.images){
+                return (
                     <div className='col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12' key={product.id}>
                         <Zoom ssrFadeout={true}>
-                        <Item href={'/products/'+product.id+'/'+product.name.replace(/ +/g, "")}
-                              showCurrency={true}
-                              stars={product.stars}
-                              price={product.price}
-                              image={product.images.url}>
+                            <Item href={'/products/'+product.id+'/'+product.name.replace(/ +/g, "")}
+                                  showCurrency={true}
+                                  stars={product.stars}
+                                  price={product.price}
+                                  image={product.images.url}>
                                 {product.name}
-                        </Item>
+                            </Item>
                         </Zoom>
                     </div>
-            )}
+                )
+            }
+        }
         )
     }
     if(search && !filter.length){
@@ -33,20 +36,21 @@ const Products = (props) =>{
     else{
         console.log(props.products);
       return props.products.map(product =>{
-          return(
-                    <div className='col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12' key={product.id}>
-                        <Zoom ssrFadeout={true} >
-                        <Item href={'/products/'+product.id+'/'+product.name.replace(/ +/g, "")}
-
-                              stars={product.stars}
-                              price={product.price}
-                              showCurrency={true}
-                            image={product.images.url}>
-                            {product.name}
-                        </Item>
-                        </Zoom>
-                    </div>
-          )
+          if(product.images){
+              return (
+                  <div className='col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12' key={product.id}>
+                      <Zoom ssrFadeout={true}>
+                          <Item href={'/products/'+product.id+'/'+product.name.replace(/ +/g, "")}
+                                showCurrency={true}
+                                stars={product.stars}
+                                price={product.price}
+                                image={product.images.url}>
+                              {product.name}
+                          </Item>
+                      </Zoom>
+                  </div>
+              )
+          }
       })
     }
   };

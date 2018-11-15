@@ -18,6 +18,8 @@ import Products from "../../admin/Products/Products";
 import ACategories from "../../admin/Categories/Categories";
 import EditProduct from '../../admin/Products/EditProduct'
 import CreateProduct from "../../admin/Products/CreateProduct";
+import CreateCategory from "../../admin/Categories/CreateCategory";
+import EditCategory from "../../admin/Categories/EditCategory";
 class App extends Component {
     render() {
         return (
@@ -39,7 +41,8 @@ class App extends Component {
                     <Route path='/admin/product/:id' exact component={requireAuth(EditProduct)}/>
                     <Route path="/admin/products/create" exact component={requireAuth(CreateProduct)}/>
                     <Route path="/admin/categories" exact component={requireAuth(ACategories)}/>
-
+                    <Route path="/admin/categories/create" exact component={requireAuth(CreateCategory)}/>
+                    <Route path='/admin/categories/:id' exact component={requireAuth(EditCategory)}/>
                 </Switch>
 
                 </Router>

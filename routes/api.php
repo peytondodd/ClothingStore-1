@@ -38,5 +38,8 @@ Route::group(['middleware' => ['auth:api','admin']], function () {
     Route::get('/admin/product/{id}', "AdminController@getProduct");
     Route::post('/admin/product/{id}/edit','AdminController@updateProduct');
     Route::post('/admin/product/create','AdminController@createProduct');
+    Route::post('/admin/categories/create','AdminController@createCategories');
     Route::get('/admin/categories','AdminController@getCategories');
+    Route::get('/admin/category/{id}',"AdminController@getCategory");
+    Route::post('/admin/category/update/', "AdminController@updateCategory");
 });

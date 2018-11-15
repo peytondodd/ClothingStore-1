@@ -9,6 +9,26 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+    public function updateCategory(Request $request){
+        $name = $request->input('name');
+        $id = $request->input('id');
+        $category = Categories::findOrFail($id);
+        $category->name = $name;
+        $category->save();
+        return response(['message' => 'Category updated succesfully' , "category" => $category],200);
+    }
+    public function getCategory($id){
+        $category = Categories::findOrFail($id);
+        return response ($category);
+    }
+    public function createCategories(Request $request){
+
+        $name = $request->input('name');
+        $category = new Categories;
+        $category->name = $name;
+        $category->save();
+        return response(['message' => 'Category succesfully created' , "category" => $category],200);
+    }
     public function getCategories(){
         $product = Categories::jsonPaginate();
         return response ($product);
