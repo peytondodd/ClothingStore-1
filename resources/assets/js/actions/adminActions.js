@@ -133,3 +133,12 @@ export const UpdateCategory = (payload) =>{
             }
         }
 };
+
+export const toggleActive = (id) =>{
+    if(gotToken()){
+        return dispatch =>{
+            axios.post(`/api/admin/product/${id}`,null,headers())
+                .then(res =>dispatch({type : types.UPDATE_ADMINPRODUCT , payload:res.data}))
+        }
+    }
+};

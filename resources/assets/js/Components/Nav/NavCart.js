@@ -10,9 +10,10 @@ const NavCart = props =>{
     const items = () =>{
       const items = props.items;
       return items.map(item => {
+          console.log(item);
             return(
                 <li className="clearfix li-shopping-cart" key={item.id}>
-                    <img className={'item-image'} src={palet} alt="item1"/>
+                    <img className={'item-image'} src={`/storage/Product/Images/${item.images.url}`} alt="item1"/>
                     <span className="item-name">{item.name}</span>
                     <span className="item-price">${item.price}</span>
                     <span className="item-quantity">Quantity: {item.count}</span>

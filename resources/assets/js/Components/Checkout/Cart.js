@@ -11,7 +11,7 @@ const Cart  = (props) => {
        return items.map(item =>{
             return(
                 <tr key={item.id} className='align-td-middle mx-auto'>
-                    <td><img src={Palet} className='img-custom-table' alt=""/></td>
+                    <td><img src={`/storage/Product/Images/${item.images.url}`} className='img-custom-table' alt=""/></td>
                     <td>{item.name}</td>
                     <td><div className="input-group input-group-sm mx-auto custom-table-width">
                         <div className="input-group-prepend">

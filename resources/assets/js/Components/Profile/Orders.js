@@ -10,7 +10,6 @@ class Orders extends React.Component{
 
         componentDidMount(){
             this.props.fetchLatestOrders();
-            this.props.checkPayment();
         }
         renderProducts(products){
             const newArray = products.slice(0 , 4);

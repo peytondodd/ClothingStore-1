@@ -14,7 +14,7 @@ class Orders extends React.Component{
         return newArray.map(product =>{
             console.log(product);
             return(
-                <div className='product-child'>
+                <div className='product-child' key={product.id}>
                     <img src={Palet} className={'order-image'} alt=""/>
                 </div>
             )

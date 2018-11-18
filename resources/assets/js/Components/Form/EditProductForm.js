@@ -69,7 +69,7 @@ class EditProductForm extends PureComponent {
 
                             {this.renderResponse()}
                         </Form>
-                        <button className={'btn btn-danger btnCustom'} onClick={''}>{this.props.active ? "Active" : "de-active"}</button>
+                        <button className={'btn btn-danger btnCustom'} onClick={()=>{this.props.toggleActive(this.props.id)}}>{this.props.active ? "Active" : "de-active"}</button>
 
                     </div>
                 </div>

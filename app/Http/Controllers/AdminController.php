@@ -9,6 +9,12 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+    public function toggleProductActive($id){
+       $product = Products::findOrFail($id);
+       $product->active = !$product->active;
+       $product->save();
+       return response($product);
+    }
     public function updateCategory(Request $request){
         $name = $request->input('name');
         $id = $request->input('id');
