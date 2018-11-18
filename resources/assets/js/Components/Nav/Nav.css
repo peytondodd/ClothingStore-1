@@ -422,6 +422,7 @@ list-style-type: none;
 }
 
 .product-Nav{
+    flex-wrap: wrap;
     width: 100%;
     background: #f76880;
     display: flex;
@@ -442,4 +443,18 @@ list-style-type: none;
 .product-Nav a {
     color : white !important;
     padding: 1rem 0;
+}
+
+@media (max-width: 418px) {
+    .product-Nav{
+        justify-content: center;
+    }
+    .product-Nav .createbutton {
+       width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .rc-pagination{
+        margin-left: 0!important;
+    }
 }

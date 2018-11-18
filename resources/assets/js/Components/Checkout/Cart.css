@@ -44,3 +44,14 @@
 
     max-width: 25%;
 }
+
+@media (max-width: 767px) {
+    .custom-table-width{
+        min-width: 150px;
+    }
+}
+
+.removeitem{
+    cursor: pointer;
+    color: red;
+}

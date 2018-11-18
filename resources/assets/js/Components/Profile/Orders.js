@@ -13,10 +13,11 @@ class Orders extends React.Component{
         }
         renderProducts(products){
             const newArray = products.slice(0 , 4);
-           return newArray.map(product =>{
+           return products.map(product =>{
+
                 return(
                     <div className='product-child' key={product.id}>
-                            <img src={Palet} className={'order-image'} alt=""/>
+                            <img  src={`/storage/Product/Images/${product.product.images.url}`} className={'order-image'} alt=""/>
                     </div>
                         )
             })
@@ -24,7 +25,7 @@ class Orders extends React.Component{
         showOrders(){
             const orders = this.props.orders;
             return orders.map(order=>{
-            console.log(order);
+                if(order.order_product){
                         return(
                             <li className="list-group-item" key={order.id}>
                               <div className="order-information RalewayExtraBold">
@@ -38,6 +39,7 @@ class Orders extends React.Component{
                                 </div>
                             </li>
                         )
+                }
             })
         }
 

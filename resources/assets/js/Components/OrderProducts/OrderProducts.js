@@ -26,7 +26,7 @@ const OrderProducts = (props) =>{
                 return(
                     <li className="list-group-item display-flex" key={productObj.id}>
                         <div className="order-information RalewayExtraBold mb-15">
-                            <img src={Palet} className={'order-image'} alt=""/>
+                            <img  src={`/storage/Product/Images/${product.product.images.url}`} className={'order-image'} alt=""/>
                         </div>
                         <div className="product-info RalewayBold ml-2">
                             <span>{productObj.name}</span>

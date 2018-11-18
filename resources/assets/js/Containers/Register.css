@@ -86,4 +86,25 @@
     .customWidthProfile{
         display: none;
     }
+    .mobileOnly{
+        margin-top: 10px;
+        display: inherit !important;
+    }
 }
+@media (max-width: 991px) {
+    .customWidthProfile {
+        width: 100%;
+    }
+}
+
+
+.mobileCartAdd{
+    width: 72%;
+    background: #cf576b;
+    color: white;
+    border: 2px solid #b34863;
+}
+.mobileOnly{
+    display: none;
+}
+

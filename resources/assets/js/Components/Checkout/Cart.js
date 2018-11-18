@@ -25,6 +25,7 @@ const Cart  = (props) => {
                         </div>
                     </div></td>
                      <td>${totalPrice(item.price , item.count)}</td>
+                    <td className={'removeitem'} onClick={()=>{props.removeItem(item.id)}}>Remove</td>
                 </tr>
             )
         })

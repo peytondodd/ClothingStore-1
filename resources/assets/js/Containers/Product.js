@@ -37,6 +37,7 @@ class Product extends Component {
 
     addtoBag = () =>{
             this.props.ADDTOCART(this.props.product, this.state.count);
+            this.setState({count :  1 })
     };
      stars = (amount) => {
          let stars = [];
@@ -118,6 +119,26 @@ class Product extends Component {
                             <button className='btn btn-primary addCartfirst ' onClick={() =>{this.addtoBag()}}>Add to bag</button>
                             </div>
                         </div>
+
+                    </div>
+                    <div className="row mobileOnly">
+                        <div className="col">
+                        <div className="CartButtonWrapper ">
+                            <div className="input-group input-group-sm  mobileButton">
+                                <div className="input-group-prepend" onClick={this.onclick.bind(this,'sub')}>
+                                    <span className="input-group-text" id="inputGroup-sizing-sm">-</span>
+                                </div>
+                                <input type="number" name='count' onChange={this.handleNumberChange.bind(this)} value={this.state.count} className="form-control amountForm" aria-label="Sizing example input"
+                                       aria-invalid={"false"}
+                                       aria-describedby="inputGroup-sizing-sm" />
+                                <div className="input-group-prepend"  onClick={this.onclick.bind(this,'add')}>
+                                    <span className="input-group-text" id="inputGroup-sizing-sm">+</span>
+                                </div>
+                            </div>
+
+                            <button className='btn btn-primary mobileCartAdd ' onClick={() =>{this.addtoBag()}}>Add to bag</button>
+                        </div>
+                    </div>
                     </div>
                 </div>
             </Layout>

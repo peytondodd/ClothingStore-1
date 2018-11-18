@@ -23,7 +23,7 @@ class OrdersController extends Controller
     }
 
     public function find(Request $request,$id){
-        $order = Orders::with('OrderProduct.product.categories',"user" ,"status")->findOrFail($id);
+        $order = Orders::with('OrderProduct.product.categories','OrderProduct.product.images',"user" ,"status")->findOrFail($id);
         if($order->user_id !== $request->user()->id){
             return response (['message' => "unauthorized"],401);
         }
@@ -32,7 +32,7 @@ class OrdersController extends Controller
 
         public function allOrders(Request $request){
             $user = $request->user();
-            $orders=  Orders::with('OrderProduct.product', "status")->where('user_id' , $user->id)->get();
+            $orders=  Orders::with('OrderProduct.product.images', "status")->where('user_id' , $user->id)->get();
             return response($orders);
         }
     /**
@@ -62,31 +62,32 @@ class OrdersController extends Controller
                 $orderProduct->orders_id = $order->id;
                 $orderProduct->Quantity = $product['count'];
                  $orderProduct->save();
-                $total += $product['price'];
-                $payment = Mollie::api()->payments()->create([
-                    'amount' => [
-                        'currency' => 'EUR',
-                        'value' =>  $price = money_format('%.2n',(string)$total), // You must send the correct number of decimals, thus we enforce the use of strings
-                    ],
-                    'description' => 'My first API payment',
-                    'webhookUrl' => 'http://4d385f8b.ngrok.io/profile/order/',
-                    'redirectUrl' => 'http://4d385f8b.ngrok.io/profile/order/'.$order->id,
-                    'method' => ""
-                ]);
-
-                $payment = Mollie::api()->payments()->get($payment->id);
-
-                // redirect customer to Mollie checkout page
-                return response($payment->getCheckoutUrl());
+                $total += ($product['price'] * $product['count']);
             }
         }
+        $payment = Mollie::api()->payments()->create([
+            'amount' => [
+                'currency' => 'EUR',
+                'value' =>  $price = money_format('%.2n',(string)$total), // You must send the correct number of decimals, thus we enforce the use of strings
+            ],
+            'description' => 'My first API payment',
+            'webhookUrl' => 'http://4d385f8b.ngrok.io/profile/order/',
+            'redirectUrl' => 'http://4d385f8b.ngrok.io/profile/order/'.$order->id,
+            'method' => ""
+        ]);
+
+        $payment = Mollie::api()->payments()->get($payment->id);
+
+        // redirect customer to Mollie checkout page
+        return response($payment->getCheckoutUrl());
+
 
         return response(['message' => 'Ur Order has been places!'],201);
     }
 
     public function latest(Request $request){
         $user = $request->user();
-        $orders=  Orders::latest()->where('user_id' , $user->id)->with('OrderProduct.product', "status")->take(5)->get();
+        $orders=  Orders::latest()->where('user_id' , $user->id)->with('OrderProduct.product.images', "status")->take(5)->get();
        return $orders;
     }
     /**

@@ -261,6 +261,16 @@ export const addToCart = (id) =>{
     }
 
 };
+export const removeItem = id =>{
+    const ar = JSON.parse(localStorage.getItem('cart'));
+    const newArray =   ar.filter(p => p.id !== id );
+    console.log(newArray);
+    localStorage.setItem('cart' , JSON.stringify(newArray));
+    return{
+        type:types.ADD_CART,
+        payload:newArray
+    }
+};
 export const RemoveFromCart = (id) =>{
     const ar = JSON.parse(localStorage.getItem('cart'));
     ar.map(p => p.id === id ? p.count -=1 : p);

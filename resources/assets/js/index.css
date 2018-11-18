@@ -115,7 +115,6 @@ body {
 
 .addCartfirst{
     width: 72%;
-    margin-left: 3%;
     background: #cf576b;
     color: white;
     border:2px solid #b34863;
@@ -150,3 +149,10 @@ input::-webkit-inner-spin-button {
     cursor: pointer;
 }
 
+@media (max-width: 991px) {
+    .customWidthProfile {
+        margin-top: auto;
+        margin-bottom: auto;
+        cursor: pointer;
+    }
+}
