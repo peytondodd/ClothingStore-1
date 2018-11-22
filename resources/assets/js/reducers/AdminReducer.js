@@ -4,10 +4,10 @@ const initialState = {
     products:[],
     product:{},
     producttotal:'',
-    response: "",
+    response: [],
     categoriestotal:'',
     categories:[],
-    category:{}
+    category:{},
 };
 
 export const AdminReducer = function (state = initialState , action) {
@@ -22,7 +22,9 @@ export const AdminReducer = function (state = initialState , action) {
             console.log(action.response);
             return{...state, product:action.payload , response:action.response};
         case types.FETCH_ADMINCATEGORY:
-            return{...state,category:action.payload};
+            return{...state,category:action.payload , response:action.response};
+        case types.ERROR:
+            return{...state, response: action.payload};
         default:
             return state
     }

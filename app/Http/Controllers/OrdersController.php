@@ -56,14 +56,13 @@ class OrdersController extends Controller
             if(!$found){
                 return response(['message' => 'Something went wrong!'], 400);
             }
-            if($found){
                 $orderProduct = new OrderProduct;
                 $orderProduct->product_id = $product['id'];
                 $orderProduct->orders_id = $order->id;
                 $orderProduct->Quantity = $product['count'];
                  $orderProduct->save();
                 $total += ($product['price'] * $product['count']);
-            }
+
         }
         $payment = Mollie::api()->payments()->create([
             'amount' => [

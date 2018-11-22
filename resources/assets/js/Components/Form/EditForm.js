@@ -13,6 +13,7 @@ class EditForm extends PureComponent {
 
     renderError(){
         const response = this.props.response;
+        console.log(response);
         let message = [];
         if (typeof response !== 'object'){
             message.push(response);

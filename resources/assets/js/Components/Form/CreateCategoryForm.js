@@ -11,11 +11,26 @@ class CreateCategoryForm extends PureComponent {
 
     };
     renderResponse() {
-        const response =this.props.response;
+        const response = this.props.response;
+        console.log(response);
+        let message = [];
+        if (typeof response !== 'object'){
+            message.push(response);
+        }
+        else{
+            Object.keys(response).forEach(key =>{
+                message.push(response[key][0])
+            });
+        }
+
         return(
-            <Zoom when={response}>
+            <Zoom when={message.length}>
                 <div className="alert alert-danger mt-2">
-                    <p>{response}</p>
+                    {message.map((message , i ) =>{
+                        return (
+                            <p key={i}>{message}</p>
+                        )
+                    })}
                 </div>
             </Zoom>
         )
@@ -44,7 +59,6 @@ class CreateCategoryForm extends PureComponent {
 const mapStateToProps = (state) =>{
     return {
         response : state.admin.response,
-        error : state.auth.error,
     }
 };
 

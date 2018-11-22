@@ -324,14 +324,16 @@ export const EditUser =(payload)=> {
                         responsePayload:res.data.message
                     })
                 }
-                else{
-                    dispatch(authError(res.data));
+                if(res.data.error){
+                    dispatch(authError(res.data.error))
+
                 }
 
 
             })
             .catch(err => {
-                dispatch(authError(err.response.data));
+                console.log(err.response.data.errors);
+                dispatch(authError(err.response.data.errors));
             });
     }
     }

@@ -13,7 +13,7 @@ class AdminController extends Controller
        $product = Products::findOrFail($id);
        $product->active = !$product->active;
        $product->save();
-       return response($product);
+       return response(['product' => $product , 'messages' => "Product updated succesfully!"]);
     }
     public function updateCategory(Request $request){
         $name = $request->input('name');
@@ -33,7 +33,7 @@ class AdminController extends Controller
         $category = new Categories;
         $category->name = $name;
         $category->save();
-        return response(['message' => 'Category succesfully created' , "category" => $category],200);
+        return response(['messages' => 'Category succesfully created' , "category" => $category],200);
     }
     public function getCategories(){
         $product = Categories::jsonPaginate();
@@ -59,17 +59,17 @@ class AdminController extends Controller
         ]);
         $product = Products::find($request->input('id'));
         $newinfo =  $product->fill($request->input())->save();
-        return response(['message' => "Product succesfully updated!", "product" => $product],200);
+        return response(['messages' => "Product succesfully updated!", "product" => $product],200);
     }
     public function createProduct(Request $request){
         $validatedData = $request->validate([
             'upload' => 'required|file|max:1024',
-            'categories_id' => 'sometimes|integer|max:255',
-            'name' => 'sometimes|string|max:255',
-            'price' => 'sometimes|integer|max:255',
-            'stars' => 'sometimes|integer|max:5',
-            'description' => 'sometimes|string',
-            'amount' => 'sometimes|integer|max:255',
+            'categories_id' => 'required|integer|max:255',
+            'name' => 'required|string|max:255',
+            'price' => 'required|integer|max:255',
+            'stars' => 'required|integer|max:5',
+            'description' => 'required|string',
+            'amount' => 'required|integer|max:255',
         ]);
         $product = new Products;
         $product->fill($request->input())->save();
@@ -79,6 +79,7 @@ class AdminController extends Controller
         $productImage->product_id = $product->id;
         $productImage->url = $fileName;
         $productImage->save();
+        return response(['messages' =>"Product succesfully created"]);
 
     }
 }

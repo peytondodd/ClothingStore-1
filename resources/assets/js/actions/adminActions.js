@@ -75,6 +75,7 @@ export const EditProduct = (payload) =>{
 };
 export const CreateProduct = (payload) =>{
     let formData = new FormData();
+
     formData.append("upload", payload.files[0]);
     formData.set('name' , payload.name);
     formData.set('categories_id' , payload.categories_id);
@@ -90,9 +91,16 @@ export const CreateProduct = (payload) =>{
                     payload: res.data.product,
                     response: res.data.messages
                 }))
-                .catch(err => {console.log(err)})
+                .catch(err => dispatch(error(err.response.data.errors)))
         }
     }
+};
+
+export const error = err =>{
+  return{
+      type:types.ERROR,
+      payload: err
+  }
 };
 
 export const CreateCategory = payload =>{
@@ -102,7 +110,8 @@ export const CreateCategory = payload =>{
                 .then(res => {
                     dispatch({
                         type:types.UPDATED_ADMINCATEGORY,
-                        payload:res.data.category
+                        payload:res.data.category,
+                        response:res.data.messages
                     })
                 })
                 .catch(err => console.log(err))
@@ -138,7 +147,7 @@ export const toggleActive = (id) =>{
     if(gotToken()){
         return dispatch =>{
             axios.post(`/api/admin/product/${id}`,null,headers())
-                .then(res =>dispatch({type : types.UPDATE_ADMINPRODUCT , payload:res.data}))
+                .then(res =>dispatch({type : types.UPDATE_ADMINPRODUCT , payload:res.data.product ,response : res.data.messages }))
         }
     }
 };
