@@ -27,7 +27,7 @@ const Item = (props) => {
 
         <Link className={'NOHREF'} to={props.href}>
             <div className="product-container">
-                <img className={'img-fluid'} src={`/storage/Product/Images/${props.image}`} alt=""/>
+                <img className={'img-fluid'} src={`/images/${props.image}`} alt=""/>
                 <p className="product-price">{ShowDollar(props.showCurrency)}{props.price}</p>
                     <div className='product-stars'>
                     {stars(props.stars)}

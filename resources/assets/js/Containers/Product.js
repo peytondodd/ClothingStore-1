@@ -69,7 +69,7 @@ class Product extends Component {
     renderImage(){
         const products = this.props.product;
         if(products.images){
-           return <img className={'img-fluid'} src={`/storage/Product/Images/${products.images.url}`} alt=""/>
+           return <img className={'img-fluid'} src={`/images/${products.images.url}`} alt=""/>
         }
     }
 

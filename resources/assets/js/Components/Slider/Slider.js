@@ -39,6 +39,7 @@ class SliderS extends React.Component {
             products:[]
         }
     }
+
     componentDidMount(){
         axios.get(`/api/products/home`)
             .then(res => this.setState({products:res.data}))
@@ -90,6 +91,7 @@ class SliderS extends React.Component {
                     <Slider {...settings}>
                         { this.state.products.map((product , i) =>{
                                   if(product.images){
+                                      console.log(product);
                                     return <Item
                                         key={i}
                                           image={product.images.url}

@@ -49,12 +49,17 @@ body {
 
 
 .RalewayExtraBold{
-    font-family:"Raleway ExtraBold";
+    font-family:"RalewayBOLDEXTRA";
 }
 
 @font-face {
     font-family: "RalewayBOLD";
-    src: url("Assets/Fonts/Raleway-Bold.woff") format("woff");
+    src: url("/fonts/Raleway-Bold.ttf");
+}
+
+@font-face {
+    font-family: "RalewayBOLDEXTRA";
+    src: url("/fonts/Raleway-ExtraBold.ttf");
 }
 .row-fluid{
     display: -ms-flexbox;
