@@ -21,14 +21,14 @@ const Index = (props) => {
                 <div className="container-fluid container-fluid-NOP">
                 <div className="row-fluid">
                     <LazyLoad height={200}>
-                    <Images link="/" img={Brushes} alt="Make Up">
+                    <Images link="/categories/1/Makeup" img={Brushes} alt="Make Up">
 
 
                         MAKE UP
                     </Images>
                     </LazyLoad>
                     <LazyLoad height={200}>
-                    <Images link="/" img={Girl} alt="Clothes">
+                    <Images link="/categories/4/kleren" img={Girl} alt="Clothes">
                         CLOTHES</Images>
                     </LazyLoad>
                 </div>
@@ -39,10 +39,10 @@ const Index = (props) => {
             <div className="container-fluid-NOP">
                 <div className="row-fluid">
                     <LazyLoad height={200}>
-                <Images link='/' img={Shoes} alt='shoes'>SHOES</Images>
+                <Images link='/categories/3/Schoenen' img={Shoes} alt='shoes'>SHOES</Images>
                     </LazyLoad>
                     <LazyLoad height={200}>
-                        <Images link='/' img={Acc} alt='ACCESORIES'>acc</Images>
+                        <Images link='/categories/3/Schoenen' img={Acc} alt='ACCESORIES'>acc</Images>
                     </LazyLoad>
             </div>
             </div>

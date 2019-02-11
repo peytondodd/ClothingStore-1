@@ -17,7 +17,7 @@ class Orders extends React.Component{
 
                 return(
                     <div className='product-child' key={product.id}>
-                            <img  src={`/storage/Product/Images/${product.product.images.url}`} className={'order-image'} alt=""/>
+                            <img  src={`/images/default.jpg`} className={'order-image'} alt=""/>
                     </div>
                         )
             })

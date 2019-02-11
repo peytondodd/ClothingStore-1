@@ -5,7 +5,7 @@
 }
 
 .blog-header-logo {
-    font-family: "Parisienne";
+    font-family: "Open Parisienne";
     font-size: 5rem;
 }
 
@@ -154,10 +154,12 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom:auto;
 }
 .navWrapper{
+	color:white;
     display: flex;
     width: 100%;
     height: 100%;
     justify-content: space-evenly;
+	justify-content: space-around;
 }
 
 
@@ -245,8 +247,8 @@ h1, h2, h3, h4, h5, h6 {
 .shoppingCart{
     cursor: pointer;
     height: 100%;
-    width: auto;
-    min-width: 50px;
+    width: 100%;
+    max-width: 25px;
     margin-top: auto;
     margin-bottom: auto;
 }

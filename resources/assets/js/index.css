@@ -6,7 +6,7 @@ body {
 }
 @font-face {
   font-family: "Open Parisienne";
-  src: url("Assets/Fonts/Parisienne-Regular.ttf") format("ttf");
+  src: url("/fonts/Parisienne-Regular.ttf");
 }
 
 .Parisienne{

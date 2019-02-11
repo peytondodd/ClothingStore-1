@@ -82,4 +82,9 @@ class AdminController extends Controller
         return response(['messages' =>"Product succesfully created"]);
 
     }
+
+public function basic(){
+	return view("index");
+}
+
 }

@@ -70,8 +70,8 @@ class OrdersController extends Controller
                 'value' =>  $price = money_format('%.2n',(string)$total), // You must send the correct number of decimals, thus we enforce the use of strings
             ],
             'description' => 'My first API payment',
-            'webhookUrl' => 'http://4d385f8b.ngrok.io/profile/order/',
-            'redirectUrl' => 'http://4d385f8b.ngrok.io/profile/order/'.$order->id,
+            'webhookUrl' => 'https://clothingstore.enessagir.nl/',
+            'redirectUrl' => 'https://clothingstore.enessagir.nl/profile/order/'.$order->id,
             'method' => ""
         ]);
 

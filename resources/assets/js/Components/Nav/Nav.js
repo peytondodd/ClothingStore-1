@@ -83,7 +83,7 @@ class Nav extends React.PureComponent {
 
                         <div className="row flex-nowrap justify-content-between align-items-center">
                             <div className="col text-center">
-                                <Link className="blog-header-logo text-dark" to="/">Clothing store</Link>
+                                <Link className="blog-header-logo text-dark Parisienne" to="/">Clothing store</Link>
                             </div>
                         </div>
                     </header>
